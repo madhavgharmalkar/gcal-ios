@@ -65,6 +65,9 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
+		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
+		A9969EFA28FE027A001E0858 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF928FE027A001E0858 /* WelcomeScreenView.swift */; };
+		A9969EFE28FE1CBD001E0858 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EFD28FE1CBD001E0858 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +174,9 @@
 		8D1107310486CEB800E47090 /* GCAL-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GCAL-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
+		A9969EF928FE027A001E0858 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
+		A9969EFD28FE1CBD001E0858 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,10 +475,21 @@
 		A9969EF228FDFB4C001E0858 /* BetterGCal */ = {
 			isa = PBXGroup;
 			children = (
+				A9969EF828FE0179001E0858 /* Welcome */,
 				A9969EF428FDFC16001E0858 /* MainView.swift */,
 				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
+				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
 			);
 			name = BetterGCal;
+			sourceTree = "<group>";
+		};
+		A9969EF828FE0179001E0858 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				A9969EF928FE027A001E0858 /* WelcomeScreenView.swift */,
+				A9969EFD28FE1CBD001E0858 /* LocationManager.swift */,
+			);
+			name = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,6 +607,7 @@
 				0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */,
 				28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */,
 				0B4FD195120DA96A0019F3E5 /* MainViewController.m in Sources */,
+				A9969EFA28FE027A001E0858 /* WelcomeScreenView.swift in Sources */,
 				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
@@ -613,10 +631,12 @@
 				0B4FD1FA120DBB640019F3E5 /* GcResultCalendar.m in Sources */,
 				0B4FD21A120DD4550019F3E5 /* GcEvents.m in Sources */,
 				0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */,
+				A9969EFE28FE1CBD001E0858 /* LocationManager.swift in Sources */,
 				0B70DD381211626700196EA4 /* SettingsItem.m in Sources */,
 				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
 				0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */,
+				A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */,
 				0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */,
 				0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */,
 				0B7433A71212E8FC002A423E /* LCity.m in Sources */,
@@ -667,7 +687,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_GENERATE_MAP_FILE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = GCAL;
@@ -694,7 +714,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
@@ -744,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_GENERATE_MAP_FILE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = GCAL;
@@ -770,7 +790,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
@@ -807,7 +827,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
@@ -842,7 +862,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
@@ -893,7 +913,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_MAP_FILE_PATH = LinkMap.txt;
 				ONLY_ACTIVE_ARCH = YES;
@@ -934,7 +954,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_GENERATE_MAP_FILE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = GCAL;

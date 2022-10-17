@@ -19,6 +19,8 @@
 #import "GCTodayInfoData.h"
 #import "DayResultsView.h"
 
+#import "GCAL-Swift.h"
+
 @implementation BalaCalAppDelegate
 
 #pragma mark === from InitLocations.h ===
@@ -88,7 +90,10 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     }
     
     self.mainViewCtrl = [[MainViewController alloc] init];
-    self.window.rootViewController = self.mainViewCtrl;
+    
+    UIViewController *swiftUiVc = [SwiftUIViewFactory makeSwiftUIView];
+    self.window.rootViewController = swiftUiVc;
+    
     //self.mainViewCtrl.view.frame = self.mainView.frame;
     //[self.mainView addSubview:self.mainViewCtrl.view];
     [self.window makeKeyAndVisible];
