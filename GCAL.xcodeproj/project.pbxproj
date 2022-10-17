@@ -64,6 +64,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* GCAL_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAL_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GCAL-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GCAL-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
+		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +469,8 @@
 		A9969EF228FDFB4C001E0858 /* BetterGCal */ = {
 			isa = PBXGroup;
 			children = (
+				A9969EF428FDFC16001E0858 /* MainView.swift */,
+				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = CR76XVWJX2;
+						LastSwiftMigration = 1400;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -616,6 +622,7 @@
 				0B7433A71212E8FC002A423E /* LCity.m in Sources */,
 				0BFDC2231AA203430067676C /* GCCanvas.m in Sources */,
 				0B7433AC1212E913002A423E /* LGroup.m in Sources */,
+				A9969EF528FDFC16001E0858 /* MainView.swift in Sources */,
 				0B158F781A9FA4CB0010A2DF /* GCTodayInfoData.m in Sources */,
 				0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */,
 				0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */,
@@ -673,6 +680,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -686,14 +694,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Gaudiya Calendar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug Build Locations";
@@ -744,6 +758,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -755,14 +770,19 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Gaudiya Calendar-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -773,6 +793,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -786,14 +807,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Gaudiya Calendar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -803,6 +830,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -814,14 +842,19 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Gaudiya Calendar-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
