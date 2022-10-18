@@ -48,22 +48,20 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     self.view.hidden = YES;
-
-
-	//NSLog(@"view will calculate");
-	//[self actionToday:self];
-    [super viewDidLoad];
     
+    self.testSquare = [UIView new];
+    _testSquare.backgroundColor = [UIColor redColor];
+    [self.mainView addSubview:_testSquare];
+    
+    [super viewDidLoad];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _testSquare.frame = self.mainView.bounds;
 }
-
 -(void)releaseDialogs
 {
     self.chdDlg1 = nil;
@@ -72,10 +70,6 @@
     self.setDlg1 = nil;
     self.gpsDlg1 = nil;
     self.chdDlg1 = nil;
-}
-
--(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size
@@ -140,10 +134,6 @@
     [ud setInteger:lastHelpPopup forKey:@"lastGcalHelpPopupVersion"];
     [ud synchronize];
     
-}
-
--(IBAction)onTodayButton:(id)sender
-{
 }
 
 -(void)onShowGps:(id)sender
@@ -320,14 +310,7 @@
         [settingsTable setNavigParent:self.setDlg1];
         
     }
-	
-//	nav.interfaceOrientation = UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft |
-//	UIInterfaceOrientationLandscapeRight | UIInterfaceOrientationPortraitUpsideDown;
-	//nav.navigationBar
-	
-	//self.mySettingsNavigator = nav;
-	
-	// self.rootView insertSubView:navigator atIndex:0
+    
 	[self.setDlg1 viewWillAppear:YES];
 	[self.mainView addSubview:self.setDlg1.view];
 	[self.mainView bringSubviewToFront:self.setDlg1.view];

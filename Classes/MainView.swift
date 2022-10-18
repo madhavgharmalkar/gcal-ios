@@ -10,7 +10,7 @@ import MapKit
 
 struct MainView: View {
     @StateObject var gcalData = GCalDataBinder()
-    
+
     var body: some View {
         NavigationView {
             DayView()
@@ -26,7 +26,7 @@ struct MainView_Previews: PreviewProvider {
 
 struct DayView: View {
     @EnvironmentObject var gcalData: GCalDataBinder
-    
+
     var body: some View {
         VStack(alignment: .leading) {
         }
