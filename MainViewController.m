@@ -50,18 +50,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     self.view.hidden = YES;
-    
-    self.testSquare = [UIView new];
-    _testSquare.backgroundColor = [UIColor redColor];
-    [self.mainView addSubview:_testSquare];
-    
     [super viewDidLoad];
 }
 
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    _testSquare.frame = self.mainView.bounds;
-}
 -(void)releaseDialogs
 {
     self.chdDlg1 = nil;

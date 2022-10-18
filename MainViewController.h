@@ -67,6 +67,4 @@
 -(void)startHelp;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;
 
-@property UIView* testSquare;
-
 @end

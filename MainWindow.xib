@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-bg-uzJ">
-                    <rect key="frame" x="0.0" y="48.000000000000057" width="320.00000000000006" height="432"/>
+                    <rect key="frame" x="0.0" y="48" width="320" height="432"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K54-qi-8Kq">
