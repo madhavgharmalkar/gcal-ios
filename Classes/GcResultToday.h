@@ -16,10 +16,8 @@
 @class GCGregorianTime;
 
 @interface GcResultToday : NSObject {
-	IBOutlet GCStrings  * gstr;
+	
 	IBOutlet GCDisplaySettings * disp;
-	IBOutlet GcResultCalendar * calend;
-	IBOutlet GcLocation * myLocation;
 	
 	int timeInDST;
 	int ab;
@@ -31,7 +29,9 @@
 	int nak_cd;
 }
 
-
+@property IBOutlet GcLocation * myLocation;
+@property IBOutlet GCStrings  * gstr;
+@property IBOutlet GcResultCalendar * calend;
 @property (copy) GCGregorianTime * current;
 @property (copy) GCGregorianTime * titA;
 @property (copy) GCGregorianTime * titB;

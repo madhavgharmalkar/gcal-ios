@@ -66,6 +66,7 @@
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
+		A9969F0028FE35A2001E0858 /* GCalDataBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EFF28FE35A2001E0858 /* GCalDataBinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +170,7 @@
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
+		A9969EFF28FE35A2001E0858 /* GCalDataBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalDataBinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +460,7 @@
 				A9969EF428FDFC16001E0858 /* MainView.swift */,
 				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
 				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
+				A9969EFF28FE35A2001E0858 /* GCalDataBinder.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
+				A9969F0028FE35A2001E0858 /* GCalDataBinder.swift in Sources */,
 				0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */,
 				0B4FD1CF120DB62C0019F3E5 /* gc_astro_arr.m in Sources */,
 				0B4FD1D0120DB62C0019F3E5 /* gc_astro_conj.m in Sources */,
@@ -685,7 +689,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.bettergcal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -761,7 +765,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.bettergcal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -798,7 +802,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.bettergcal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -833,7 +837,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 12.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.cal.gaudiya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.bettergcal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

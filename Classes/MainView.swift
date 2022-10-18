@@ -9,10 +9,12 @@ import SwiftUI
 import MapKit
 
 struct MainView: View {
+    @StateObject var gcalData = GCalDataBinder()
+    
     var body: some View {
         NavigationView {
             DayView()
-        }
+        }.environmentObject(gcalData)
     }
 }
 
@@ -23,11 +25,18 @@ struct MainView_Previews: PreviewProvider {
 }
 
 struct DayView: View {
+    @EnvironmentObject var gcalData: GCalDataBinder
+    
     var body: some View {
-        VStack {
-
+        VStack(alignment: .leading) {
         }
-        .navigationTitle("Monday, October 17")
+        .navigationTitle(
+            gcalData.date.formatted(
+                .dateTime.day()
+                .month()
+                .year()
+            )
+        )
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 HStack {

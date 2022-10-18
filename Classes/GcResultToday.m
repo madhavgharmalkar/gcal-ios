@@ -29,13 +29,13 @@
 	self.current = vc;
     GCGregorianTime * vc2 = [vc addDays:-9];
 	
-	[calend CalculateCalendar:vc2 count:19];
+	[_calend CalculateCalendar:vc2 count:19];
 		
 }
 
 -(void)setDay:(GCGregorianTime *)vc
 {
-	if ([calend FindDate:vc] >= 0)
+	if ([_calend FindDate:vc] >= 0)
 	{
 		self.current = vc;
 	}
@@ -49,7 +49,7 @@
 {
 	GCGregorianTime * vc2 = [self.current nextDay];
 	
-	if ([calend FindDate:vc2] < 0) 
+	if ([_calend FindDate:vc2] < 0)
 	{
 		[self calcDate:vc2];
 	}
@@ -63,7 +63,7 @@
 {
 	GCGregorianTime * vc2 = [self.current previousDay];
 	
-	if ([calend FindDate:vc2] < 0) 
+	if ([_calend FindDate:vc2] < 0)
 	{
 		[self calcDate:vc2];
 	}
@@ -79,21 +79,21 @@
 	NSMutableString * str = [[NSMutableString alloc] init];
 	
 	//int nFestClass;
-	int i = [calend FindDate:self.current];
+	int i = [_calend FindDate:self.current];
 	if (i < 0) return @"";
 	
-	GCCalendarDay * p = [calend dayAtIndex:i];
+	GCCalendarDay * p = [_calend dayAtIndex:i];
 	if (!p) return @"";
 	
 	[str appendFormat:@"%@ [%@]\r\n\r\n[%@]\r\n  %@, %@ %@\r\n  %@ %@, %d Gaurabda\r\n\r\n",
-				[myLocation city], [myLocation country], [self.current longDateString],
-				[gstr GetTithiName:p.astrodata.nTithi], [gstr GetPaksaName:p.astrodata.nPaksa], 
-				[gstr string:20], 
-				[gstr GetMasaName:p.astrodata.nMasa], [gstr string:22], p.astrodata.nGaurabdaYear];
+				[_myLocation city], [_myLocation country], [self.current longDateString],
+				[_gstr GetTithiName:p.astrodata.nTithi], [_gstr GetPaksaName:p.astrodata.nPaksa],
+				[_gstr string:20],
+				[_gstr GetMasaName:p.astrodata.nMasa], [_gstr string:22], p.astrodata.nGaurabdaYear];
 	
 	if (p.isEkadasiParana)
 	{
-		[str appendFormat:@"%@\n", [p GetTextEP:gstr]];
+		[str appendFormat:@"%@\n", [p GetTextEP:_gstr]];
 	}
 	
 	// adding mahadvadasi
@@ -117,14 +117,14 @@
 		//double h1, m1;
 		//m1 = modf(p->sankranti_day.shour*24, &h1);
 		[str appendFormat:@"---------- %@ %@ (%@ %@ %@ %d %@, %@ %@) ----------"
-					, [gstr GetSankrantiName:p.sankranti_zodiac]
-					, [gstr string:56]
-					, [gstr string:111]
-					, [gstr GetSankrantiNameEn:p.sankranti_zodiac]
-					, [gstr string:852]
-					, p.sankranti_day.day, [gstr GetMonthAbr:p.sankranti_day.month]
+					, [_gstr GetSankrantiName:p.sankranti_zodiac]
+					, [_gstr string:56]
+					, [_gstr string:111]
+					, [_gstr GetSankrantiNameEn:p.sankranti_zodiac]
+					, [_gstr string:852]
+					, p.sankranti_day.day, [_gstr GetMonthAbr:p.sankranti_day.month]
 					, [p.sankranti_day shortTimeString]
-					, [gstr GetDSTSignature:p.nDST]];
+					, [_gstr GetDSTSignature:p.nDST]];
 	}
 	
 	if (disp.ksaya && p.was_ksaya)//(m_dshow.m_info_ksaya) && (pvd->was_ksaya))
@@ -132,8 +132,8 @@
 		GCGregorianTime * dd = [p.date copy];
 		if (p.ksaya_day1 < 0.0) dd = [dd previousDay];
 		str2 = [NSString stringWithFormat:@"%d %@, %@", dd.day
-				, [gstr GetMonthAbr:dd.month]
-				, [gstr hoursToString:p.ksaya_time1*24]];
+				, [_gstr GetMonthAbr:dd.month]
+				, [_gstr hoursToString:p.ksaya_time1*24]];
 		
 		//				if (pvd->ksaya_time2 < 0.0)
 		//					m = modf(fabs(1.0 + pvd->ksaya_time2)*24, &h);
@@ -142,17 +142,17 @@
 		if (p.ksaya_day2 < 0.0)
 			dd = [dd previousDay];
 		str3 = [NSString stringWithFormat:@"%d %@, %@", dd.day
-				, [gstr GetMonthAbr:dd.month]
-				, [gstr hoursToString:p.ksaya_time2*24]];
+				, [_gstr GetMonthAbr:dd.month]
+				, [_gstr hoursToString:p.ksaya_time2*24]];
 		
 		[str appendFormat:@"%@ %@ %@ %@ %@ (%@)\n"
-			, [gstr string:89], [gstr string:850]
-			, str2, [gstr string:851], str3, [gstr GetDSTSignature:p.nDST]];
+			, [_gstr string:89], [_gstr string:850]
+			, str2, [_gstr string:851], str3, [_gstr GetDSTSignature:p.nDST]];
 	}
 	// adding fasting
 	if (disp.vriddhi && p.is_vriddhi)
 	{
-		[str appendFormat:@"%@", [gstr string:90]];
+		[str appendFormat:@"%@", [_gstr string:90]];
 		[str appendFormat:@"\n"];
 	}
 	
@@ -160,48 +160,48 @@
 	if (p.nCaturmasya & CMASYA_PURN_MASK)
 	{
 		[str appendFormat:@"%@ [PURNIMA SYSTEM]\n"
-					, [gstr string:107 + (p.nCaturmasya & CMASYA_PURN_MASK_DAY)
+					, [_gstr string:107 + (p.nCaturmasya & CMASYA_PURN_MASK_DAY)
 						   + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]];
 		if ((p.nCaturmasya & CMASYA_PURN_MASK_DAY) == 0x1)
 		{
-			[str appendFormat:@"%@", [gstr string:110 + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]];
+			[str appendFormat:@"%@", [_gstr string:110 + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]];
 		}
 	}
 	
 	if (p.nCaturmasya & CMASYA_PRAT_MASK)
 	{
 		[str appendFormat:@"%@ [PRATIPAT SYSTEM]\n"
-					, [gstr string:107 + ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
+					, [_gstr string:107 + ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
 						   + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]];
 		if ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) == 0x100)
 		{
-			[str appendFormat:@"%@", [gstr string:110 + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]];
+			[str appendFormat:@"%@", [_gstr string:110 + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]];
 		}
 	}
 	
 	if (p.nCaturmasya & CMASYA_EKAD_MASK)
 	{
 		[str appendFormat:@"%@ [EKADASI SYSTEM]\r\n"
-					, [gstr string:107 + ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
+					, [_gstr string:107 + ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
 						   + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]
 					];
 		if ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) == 0x10000)
 		{
-			[str appendFormat:@"%@", [gstr string:110 + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]];
+			[str appendFormat:@"%@", [_gstr string:110 + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]];
 		}
 	}
 	[str appendFormat:@"\n"];
 	// tithi at arunodaya
 	if (disp.arun_tithi)//m_dshow.m_tithi_arun)
 	{
-		[str appendFormat:@"%@: %@\n", [gstr string:98], [gstr GetTithiName:p.astrodata.nTithiArunodaya]];
+		[str appendFormat:@"%@: %@\n", [_gstr string:98], [_gstr GetTithiName:p.astrodata.nTithiArunodaya]];
 	}
 	
 	//"Arunodaya Time",//1
 	if (disp.arunodaya)//m_dshow.m_arunodaya)
 	{
-		[str appendFormat:@"%@ %d:%02d (%@)\n", [gstr string:99], p.astrodata.sun.arunodaya.hour
-					, p.astrodata.sun.arunodaya.minute, [gstr GetDSTSignature:p.nDST]];
+		[str appendFormat:@"%@ %d:%02d (%@)\n", [_gstr string:99], p.astrodata.sun.arunodaya.hour
+					, p.astrodata.sun.arunodaya.minute, [_gstr GetDSTSignature:p.nDST]];
 	}
 	
 	//"Moonrise Time",//4
@@ -209,12 +209,12 @@
 	{
 		if (p.moonrise.hour < 0)
 		{
-			[str appendFormat:@"%@", [gstr string:136]];
+			[str appendFormat:@"%@", [_gstr string:136]];
 		}
 		else
 		{
-			[str appendFormat:@"%@ %d:%02d (%@)", [gstr string:53], p.moonrise.hour
-						, p.moonrise.minute, [gstr GetDSTSignature:p.nDST]];
+			[str appendFormat:@"%@ %d:%02d (%@)", [_gstr string:53], p.moonrise.hour
+						, p.moonrise.minute, [_gstr GetDSTSignature:p.nDST]];
 		}
 		[str appendFormat:@"\n"];
 	}
@@ -222,44 +222,44 @@
 	if (disp.moonset)
 	{
 		if (p.moonrise.hour < 0)
-			[str appendFormat:@"%@", [gstr string:137]];
+			[str appendFormat:@"%@", [_gstr string:137]];
 		else
 		{
-			[str appendFormat:@"%@ %d:%02d (%@)", [gstr string:54], p.moonset.hour
-						, p.moonset.minute, [gstr GetDSTSignature:p.nDST]];
+			[str appendFormat:@"%@ %d:%02d (%@)", [_gstr string:54], p.moonset.hour
+						, p.moonset.minute, [_gstr GetDSTSignature:p.nDST]];
 		}
 		[str appendFormat:@"\n"];
 	}
 	///"Sun Longitude",//9
 	if (disp.sun_long)//m_dshow.m_sun_long)
 	{
-		[str appendFormat:@"%@: %f (*)\n", [gstr string:100], p.astrodata.sun.longitude_deg];
+		[str appendFormat:@"%@: %f (*)\n", [_gstr string:100], p.astrodata.sun.longitude_deg];
 	}
 	//"Moon Longitude",//10
 	if (disp.moon_long)//m_dshow.m_sun_long)
 	{
-		[str appendFormat:@"%@: %f (*)\r\n", [gstr string:101], p.astrodata.moon.longitude_deg];
+		[str appendFormat:@"%@: %f (*)\r\n", [_gstr string:101], p.astrodata.moon.longitude_deg];
 	}
 	//"Ayanamsha value",//11
 	if (disp.ayanamsa)//m_dshow.m_sun_long)
 	{
-		[str appendFormat:@"%@ %f (%@) (*)\r\n", [gstr string:102], p.astrodata.msAyanamsa, GetAyanamsaName(GetAyanamsaType())];
+		[str appendFormat:@"%@ %f (%@) (*)\r\n", [_gstr string:102], p.astrodata.msAyanamsa, GetAyanamsaName(GetAyanamsaType())];
 	}
 	//"Julian Day",//12
 	if (disp.julian)//m_dshow.m_sun_long)
 	{
-		[str appendFormat:@"%@ %f (*)\r\n", [gstr string:103], p.astrodata.jdate];
+		[str appendFormat:@"%@ %f (*)\r\n", [_gstr string:103], p.astrodata.jdate];
 	}
 	
 	[str appendFormat:@"\r\n%@ %d:%02d %@, %@: %@, %@: %@, %@: %@.\r\n",
-			[gstr string:51], 
+			[_gstr string:51],
 			p.astrodata.sun.rise.hour, p.astrodata.sun.rise.minute, 
-			[gstr GetDSTSignature:p.nDST],
-			[gstr string:15], [gstr GetNaksatraName:p.astrodata.nNaksatra],
-			[gstr string:104], [gstr GetYogaName:p.astrodata.nYoga], 
-			[gstr string:105], [gstr GetSankrantiName:p.astrodata.nRasi]];
-	[str appendFormat:@"%@ %d:%02d %@\r\n", [gstr string:52], p.astrodata.sun.set.hour, p.astrodata.sun.set.minute
-		, [gstr GetDSTSignature:p.nDST]];
+			[_gstr GetDSTSignature:p.nDST],
+			[_gstr string:15], [_gstr GetNaksatraName:p.astrodata.nNaksatra],
+			[_gstr string:104], [_gstr GetYogaName:p.astrodata.nYoga],
+			[_gstr string:105], [_gstr GetSankrantiName:p.astrodata.nRasi]];
+	[str appendFormat:@"%@ %d:%02d %@\r\n", [_gstr string:52], p.astrodata.sun.set.hour, p.astrodata.sun.set.minute
+		, [_gstr GetDSTSignature:p.nDST]];
 	
 	return str;
 }
@@ -271,44 +271,44 @@
 		
     GCGregorianTime * ct = [dayB copy];
     
-	ab = GetPrevTithiStart([myLocation getEarth], ct, &ct);
+	ab = GetPrevTithiStart([_myLocation getEarth], ct, &ct);
     self.titA = [ct copy];
     ct.shour += 0.3;
     [ct normalize];
 
-    bc = GetNextTithiStart([myLocation getEarth], ct, &ct);
+    bc = GetNextTithiStart([_myLocation getEarth], ct, &ct);
     self.titB = [ct copy];
     ct.shour += 0.3;
     [ct normalize];
 
-    cd = GetNextTithiStart([myLocation getEarth], ct, &ct);
+    cd = GetNextTithiStart([_myLocation getEarth], ct, &ct);
     self.titC = [ct copy];
     ct.shour += 0.3;
     [ct normalize];
-	GetNextTithiStart([myLocation getEarth], ct, &ct);
+	GetNextTithiStart([_myLocation getEarth], ct, &ct);
     self.titD = [ct copy];
 
     ct = [dayB copy];
-	nak_ab = GetPrevNaksatra([myLocation getEarth], ct, &ct);
+	nak_ab = GetPrevNaksatra([_myLocation getEarth], ct, &ct);
     self.nakA = [ct copy];
 
     ct.shour += 0.3;
     [ct normalize];
-	nak_bc = GetNextNaksatra([myLocation getEarth], ct, &ct);
+	nak_bc = GetNextNaksatra([_myLocation getEarth], ct, &ct);
 	self.nakB = [ct copy];
     
     ct.shour += 0.3;
     [ct normalize];
-	nak_cd = GetNextNaksatra([myLocation getEarth], ct, &ct);
+	nak_cd = GetNextNaksatra([_myLocation getEarth], ct, &ct);
 	self.nakC = [ct copy];
     
     ct.shour += 0.3;
     [ct normalize];
-	GetNextNaksatra([myLocation getEarth], ct, &ct);
+	GetNextNaksatra([_myLocation getEarth], ct, &ct);
     self.nakD = [ct copy];
 	
 	
-	double bs = [myLocation daytimeBiasForDate:self.titB];
+	double bs = [_myLocation daytimeBiasForDate:self.titB];
 	timeInDST = 0;
 	if (fabs(bs) > 0.01)
 	{
@@ -333,16 +333,16 @@
 	
 	[f appendFormat:@"<html>\n<head>\n<title></title>"];
 	[f appendFormat:@"<style>\n"];
-	[gstr addHtmlStylesDef:f display:disp];
+	[_gstr addHtmlStylesDef:f display:disp];
 	[f appendFormat:@"\n</style>\n"];
 	[f appendFormat:@"</head>\n"];
 	[f appendFormat:@"<body bgcolor=%@>\n", disp.bkgColor];
 	[f appendFormat:@"<p class=SectionHead style='text-align:left'><span class=SectionHead1><b>%@</b>  %@</span><br><b>%@</b><br>\n", 
 	 [gc longDateString], [gc relativeTodayString],
-	 [gstr string:gc.dayOfWeek]];
-	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [myLocation fullName],
-	 [myLocation.timeZone abbreviationForDate:[myLocation dateFromGcTime:gc]], 
-	 [myLocation.timeZone name]];
+	 [_gstr string:gc.dayOfWeek]];
+	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [_myLocation fullName],
+	 [_myLocation.timeZone abbreviationForDate:[_myLocation dateFromGcTime:gc]],
+	 [_myLocation.timeZone name]];
 	[f appendFormat:@"<hr><p><b>Application is calculating current day. Please wait a moment.</b></p>"];
 
 	return f;
@@ -369,10 +369,10 @@
 {
 	//NSString * str2, * str3, * str4;
 	
-	int i = [calend FindDate:self.current];
+	int i = [_calend FindDate:self.current];
 	if (i < 0) return @"";
 	
-	GCCalendarDay * p = [calend dayAtIndex:i];
+	GCCalendarDay * p = [_calend dayAtIndex:i];
 	
 	if (!p) return @"";
 	
@@ -384,19 +384,19 @@
 	
 	[f appendFormat:@"<html>\n<head>\n<title></title>"];
 	[f appendFormat:@"<style>\n"];
-	[gstr addHtmlStylesDef:f display:disp];
+	[_gstr addHtmlStylesDef:f display:disp];
 	[f appendFormat:@"\n</style>\n"];
 	[f appendFormat:@"</head>\n"];
 	[f appendFormat:@"<body bgcolor=%@>\n", disp.bkgColor];
 	[f appendFormat:@"<p class=SectionHead style='text-align:left'><span class=SectionHead1><b>%@</b>  %@</span><br><b>%@</b><br>\n", 
 		[self.current longDateString], [self.current relativeTodayString],
-		[gstr string:self.current.dayOfWeek]];
-	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [myLocation fullName],
-	 [myLocation.timeZone abbreviationForDate:[myLocation dateFromGcTime:p.date]], [myLocation.timeZone name]];
+		[_gstr string:self.current.dayOfWeek]];
+	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [_myLocation fullName],
+	 [_myLocation.timeZone abbreviationForDate:[_myLocation dateFromGcTime:p.date]], [_myLocation.timeZone name]];
 	[f appendFormat:@"<hr><p><span class=GaurHead>  %@, %@ %@</span><br><span class=GaurSubhead>%@  %@ %@, %d Gaurabda</span></p>",
-			[gstr GetTithiName:p.astrodata.nTithi], [gstr GetPaksaName:p.astrodata.nPaksa], [gstr string:20], 
+			[_gstr GetTithiName:p.astrodata.nTithi], [_gstr GetPaksaName:p.astrodata.nPaksa], [_gstr string:20],
 	 [self resolveSpecialEkadasiMessage:p],
-			[gstr GetMasaName:p.astrodata.nMasa], [gstr string:22], p.astrodata.nGaurabdaYear];
+			[_gstr GetMasaName:p.astrodata.nMasa], [_gstr string:22], p.astrodata.nGaurabdaYear];
 	
 	int prevCountFest = 0;
 	
@@ -407,7 +407,7 @@
 		else
 			[f appendFormat:@"<br>"];
 		[f appendFormat:@"<span style=\'color:%@;font-weight:bold\'>%@</span>", 
-		 disp.specialTextColor, [p GetTextEP:gstr]];
+		 disp.specialTextColor, [p GetTextEP:_gstr]];
 		prevCountFest++;
 	}
 	
@@ -441,13 +441,13 @@
 		//m1 = modf(p.sankranti_day.shour*24, &h1];
 		[f appendFormat:@"<span style=\'color:%@\'>%@ %@ (%@ %@ %@ %d %@, %@ %@)</span>"
 				, disp.specialTextColor
-				, [gstr GetSankrantiName:p.sankranti_zodiac]
-				, [gstr string:56]
-				, [gstr string:111], [gstr GetSankrantiNameEn:p.sankranti_zodiac]
-				, [gstr string:852]
-				, p.sankranti_day.day, [gstr GetMonthAbr:p.sankranti_day.month]
+				, [_gstr GetSankrantiName:p.sankranti_zodiac]
+				, [_gstr string:56]
+				, [_gstr string:111], [_gstr GetSankrantiNameEn:p.sankranti_zodiac]
+				, [_gstr string:852]
+				, p.sankranti_day.day, [_gstr GetMonthAbr:p.sankranti_day.month]
 				, [p.sankranti_day shortTimeString]
-				, [gstr GetDSTSignature:p.nDST]];
+				, [_gstr GetDSTSignature:p.nDST]];
 		prevCountFest++;
 	}
 	
@@ -460,13 +460,13 @@
 			[f appendFormat:@"<br>"];
 		dd = p.date;
 		if (p.ksaya_day1 < 0.0) dd = [dd previousDay];
-		[f appendFormat:@"%@ %@ ", [gstr string:89], [gstr string:850]];
-		[f appendFormat:@"%d %@, %@ ", dd.day, [gstr GetMonthAbr:dd.month], [gstr hoursToString:(p.ksaya_time1*24)]];
+		[f appendFormat:@"%@ %@ ", [_gstr string:89], [_gstr string:850]];
+		[f appendFormat:@"%d %@, %@ ", dd.day, [_gstr GetMonthAbr:dd.month], [_gstr hoursToString:(p.ksaya_time1*24)]];
 		dd = p.date;
 		if (p.ksaya_day2 < 0.0) dd = [dd previousDay];
-		[f appendFormat:@"%@ %d %@, %@", [gstr string:851],
-				dd.day, [gstr GetMonthAbr:dd.month], [gstr hoursToString:(p.ksaya_time2*24)]];
-		[f appendFormat:@"(%@)", [gstr GetDSTSignature:p.nDST]];
+		[f appendFormat:@"%@ %d %@, %@", [_gstr string:851],
+				dd.day, [_gstr GetMonthAbr:dd.month], [_gstr hoursToString:(p.ksaya_time2*24)]];
+		[f appendFormat:@"(%@)", [_gstr GetDSTSignature:p.nDST]];
 		prevCountFest++;
 	}
 	
@@ -476,7 +476,7 @@
 			[f appendFormat:@"<table style=\'border-width:1pt;border-color:black;border-style:solid\'><tr><td style=\'font-size:9pt;background:%@;padding-left:25pt;padding-right:35pt;padding-top:15pt;padding-bottom:15pt;vertical-align:center\'>\n", [p getHtmlDayBackground]];
 		else
 			[f appendFormat:@"<br>"];
-		[f appendFormat:@"%@", [gstr string:90]];
+		[f appendFormat:@"%@", [_gstr string:90]];
 		prevCountFest++;
 	}
 	
@@ -488,13 +488,13 @@
 		else
 			[f appendFormat:@"<br><br>"];
 		[f appendFormat:@"%@ [PURNIMA SYSTEM]"
-				, [gstr string:107 + (p.nCaturmasya & CMASYA_PURN_MASK_DAY)
+				, [_gstr string:107 + (p.nCaturmasya & CMASYA_PURN_MASK_DAY)
 					   + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]
 				];
 		if ((p.nCaturmasya & CMASYA_PURN_MASK_DAY) == 0x1)
 		{
 			[f appendFormat:@"<br>"];
-			[f appendFormat:@"%@", [gstr string:110 + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]];
+			[f appendFormat:@"%@", [_gstr string:110 + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]];
 		}
 		[f appendFormat:@"<br>"];
 		prevCountFest++;
@@ -507,13 +507,13 @@
 		else
 			[f appendFormat:@"<br><br>"];
 		[f appendFormat:@"%@ [PRATIPAT SYSTEM]"
-				, [gstr string:107 + ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
+				, [_gstr string:107 + ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
 					   + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]
 				];
 		if ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) == 0x100)
 		{
 			[f appendFormat:@"<br>"];
-			[f appendFormat:@"%@", [gstr string:110 + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]];
+			[f appendFormat:@"%@", [_gstr string:110 + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]];
 		}
 		[f appendFormat:@"</br>"];
 		prevCountFest++;
@@ -526,13 +526,13 @@
 		else
 			[f appendFormat:@"<br><br>"];
 		[f appendFormat:@"%@ [EKADASI SYSTEM]"
-				, [gstr string:107 + ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
+				, [_gstr string:107 + ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
 					   + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]
 				];
 		if ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) == 0x10000)
 		{
 			[f appendFormat:@"<br>"];
-			[f appendFormat:@"%@", [gstr string:110 + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]];
+			[f appendFormat:@"%@", [_gstr string:110 + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]];
 		}
 		[f appendFormat:@"<br>"];
 		prevCountFest++;
@@ -545,14 +545,14 @@
 	// tithi at arunodaya
 	if (disp.arun_tithi)//m_dshow.m_tithi_arun)
 	{
-		[f appendFormat:@"<br>%@: %@", [gstr string:98], [gstr GetTithiName:p.astrodata.nTithiArunodaya]];
+		[f appendFormat:@"<br>%@: %@", [_gstr string:98], [_gstr GetTithiName:p.astrodata.nTithiArunodaya]];
 	}
 	
 	//"Arunodaya Time",//1
 	if (disp.arunodaya)//m_dshow.m_arunodaya)
 	{
-		[f appendFormat:@"<br>%@ %d:%02d (%@)\r\n", [gstr string:99], p.astrodata.sun.arunodaya.hour
-				, p.astrodata.sun.arunodaya.minute, [gstr GetDSTSignature:p.nDST]];
+		[f appendFormat:@"<br>%@ %d:%02d (%@)\r\n", [_gstr string:99], p.astrodata.sun.arunodaya.hour
+				, p.astrodata.sun.arunodaya.minute, [_gstr GetDSTSignature:p.nDST]];
 	}
 	
 	//"Moonrise Time",//4
@@ -560,11 +560,11 @@
 	{
 		[f appendFormat:@"<br>"];
 		if (p.moonrise.hour < 0)
-			[f appendFormat:@"%@", [gstr string:136]];
+			[f appendFormat:@"%@", [_gstr string:136]];
 		else
 		{
-			[f appendFormat:@"%@ %d:%02d (%@)", [gstr string:53], p.moonrise.hour
-					, p.moonrise.minute, [gstr GetDSTSignature:p.nDST]];
+			[f appendFormat:@"%@ %d:%02d (%@)", [_gstr string:53], p.moonrise.hour
+					, p.moonrise.minute, [_gstr GetDSTSignature:p.nDST]];
 		}
 	}
 	//"Moonset Time",//5
@@ -575,17 +575,17 @@
 		else
 			[f appendFormat:@"<br>"];
 		if (p.moonrise.hour < 0)
-			[f appendFormat:@"%@", [gstr string:137]];
+			[f appendFormat:@"%@", [_gstr string:137]];
 		else
 		{
-			[f appendFormat:@"%@ %d:%02d (%@)", [gstr string:54], p.moonset.hour
-					, p.moonset.minute, [gstr GetDSTSignature:p.nDST]];
+			[f appendFormat:@"%@ %d:%02d (%@)", [_gstr string:54], p.moonset.hour
+					, p.moonset.minute, [_gstr GetDSTSignature:p.nDST]];
 		}
 	}
 	///"Sun Longitude",//9
 	if (disp.sun_long)//m_dshow.m_sun_long)
 	{
-		[f appendFormat:@"<br>%@: %f (*)\r\n", [gstr string:100], p.astrodata.sun.longitude_deg];
+		[f appendFormat:@"<br>%@: %f (*)\r\n", [_gstr string:100], p.astrodata.sun.longitude_deg];
 	}
 	//"Moon Longitude",//10
 	if (disp.moon_long)//m_dshow.m_sun_long)
@@ -594,7 +594,7 @@
 			[f appendFormat:@", "];
 		else
 			[f appendFormat:@"<br>"];
-		[f appendFormat:@"%@: %f (*)\r\n", [gstr string:101], p.astrodata.moon.longitude_deg];
+		[f appendFormat:@"%@: %f (*)\r\n", [_gstr string:101], p.astrodata.moon.longitude_deg];
 	}
 	//"Ayanamsha value",//11
 	if (disp.ayanamsa)//m_dshow.m_sun_long)
@@ -603,7 +603,7 @@
 			[f appendFormat:@", "];
 		else
 			[f appendFormat:@"<br>"];
-		[f appendFormat:@"<br>%@ %f (%@) (*)\r\n", [gstr string:102], p.astrodata.msAyanamsa, GetAyanamsaName(GetAyanamsaType())];
+		[f appendFormat:@"<br>%@ %f (%@) (*)\r\n", [_gstr string:102], p.astrodata.msAyanamsa, GetAyanamsaName(GetAyanamsaType())];
 	}
 	//"Julian Day",//12
 	if (disp.julian)//m_dshow.m_sun_long)
@@ -612,7 +612,7 @@
 			[f appendFormat:@", "];
 		else
 			[f appendFormat:@"<br>"];
-		[f appendFormat:@"<br>%@ %f (*)\r\n", [gstr string:103], p.astrodata.jdate];
+		[f appendFormat:@"<br>%@ %f (*)\r\n", [_gstr string:103], p.astrodata.jdate];
 	}
 	
 	/*BEGIN GCAL 1.4.3*/
@@ -632,17 +632,17 @@
 	if (disp.t_sunrise)
 	{
 		[f appendFormat:@"<td class=hed><p>%@<br> <span style='font-size:%@'>%2d:%02d</span></td> ",
-				[gstr string:51], disp.h2textSize, p.astrodata.sun.rise.hour, p.astrodata.sun.rise.minute ];
+				[_gstr string:51], disp.h2textSize, p.astrodata.sun.rise.hour, p.astrodata.sun.rise.minute ];
 	}
 	if (disp.t_noon)
 	{
 		[f appendFormat:@"<td class=hed><p>%@<br><span style='font-size:%@'>%2d:%02d</span></td>", 
-		 [gstr string:857], disp.h2textSize, p.astrodata.sun.noon.hour, p.astrodata.sun.noon.minute];
+		 [_gstr string:857], disp.h2textSize, p.astrodata.sun.noon.hour, p.astrodata.sun.noon.minute];
 	}
 	if (disp.t_sunset)
 	{
 		[f appendFormat:@"<td class=hed><p>%@<br><span style='font-size:%@'>%2d:%02d</span></td>", 
-		[gstr string:52], disp.h2textSize, p.astrodata.sun.set.hour, p.astrodata.sun.set.minute];
+		[_gstr string:52], disp.h2textSize, p.astrodata.sun.set.hour, p.astrodata.sun.set.minute];
 	}
 	[f appendFormat:@"</tr>"];
 	if (disp.t_sandhya)
@@ -680,10 +680,10 @@
 	if (disp.t_riseinfo)
 	{
 		[f appendFormat:@"<p><b>%@ info</b><br>Moon in the %@ %@, %@ %@, Sun in the %@ %@.</p>",
-				[gstr string:51], 
-				[gstr GetNaksatraName:p.astrodata.nNaksatra], [gstr string:15],  
-				[gstr GetYogaName:p.astrodata.nYoga], [gstr string:104],  
-				[gstr GetSankrantiName:p.astrodata.nRasi], [gstr string:105]];
+				[_gstr string:51],
+				[_gstr GetNaksatraName:p.astrodata.nNaksatra], [_gstr string:15],
+				[_gstr GetYogaName:p.astrodata.nYoga], [_gstr string:104],
+				[_gstr GetSankrantiName:p.astrodata.nRasi], [_gstr string:105]];
 	}
 	
 	if (disp.t_det_tithi)
@@ -691,14 +691,14 @@
 		[f appendFormat:@"<p><b>Tithi Details</b> (%@)<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@</p>",
-		 [myLocation timeNameForDate:self.titA],
-		 [gstr GetTithiName:ab], 
+		 [_myLocation timeNameForDate:self.titA],
+		 [_gstr GetTithiName:ab],
 		 [self.titA shortDateString], [self.titA shortTimeString],
 		 [self.titB shortDateString], [self.titB shortTimeString],
-		 [gstr GetTithiName:bc],
+		 [_gstr GetTithiName:bc],
          [self.titB shortDateString], [self.titB shortTimeString],
          [self.titC shortDateString], [self.titC shortTimeString],
-		 [gstr GetTithiName:cd],
+		 [_gstr GetTithiName:cd],
          [self.titC shortDateString], [self.titC shortTimeString],
          [self.titD shortDateString], [self.titD shortTimeString]
 		 ];
@@ -709,14 +709,14 @@
 		[f appendFormat:@"<p><b>Naksatra Details</b> (%@)<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@</p>",
-		 [myLocation timeNameForDate:self.nakA],
-		 [gstr GetNaksatraName:nak_ab], 
+		 [_myLocation timeNameForDate:self.nakA],
+		 [_gstr GetNaksatraName:nak_ab],
          [self.nakA shortDateString], [self.nakA shortTimeString],
          [self.nakB shortDateString], [self.nakB shortTimeString],
-		 [gstr GetNaksatraName:nak_bc],
+		 [_gstr GetNaksatraName:nak_bc],
          [self.nakB shortDateString], [self.nakB shortTimeString],
          [self.nakC shortDateString], [self.nakC shortTimeString],
-		 [gstr GetNaksatraName:nak_cd],
+		 [_gstr GetNaksatraName:nak_cd],
          [self.nakC shortDateString], [self.nakC shortTimeString],
          [self.nakD shortDateString], [self.nakD shortTimeString]
 		 ];
@@ -728,7 +728,7 @@
 //		" Location' button in the toolbar. Select location and click on 'Accept' button."
 //		"<br>For configuration of this page, go to Menu -&gt; Settings -&gt; Today "
 //		"Display Settings."
-		"<br>Generated by %@</p>", [myLocation.timeZone description], [gstr string:131]];
+		"<br>Generated by %@</p>", [_myLocation.timeZone description], [_gstr string:131]];
 	[f appendFormat:@"</body>"];
 	[f appendFormat:@"</html>"];
 	/* END GCAL 1.4.3 */
