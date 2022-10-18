@@ -597,9 +597,8 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     [self showDate:today];
 }
 
--(IBAction)onFindButton:(id)sender
-{
-    [self.mainViewCtrl onFindButton:sender];
+-(IBAction)onFindButton:(id)sender {
+    [self.mainViewCtrl displayActionSheet:sender];
 }
 
 -(IBAction)onSettingsButton:(id)sender

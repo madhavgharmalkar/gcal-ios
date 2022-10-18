@@ -17,12 +17,13 @@
 #import "Classes/HUScrollView.h"
 #import "Classes/VUScrollView.h"
 
-#import "Classes/GVSelectFindMethod.h"
 #import "Classes/GpsViewController.h"
 #import "Classes/GVChangeDateViewController.h"
 #import "Classes/GVChangeLocationDlg.h"
 #import "Classes/GVHelpIntroViewController.h"
 #import "Classes/DayResultsView.h"
+
+#import "GCAL-Swift.h"
 
 @implementation MainViewController
 
@@ -150,17 +151,19 @@
     [self.mainView addSubview:self.chlDlg1.view];
 }
 
--(void)onShowDateChangeView:(id)sender
-{
+-(void)onShowDateChangeView:(id)sender {
+//    ChangeDateViewController *vc = [ChangeDateViewController new];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
     if (self.chdDlg1 == nil)
     {
         self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
         self.chdDlg1.mainController = self;
     }
-    
+
     self.chdDlg1.view.frame = self.mainView.bounds;
     [self.mainView addSubview:self.chdDlg1.view];
-}
+}   
 
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year
 {
@@ -185,17 +188,36 @@
     [self.dayView setNeedsDisplay];
 }
 
--(IBAction)onFindButton:(id)sender
-{
-    if (self.findDlg1 == nil)
-    {
-        self.findDlg1 = [[GVSelectFindMethod alloc] initWithNibName:@"GVSelectFindMethod"
-                                                             bundle:nil];
-        self.findDlg1.mainController = self;
-    }
+-(IBAction)displayActionSheet:(id)sender {
+    UIAlertController* actionSheet = [UIAlertController alertControllerWithTitle:nil
+                                   message:@"Choose Option"
+                                   preferredStyle:UIAlertControllerStyleActionSheet];
     
-    self.findDlg1.view.frame = self.mainView.bounds;
-    [self.mainView addSubview:self.findDlg1.view];
+    UIAlertAction* goToDateAction = [UIAlertAction actionWithTitle:@"Go to date" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {
+        [self onShowDateChangeView:nil];
+    }];
+    
+    UIAlertAction* selectLocation = [UIAlertAction actionWithTitle:@"Change location (select)" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {
+        [self onShowLocationDlg:nil];
+    }];
+    
+    UIAlertAction* gpsLocation = [UIAlertAction actionWithTitle:@"Change location (GPS)" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {
+        [self onShowGps:nil];
+    }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+       handler:^(UIAlertAction * action) {
+    }];
+    
+    [actionSheet addAction:goToDateAction];
+    [actionSheet addAction:selectLocation];
+    [actionSheet addAction:gpsLocation];
+    [actionSheet addAction:cancelAction];
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 -(IBAction)onSettingsButton:(id)sender

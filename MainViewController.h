@@ -54,7 +54,7 @@
 -(IBAction)actionToday:(id)sender;
 -(IBAction)actionSettings:(id)sender;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
--(IBAction)onFindButton:(id)sender;
+-(IBAction)displayActionSheet:(id)sender;
 -(IBAction)onSettingsButton:(id)sender;
 -(void)setNewLocation:(NSManagedObject *)location;
 -(IBAction)actionNormalView:(id)sender;
