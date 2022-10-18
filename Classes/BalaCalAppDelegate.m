@@ -579,8 +579,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 //}
 
 
-#pragma mark -
-#pragma mark User Actions
+#pragma mark - User Actions
 
 -(IBAction)onTodayButton:(id)sender
 {
@@ -598,8 +597,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 }
 
 
-#pragma mark -
-#pragma mark Core Data stack
+#pragma mark - Core Data stack
 
 - (NSManagedObjectContext *)managedObjectContext {
     
@@ -686,8 +684,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 }
 
 
-#pragma mark -
-#pragma mark Application's Documents directory
+#pragma mark - Application's Documents directory
 
 /**
  Returns the path to the application's Documents directory.
@@ -697,18 +694,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
-{
-}
-
-
-
-
-#pragma mark === location database ===
+#pragma mark - location database
 
 -(NSArray *)getLocationsRoot:(NSManagedObjectContext *)ctx
 {
