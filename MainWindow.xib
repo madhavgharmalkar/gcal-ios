@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,8 +21,6 @@
                 <outlet property="mainView" destination="gXt-bg-uzJ" id="dFI-1i-eLm"/>
                 <outlet property="menuBar" destination="xhv-YY-cwI" id="Ojv-Gg-tXK"/>
                 <outlet property="myLocation" destination="dwb-eo-PvV" id="EhG-A3-9mi"/>
-                <outlet property="nextDay" destination="DeN-gF-cQd" id="ecb-aI-p1o"/>
-                <outlet property="prevDay" destination="3Ng-MZ-1ya" id="3lZ-fM-UKQ"/>
                 <outlet property="scrollViewD" destination="K54-qi-8Kq" id="Ib7-pv-Om3"/>
                 <outlet property="scrollViewV" destination="viP-gX-pte" id="Zje-8V-Aow"/>
                 <outlet property="theEngine" destination="wkr-8z-mQ0" id="rRz-0i-D6A"/>
@@ -62,26 +60,6 @@
                                 <outlet property="engine" destination="wkr-8z-mQ0" id="TOK-kL-8cF"/>
                             </connections>
                         </view>
-                        <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ng-MZ-1ya" userLabel="Prev">
-                            <rect key="frame" x="-10" y="340" width="64" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <state key="normal" backgroundImage="hdr_back_2.png">
-                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="onSwipeRight:" destination="3" eventType="touchUpInside" id="Ed1-c3-3gA"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-gF-cQd" userLabel="Next">
-                            <rect key="frame" x="266" y="340" width="64" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            <state key="normal" backgroundImage="hdr_fwd_2.png">
-                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="onSwipeLeft:" destination="3" eventType="touchUpInside" id="j7D-CF-Yfa"/>
-                            </connections>
-                        </button>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhv-YY-cwI">
                             <rect key="frame" x="0.0" y="419" width="320" height="61"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -139,8 +117,4 @@
             </connections>
         </customObject>
     </objects>
-    <resources>
-        <image name="hdr_back_2.png" width="128" height="96"/>
-        <image name="hdr_fwd_2.png" width="128" height="96"/>
-    </resources>
 </document>

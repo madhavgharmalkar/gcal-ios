@@ -25,4 +25,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
          location = locations.first?.coordinate
      }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+
+    }
 }

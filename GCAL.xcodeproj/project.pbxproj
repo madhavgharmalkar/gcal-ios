@@ -58,7 +58,7 @@
 		0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */; };
 		1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2819305F112F816700ECF9B4 /* BalaCal.xcdatamodeld */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -66,8 +66,6 @@
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
-		A9969EFA28FE027A001E0858 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF928FE027A001E0858 /* WelcomeScreenView.swift */; };
-		A9969EFE28FE1CBD001E0858 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EFD28FE1CBD001E0858 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,8 +127,6 @@
 		0B7962DA121C5F13002A79BA /* GpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsViewController.m; sourceTree = "<group>"; };
 		0B7962DB121C5F13002A79BA /* GpsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GpsViewController.xib; sourceTree = "<group>"; };
 		0B7962F0121C6D76002A79BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0B8DB4751AEE8F9900F84AA6 /* hdr_back_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hdr_back_2.png; path = "../../iFolio/vedabase-ios copy/Graphics/hdr_back_2.png"; sourceTree = "<group>"; };
-		0B8DB4761AEE8F9900F84AA6 /* hdr_fwd_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hdr_fwd_2.png; path = "../../iFolio/vedabase-ios copy/Graphics/hdr_fwd_2.png"; sourceTree = "<group>"; };
 		0B9B7EBC1218204900A6EC76 /* InitLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitLocations.m; sourceTree = "<group>"; };
 		0BB84F4F120EA75200C06ED1 /* SettingsViewTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewTableController.h; sourceTree = "<group>"; };
 		0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewTableController.m; sourceTree = "<group>"; };
@@ -152,8 +148,6 @@
 		0BFDC22F1AAC477B0067676C /* GVSelectFindMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVSelectFindMethod.h; sourceTree = "<group>"; };
 		0BFDC2301AAC477B0067676C /* GVSelectFindMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVSelectFindMethod.m; sourceTree = "<group>"; };
 		0BFDC2311AAC477B0067676C /* GVSelectFindMethod.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVSelectFindMethod.xib; sourceTree = "<group>"; };
-		0BFDC2351AAC4B3C0067676C /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = find.png; path = ../gcal_ios_images/find.png; sourceTree = "<group>"; };
-		0BFDC2361AAC4B3C0067676C /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe.png; path = ../gcal_ios_images/globe.png; sourceTree = "<group>"; };
 		0BFDC2401AAC79EE0067676C /* GVChangeDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVChangeDateViewController.h; sourceTree = "<group>"; };
 		0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVChangeDateViewController.m; sourceTree = "<group>"; };
 		0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVChangeDateViewController.xib; sourceTree = "<group>"; };
@@ -175,8 +169,6 @@
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
-		A9969EF928FE027A001E0858 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
-		A9969EFD28FE1CBD001E0858 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,17 +377,6 @@
 			name = FindDialogMethod;
 			sourceTree = "<group>";
 		};
-		0BFDC2341AAC4B1A0067676C /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				0B8DB4751AEE8F9900F84AA6 /* hdr_back_2.png */,
-				0B8DB4761AEE8F9900F84AA6 /* hdr_fwd_2.png */,
-				0BFDC2351AAC4B3C0067676C /* find.png */,
-				0BFDC2361AAC4B3C0067676C /* globe.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		0BFDC23F1AAC79C20067676C /* ChangeDateDlg */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,7 +431,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0BFDC2341AAC4B1A0067676C /* Images */,
 				0B1FCBB11232BAB100F1052E /* GCalLoc.sqlite */,
 				0B4FD1FD120DCD3A0019F3E5 /* IGCal-Icon.png */,
 				2819305F112F816700ECF9B4 /* BalaCal.xcdatamodeld */,
@@ -475,21 +455,11 @@
 		A9969EF228FDFB4C001E0858 /* BetterGCal */ = {
 			isa = PBXGroup;
 			children = (
-				A9969EF828FE0179001E0858 /* Welcome */,
 				A9969EF428FDFC16001E0858 /* MainView.swift */,
 				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
 				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
 			);
 			name = BetterGCal;
-			sourceTree = "<group>";
-		};
-		A9969EF828FE0179001E0858 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				A9969EF928FE027A001E0858 /* WelcomeScreenView.swift */,
-				A9969EFD28FE1CBD001E0858 /* LocationManager.swift */,
-			);
-			name = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,7 +577,6 @@
 				0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */,
 				28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */,
 				0B4FD195120DA96A0019F3E5 /* MainViewController.m in Sources */,
-				A9969EFA28FE027A001E0858 /* WelcomeScreenView.swift in Sources */,
 				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
@@ -631,7 +600,6 @@
 				0B4FD1FA120DBB640019F3E5 /* GcResultCalendar.m in Sources */,
 				0B4FD21A120DD4550019F3E5 /* GcEvents.m in Sources */,
 				0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */,
-				A9969EFE28FE1CBD001E0858 /* LocationManager.swift in Sources */,
 				0B70DD381211626700196EA4 /* SettingsItem.m in Sources */,
 				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
