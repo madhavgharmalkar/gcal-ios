@@ -147,16 +147,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 #endif
 
     [self showDate:dateToShow];
-    
     [self applicationRegisterForLocalNotifications];
-    
-    @try {
-        [self.mainViewCtrl startHelp];
-    }
-    @catch (NSException *exception) {
-    }
-    @finally {
-    }
     
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(userDefaultsChanged:) name:@"GCAL_resetFutureNotifications" object:nil];

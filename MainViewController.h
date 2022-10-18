@@ -60,11 +60,9 @@
 -(IBAction)actionNormalView:(id)sender;
 
 -(void)onShowGps:(id)sender;
--(void)onShowDateChangeView:(id)sender;
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year;
 -(void)onShowLocationDlg:(id)sender;
 -(void)releaseDialogs;
--(void)startHelp;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;
 
 @end

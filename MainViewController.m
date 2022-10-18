@@ -50,7 +50,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    self.view.hidden = YES;
+    self.view.userInteractionEnabled = NO;
     [super viewDidLoad];
 }
 
@@ -64,16 +64,6 @@
     self.chdDlg1 = nil;
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-//-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    if (self.scrollViewV.hidden == NO)
-    {
-        [self.scrollViewV moveSubviews:[NSValue valueWithCGSize:CGSizeMake(0, 0)]];
-    }
-}
-
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -85,48 +75,6 @@
 
 #pragma mark -
 #pragma mark User Interface actions
-
--(void)startHelp
-{
-    NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
-    
-    NSInteger currentLast = 1;
-    NSInteger lastHelpPopup = [ud integerForKey:@"lastGcalHelpPopupVersion"];
-    
-    if (lastHelpPopup == currentLast)
-        return;
-    
-    if (self.helpDlg == nil)
-    {
-        self.helpDlg = [[GVHelpIntroViewController alloc] initWithNibName:@"GVHelpIntroViewController" bundle:nil];
-
-        if (lastHelpPopup == 0)
-        {
-        self.helpDlg.pages = @{
-                               @"initial" : @{ @"title" : @"Welcome",
-                                               @"text" : @"Welcome in the new version of Gaudiya Calendar application. Click button 'Next' to read about new features",
-                                               @"closeHidden" : @YES,
-                                               @"backHidden" : @YES,
-                                               @"nextPage" : @"page1"},
-                               @"page1" : @{ @"title" : @"User Interface",
-                                             @"text" : @"Brand new user interface. Navigate through days by draging the content of screen.",
-                                             @"prevPage" : @"initial",
-                                             @"nextPage" : @"page2",
-                                             @"closeHidden" : @YES}
-                               };
-        }
-    }
-    
-    [self.helpDlg.view setFrame:self.mainView.bounds];
-    [self.mainView addSubview:self.helpDlg.view];
-    
-    [self.helpDlg setPage:@"initial"];
-    
-    lastHelpPopup = currentLast;
-    [ud setInteger:lastHelpPopup forKey:@"lastGcalHelpPopupVersion"];
-    [ud synchronize];
-    
-}
 
 -(void)onShowGps:(id)sender
 {
@@ -152,17 +100,17 @@
 }
 
 -(void)onShowDateChangeView:(id)sender {
-//    ChangeDateViewController *vc = [ChangeDateViewController new];
-//    [self presentViewController:vc animated:YES completion:nil];
+    ChangeDateViewController *vc = [ChangeDateViewController new];
+    [self presentViewController:vc animated:YES completion:nil];
     
-    if (self.chdDlg1 == nil)
-    {
-        self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
-        self.chdDlg1.mainController = self;
-    }
-
-    self.chdDlg1.view.frame = self.mainView.bounds;
-    [self.mainView addSubview:self.chdDlg1.view];
+//    if (self.chdDlg1 == nil)
+//    {
+//        self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
+//        self.chdDlg1.mainController = self;
+//    }
+//
+//    self.chdDlg1.view.frame = self.mainView.bounds;
+//    [self.mainView addSubview:self.chdDlg1.view];
 }   
 
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year
