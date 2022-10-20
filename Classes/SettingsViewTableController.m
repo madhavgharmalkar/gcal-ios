@@ -258,9 +258,7 @@
                 SettingsViewTableController * subview = [[SettingsViewTableController alloc] initWithStyle:UITableViewStylePlain];
                 subview.masterKeyIdentity = stw.tag;
                 subview.appDispSettings = self.appDispSettings;
-                
-                [subview setNavigParent:navigParent];
-                [navigParent pushViewController:subview animated:YES];
+                [self.navigationController pushViewController:subview animated:YES];
             }
         }
     }

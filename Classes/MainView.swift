@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         NavigationStack {
-            PrimaryView()
+            DayView()
         }
     }
 }
@@ -21,7 +21,7 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 
-struct PrimaryView: View {
+struct DayView: View {
     @State private var showingActions = false
 
     // date picker
@@ -57,11 +57,9 @@ struct PrimaryView: View {
                             .presentationDetents([.medium])
                     }
                     Spacer()
-                    Button("Settings") {
-                        guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
-                            return
-                        }
-                        appDelegate.onSettingsButton()
+                    NavigationLink("Settings") {
+                        LegacySettingsView()
+                            .navigationTitle("Settings")
                     }
                 }
             }

@@ -64,6 +64,7 @@
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
 		A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312AF29010177005E0D15 /* ChangeDateView.swift */; };
+		A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
 		A9E312AF29010177005E0D15 /* ChangeDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateView.swift; sourceTree = "<group>"; };
+		A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +434,7 @@
 				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
 				A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */,
 				A9E312AF29010177005E0D15 /* ChangeDateView.swift */,
+				A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */,
 				1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */,
 				0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */,
 				28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */,
