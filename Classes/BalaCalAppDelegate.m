@@ -91,9 +91,9 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
     self.mainViewCtrl = [[MainViewController alloc] init];
     
-//    UIViewController *swiftUiVc = [SwiftUIViewFactory makeSwiftUIView];
-//    self.window.rootViewController = swiftUiVc;
-    self.window.rootViewController = self.mainViewCtrl;
+    UIViewController *swiftUiVc = [SwiftUIViewFactory makeSwiftUIView];
+    self.window.rootViewController = swiftUiVc;
+//    self.window.rootViewController = self.mainViewCtrl;
     self.mainViewCtrl.view.frame = self.mainView.frame;
     [self.mainView addSubview:self.mainViewCtrl.view];
     

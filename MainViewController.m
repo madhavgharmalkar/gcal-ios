@@ -100,17 +100,14 @@
 }
 
 -(void)onShowDateChangeView:(id)sender {
-    ChangeDateViewController *vc = [ChangeDateViewController new];
-    [self presentViewController:vc animated:YES completion:nil];
-    
-//    if (self.chdDlg1 == nil)
-//    {
-//        self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
-//        self.chdDlg1.mainController = self;
-//    }
-//
-//    self.chdDlg1.view.frame = self.mainView.bounds;
-//    [self.mainView addSubview:self.chdDlg1.view];
+    if (self.chdDlg1 == nil)
+    {
+        self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
+        self.chdDlg1.mainController = self;
+    }
+
+    self.chdDlg1.view.frame = self.mainView.bounds;
+    [self.mainView addSubview:self.chdDlg1.view];
 }   
 
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year

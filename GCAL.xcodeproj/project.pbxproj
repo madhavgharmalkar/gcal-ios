@@ -62,10 +62,9 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
-		A9969F0028FE35A2001E0858 /* GCalDataBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EFF28FE35A2001E0858 /* GCalDataBinder.swift */; };
-		A9969F0228FF2923001E0858 /* ChangeDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969F0128FF2923001E0858 /* ChangeDateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,11 +162,10 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* GCAL_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAL_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GCAL-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GCAL-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMainView.swift; sourceTree = "<group>"; };
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
-		A9969EFF28FE35A2001E0858 /* GCalDataBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalDataBinder.swift; sourceTree = "<group>"; };
-		A9969F0128FF2923001E0858 /* ChangeDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,7 +354,6 @@
 		0BFDC2271AAC43600067676C /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
-				A9969F0128FF2923001E0858 /* ChangeDateViewController.swift */,
 				0BE27A221AB6B7C600F694BF /* HelpIntro */,
 				0BFDC2451AAC86F00067676C /* ChangeLocationDlg */,
 				0BFDC23F1AAC79C20067676C /* ChangeDateDlg */,
@@ -447,7 +444,7 @@
 				A9969EF428FDFC16001E0858 /* MainView.swift */,
 				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
 				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
-				A9969EFF28FE35A2001E0858 /* GCalDataBinder.swift */,
+				A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -568,10 +565,8 @@
 				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
-				A9969F0028FE35A2001E0858 /* GCalDataBinder.swift in Sources */,
 				0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */,
 				0B4FD1CF120DB62C0019F3E5 /* gc_astro_arr.m in Sources */,
-				A9969F0228FF2923001E0858 /* ChangeDateViewController.swift in Sources */,
 				0B4FD1D0120DB62C0019F3E5 /* gc_astro_conj.m in Sources */,
 				0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */,
 				0B158F711A9FA1DC0010A2DF /* GCEngine.m in Sources */,
@@ -594,6 +589,7 @@
 				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
 				0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */,
+				A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */,
 				A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */,
 				0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */,
 				0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */,
