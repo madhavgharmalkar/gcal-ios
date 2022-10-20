@@ -24,7 +24,7 @@ struct ChangeDateView: View {
                     Text("Cancel")
                         .frame(maxWidth: .infinity)
                 }.buttonStyle(.bordered)
-                
+
                 Button {
                     let vc = getMainViewController()
                     let calendar = Calendar.current
@@ -41,8 +41,6 @@ struct ChangeDateView: View {
                 }
                 .buttonStyle(.borderedProminent)
 
-                
-                
             }
         }
         .padding()

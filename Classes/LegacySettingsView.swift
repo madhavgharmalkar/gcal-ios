@@ -24,7 +24,7 @@ struct LegacySettingsView: UIViewControllerRepresentable {
     }
 }
 
-struct LegacySettingsView_Previews : PreviewProvider {
+struct LegacySettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             LegacySettingsView()

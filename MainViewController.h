@@ -42,7 +42,6 @@
 @property UINavigationController * setDlg1;
 @property GpsViewController * gpsDlg1;
 @property GVChangeLocationDlg * chlDlg1;
-@property GVHelpIntroViewController * helpDlg;
 
 -(IBAction)actionPrevDay:(id)sender;
 -(IBAction)actionNextDay:(id)sender;

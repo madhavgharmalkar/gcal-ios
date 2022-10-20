@@ -23,7 +23,7 @@ struct ChangeGPSView: View {
 
             VStack {
                 HStack(alignment: .top) {
-                    if let location = locationManager.region.center {
+                    if let location = locationManager.location {
                         Text("**Current location:**\n \(location.latitude), \(location.longitude)")
                                            .font(.callout)
                                            .foregroundColor(.white)
@@ -48,8 +48,8 @@ struct ChangeGPSView: View {
                         Text("Cancel")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
-                    
+                    .buttonStyle(.automatic)
+
                     Button {
                         isPresented.toggle()
                     } label: {
@@ -57,8 +57,8 @@ struct ChangeGPSView: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
+                    .disabled(locationManager.location == nil)
 
-             
                 }.padding(.horizontal)
             }
             .padding([.top], 20)

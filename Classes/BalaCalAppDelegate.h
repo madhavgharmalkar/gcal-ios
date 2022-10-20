@@ -68,7 +68,6 @@
 
 // User Actions - for some reason this is passed through the root delegate - will need to refactor at some point
 -(void)onTodayButton;
--(void)onFindButton;
 -(void)onSettingsButton;
 
 @end

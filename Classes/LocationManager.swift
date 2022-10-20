@@ -16,7 +16,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
            center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053),
            span: MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
     )
-
+    @Published var location: CLLocationCoordinate2D?
 
     override init() {
         super.init()
@@ -31,8 +31,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let coord = locations.first?.coordinate else {
             return
         }
-        
-        self.region.center = coord    
+
+        self.region.center = coord
+        self.location = coord
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
