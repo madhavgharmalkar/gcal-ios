@@ -93,7 +93,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
     UIViewController *swiftUiVc = [SwiftUIViewFactory makeSwiftUIView];
     self.window.rootViewController = swiftUiVc;
-//    self.window.rootViewController = self.mainViewCtrl;
     self.mainViewCtrl.view.frame = self.mainView.frame;
     [self.mainView addSubview:self.mainViewCtrl.view];
     
@@ -103,8 +102,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     self.mainViewCtrl.mainView = self.mainView;
 //    self.mainViewCtrl.scrollViewH = self.scrollViewH;
     self.mainViewCtrl.scrollViewD = self.scrollViewD;
-    self.mainViewCtrl.nextDay = self.nextDay;
-    self.mainViewCtrl.prevDay = self.prevDay;
     self.mainViewCtrl.dayView = self.dayView;
     self.mainViewCtrl.scrollViewV = self.scrollViewV;
     self.mainViewCtrl.theSettings = self.dispSettings;

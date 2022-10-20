@@ -50,8 +50,6 @@
 		0BE27A2A1AB6B81000F694BF /* GVHelpIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */; };
 		0BFDC2231AA203430067676C /* GCCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2221AA203430067676C /* GCCanvas.m */; };
 		0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */; };
-		0BFDC2431AAC79EE0067676C /* GVChangeDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */; };
-		0BFDC2441AAC79EE0067676C /* GVChangeDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */; };
 		0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */; };
 		0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */; };
 		1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */; };
@@ -65,6 +63,7 @@
 		A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
+		A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312AF29010177005E0D15 /* ChangeDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,9 +143,6 @@
 		0BFDC2221AA203430067676C /* GCCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCanvas.m; sourceTree = "<group>"; };
 		0BFDC2241AA2F2B90067676C /* GCCoreEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCoreEvent.h; sourceTree = "<group>"; };
 		0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCoreEvent.m; sourceTree = "<group>"; };
-		0BFDC2401AAC79EE0067676C /* GVChangeDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVChangeDateViewController.h; sourceTree = "<group>"; };
-		0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVChangeDateViewController.m; sourceTree = "<group>"; };
-		0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVChangeDateViewController.xib; sourceTree = "<group>"; };
 		0BFDC2461AAC871B0067676C /* GVChangeLocationDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVChangeLocationDlg.h; sourceTree = "<group>"; };
 		0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVChangeLocationDlg.m; sourceTree = "<group>"; };
 		0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVChangeLocationDlg.xib; sourceTree = "<group>"; };
@@ -166,6 +162,7 @@
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
+		A9E312AF29010177005E0D15 /* ChangeDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,21 +353,10 @@
 			children = (
 				0BE27A221AB6B7C600F694BF /* HelpIntro */,
 				0BFDC2451AAC86F00067676C /* ChangeLocationDlg */,
-				0BFDC23F1AAC79C20067676C /* ChangeDateDlg */,
 				0B158F661A9D04F40010A2DF /* GPS View */,
 				0B7433A21212E8BF002A423E /* Settings View */,
 			);
 			name = Dialogs;
-			sourceTree = "<group>";
-		};
-		0BFDC23F1AAC79C20067676C /* ChangeDateDlg */ = {
-			isa = PBXGroup;
-			children = (
-				0BFDC2401AAC79EE0067676C /* GVChangeDateViewController.h */,
-				0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */,
-				0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */,
-			);
-			name = ChangeDateDlg;
 			sourceTree = "<group>";
 		};
 		0BFDC2451AAC86F00067676C /* ChangeLocationDlg */ = {
@@ -445,6 +431,7 @@
 				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
 				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
 				A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */,
+				A9E312AF29010177005E0D15 /* ChangeDateView.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -525,7 +512,6 @@
 				0B7962DD121C5F13002A79BA /* GpsViewController.xib in Resources */,
 				0B158F641A9A1A510010A2DF /* Media.xcassets in Resources */,
 				0B1FCBB21232BAB100F1052E /* GCalLoc.sqlite in Resources */,
-				0BFDC2441AAC79EE0067676C /* GVChangeDateViewController.xib in Resources */,
 				0BE27A2A1AB6B81000F694BF /* GVHelpIntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +558,6 @@
 				0B158F711A9FA1DC0010A2DF /* GCEngine.m in Sources */,
 				0B4FD1D1120DB62C0019F3E5 /* gc_astro_moon.m in Sources */,
 				0B158F751A9FA4B00010A2DF /* GCCalculatedDaysPage.m in Sources */,
-				0BFDC2431AAC79EE0067676C /* GVChangeDateViewController.m in Sources */,
 				0B4FD1D2120DB62C0019F3E5 /* gc_astro_sun.m in Sources */,
 				0B4FD1D3120DB62C0019F3E5 /* gc_astro.m in Sources */,
 				0B4FD1DB120DB7270019F3E5 /* GcDayFestival.m in Sources */,
@@ -589,6 +574,7 @@
 				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
 				0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */,
+				A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */,
 				A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */,
 				A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */,
 				0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */,

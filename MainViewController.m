@@ -18,7 +18,6 @@
 #import "Classes/VUScrollView.h"
 
 #import "Classes/GpsViewController.h"
-#import "Classes/GVChangeDateViewController.h"
 #import "Classes/GVChangeLocationDlg.h"
 #import "Classes/GVHelpIntroViewController.h"
 #import "Classes/DayResultsView.h"
@@ -56,12 +55,10 @@
 
 -(void)releaseDialogs
 {
-    self.chdDlg1 = nil;
     self.chlDlg1 = nil;
     self.findDlg1 = nil;
     self.setDlg1 = nil;
     self.gpsDlg1 = nil;
-    self.chdDlg1 = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,17 +93,6 @@
     self.chlDlg1.view.frame = rect;
     [self.mainView addSubview:self.chlDlg1.view];
 }
-
--(void)onShowDateChangeView {
-    if (self.chdDlg1 == nil)
-    {
-        self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
-        self.chdDlg1.mainController = self;
-    }
-
-    self.chdDlg1.view.frame = self.mainView.bounds;
-    [self.mainView addSubview:self.chdDlg1.view];
-}   
 
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year
 {

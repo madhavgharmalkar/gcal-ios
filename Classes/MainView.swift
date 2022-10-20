@@ -21,10 +21,12 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 
-
-struct PrimaryView : View {
+struct PrimaryView: View {
     @State private var showingActions = false
-    
+
+    // date picker
+    @State private var showDateSheet = false
+
     var body: some View {
         LegacyMainView()
             .toolbar {
@@ -41,27 +43,18 @@ struct PrimaryView : View {
                         showingActions = true
                     }.confirmationDialog("Choose Option", isPresented: $showingActions) {
                         Button("Go to date") {
-                            guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
-                                return
-                            }
-                            appDelegate.mainViewCtrl.onShowDateChangeView()
+//                            getMainViewController()?.onShowDateChangeView()
+                            showDateSheet.toggle()
                         }
-                        
                         Button("Change location (select)") {
-                            guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
-                                return
-                            }
-                            
-                            appDelegate.mainViewCtrl.onShowLocationDlg()
-                            
+                            getMainViewController()?.onShowLocationDlg()
                         }
                         Button("Change location (GPS)") {
-                            guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
-                                return
-                            }
-                            
-                            appDelegate.mainViewCtrl.onShowGps()
+                            getMainViewController()?.onShowGps()
                         }
+                    }
+                    .sheet(isPresented: $showDateSheet) {
+                        ChangeDateView(isPresented: $showDateSheet)
                     }
                     Spacer()
                     Button("Settings") {
@@ -73,4 +66,12 @@ struct PrimaryView : View {
                 }
             }
     }
+}
+
+func getMainViewController() -> MainViewController? {
+    guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
+        return nil
+    }
+
+    return appDelegate.mainViewCtrl
 }
