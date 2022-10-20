@@ -24,8 +24,9 @@ struct MainView_Previews: PreviewProvider {
 struct DayView: View {
     @State private var showingActions = false
 
-    // date picker
+    // state
     @State private var showDateSheet = false
+    @State private var showGpsSheet = false
 
     var body: some View {
         LegacyMainView()
@@ -49,12 +50,16 @@ struct DayView: View {
                             getMainViewController()?.onShowLocationDlg()
                         }
                         Button("Change location (GPS)") {
-                            getMainViewController()?.onShowGps()
+                            showGpsSheet.toggle()
                         }
                     }
                     .sheet(isPresented: $showDateSheet) {
                         ChangeDateView(isPresented: $showDateSheet)
                             .presentationDetents([.medium])
+                    }
+                    .sheet(isPresented: $showGpsSheet) {
+                        ChangeGPSView(isPresented: $showGpsSheet)
+                            .presentationDetents([.medium, .large])
                     }
                     Spacer()
                     NavigationLink("Settings") {

@@ -65,6 +65,8 @@
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
 		A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312AF29010177005E0D15 /* ChangeDateView.swift */; };
 		A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */; };
+		A9E312B62901C0B5005E0D15 /* ChangeGPSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */; };
+		A9E312B82901C908005E0D15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B72901C908005E0D15 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,8 @@
 		A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
 		A9E312AF29010177005E0D15 /* ChangeDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateView.swift; sourceTree = "<group>"; };
 		A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySettingsView.swift; sourceTree = "<group>"; };
+		A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeGPSView.swift; sourceTree = "<group>"; };
+		A9E312B72901C908005E0D15 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +439,8 @@
 				A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */,
 				A9E312AF29010177005E0D15 /* ChangeDateView.swift */,
 				A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */,
+				A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */,
+				A9E312B72901C908005E0D15 /* LocationManager.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E312B82901C908005E0D15 /* LocationManager.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */,
 				1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */,
@@ -555,6 +562,7 @@
 				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
+				A9E312B62901C0B5005E0D15 /* ChangeGPSView.swift in Sources */,
 				0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */,
 				0B4FD1CF120DB62C0019F3E5 /* gc_astro_arr.m in Sources */,
 				0B4FD1D0120DB62C0019F3E5 /* gc_astro_conj.m in Sources */,

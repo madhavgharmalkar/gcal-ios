@@ -18,11 +18,14 @@ struct ChangeDateView: View {
             }
             .datePickerStyle(.graphical)
             HStack {
-                Button("Cancel", role: .cancel) {
+                Button {
                     isPresented.toggle()
-                }
-                .buttonStyle(.bordered)
-                Button("Okay") {
+                } label: {
+                    Text("Cancel")
+                        .frame(maxWidth: .infinity)
+                }.buttonStyle(.bordered)
+                
+                Button {
                     let vc = getMainViewController()
                     let calendar = Calendar.current
                     let day = calendar.component(.day, from: date)
@@ -32,16 +35,26 @@ struct ChangeDateView: View {
                     vc?.setCurrentDay(Int32(day), month: Int32(month), year: Int32(year))
 
                     isPresented.toggle()
-                }.buttonStyle(.borderedProminent)
+                } label: {
+                    Text("Set")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+
+                
+                
             }
         }
-        .background(.white)
         .padding()
     }
 }
 
 struct ChangeDateView_Previews: PreviewProvider {
     static var previews: some View {
-        ChangeDateView(isPresented: .constant(true))
+        Text("hare krishna!")
+            .sheet(isPresented: .constant(true)) {
+                ChangeDateView(isPresented: .constant(true))
+                    .presentationDetents([.medium])
+            }
     }
 }

@@ -159,8 +159,6 @@
 -(void)setRecalculationPage
 {
     self.view.hidden = YES;
-	//[myWebView loadHTMLString:@"<html><head></head><body bgcolor=\"4A4A4A\"><p align=center style='font-size:12pt;font-family:Verdana;color:white'><br><br>Calculating..</p></body></html>"
-	//				  baseURL:nil];
 }
 
 -(IBAction)actionToday:(id)sender
