@@ -42,13 +42,13 @@ struct ChangeGPSView: View {
                 .padding(.horizontal)
                 Spacer()
                 HStack(alignment: .bottom) {
-                    Button {
+                    Button(role: .cancel) {
                         isPresented.toggle()
                     } label: {
                         Text("Cancel")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.bordered)
+                    .buttonStyle(.borderedProminent)
                     
                     Button {
                         isPresented.toggle()

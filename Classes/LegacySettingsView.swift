@@ -23,3 +23,13 @@ struct LegacySettingsView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: SettingsViewTableController, context: Context) {
     }
 }
+
+struct LegacySettingsView_Previews : PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            LegacySettingsView()
+                .navigationTitle("Settings")
+                .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}

@@ -230,7 +230,8 @@
         BalaCalAppDelegate * delegate = (BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate setViewMode:newIndexPath.row];
         [delegate showDate:[GCGregorianTime today]];
-        [self.navigParent popViewControllerAnimated:YES];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {

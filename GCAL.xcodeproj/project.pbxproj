@@ -67,6 +67,7 @@
 		A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */; };
 		A9E312B62901C0B5005E0D15 /* ChangeGPSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */; };
 		A9E312B82901C908005E0D15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B72901C908005E0D15 /* LocationManager.swift */; };
+		A9E312BA2901DDF0005E0D15 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B92901DDF0005E0D15 /* DayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +170,7 @@
 		A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySettingsView.swift; sourceTree = "<group>"; };
 		A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeGPSView.swift; sourceTree = "<group>"; };
 		A9E312B72901C908005E0D15 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A9E312B92901DDF0005E0D15 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +443,7 @@
 				A9E312B32901BD4A005E0D15 /* LegacySettingsView.swift */,
 				A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */,
 				A9E312B72901C908005E0D15 /* LocationManager.swift */,
+				A9E312B92901DDF0005E0D15 /* DayView.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E312B82901C908005E0D15 /* LocationManager.swift in Sources */,
+				A9E312BA2901DDF0005E0D15 /* DayView.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */,
 				1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */,
