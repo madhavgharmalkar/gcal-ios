@@ -33,8 +33,6 @@
 @property IBOutlet VUScrollView * scrollViewV;
 @property IBOutlet UIScrollView * scrollViewD;
 @property IBOutlet DayResultsView * dayView;
-@property UIButton * nextDay;
-@property UIButton * prevDay;
 @property UIView * mainView;
 @property IBOutlet WKWebView * myWebView;
 @property GcResultToday * calcToday;

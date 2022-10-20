@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             PrimaryView()
         }
     }
@@ -43,7 +43,6 @@ struct PrimaryView: View {
                         showingActions = true
                     }.confirmationDialog("Choose Option", isPresented: $showingActions) {
                         Button("Go to date") {
-//                            getMainViewController()?.onShowDateChangeView()
                             showDateSheet.toggle()
                         }
                         Button("Change location (select)") {
@@ -55,6 +54,7 @@ struct PrimaryView: View {
                     }
                     .sheet(isPresented: $showDateSheet) {
                         ChangeDateView(isPresented: $showDateSheet)
+                            .presentationDetents([.medium])
                     }
                     Spacer()
                     Button("Settings") {

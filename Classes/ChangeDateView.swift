@@ -13,8 +13,6 @@ struct ChangeDateView: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            Text("Select a date")
-                .font(.title)
             DatePicker(selection: $date, displayedComponents: .date) {
                 Text("Select a date")
             }

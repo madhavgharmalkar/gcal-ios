@@ -785,15 +785,11 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     if (sm == 0)
     {
         self.mainViewCtrl.scrollViewD.hidden = NO;
-        self.mainViewCtrl.nextDay.hidden = NO;
-        self.mainViewCtrl.prevDay.hidden = NO;
         self.mainViewCtrl.scrollViewV.hidden = YES;
     }
     else if (sm == 1)
     {
         self.mainViewCtrl.scrollViewD.hidden = YES;
-        self.mainViewCtrl.nextDay.hidden = YES;
-        self.mainViewCtrl.prevDay.hidden = YES;
         self.mainViewCtrl.scrollViewV.hidden = NO;
     }
 }
