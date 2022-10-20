@@ -21,7 +21,7 @@
 @property (strong) NSMutableArray * pages;
 @property IBOutlet GcLocation * myLocation;
 @property IBOutlet GCStrings * myStrings;
-@property IBOutlet GCDisplaySettings * theSettings;
+@property (nonatomic, strong) GCDisplaySettings * theSettings;
 @property NSMutableDictionary * styles;
 
 @property UIColor * highlightedText;

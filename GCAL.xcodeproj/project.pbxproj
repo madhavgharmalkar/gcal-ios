@@ -58,6 +58,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		A902751A290206F4008C0B9F /* GCApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9027519290206F4008C0B9F /* GCApplicationState.swift */; };
 		A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
@@ -157,6 +158,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* GCAL_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAL_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GCAL-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GCAL-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A9027519290206F4008C0B9F /* GCApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCApplicationState.swift; sourceTree = "<group>"; };
 		A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMainView.swift; sourceTree = "<group>"; };
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				A9E312B52901C0B5005E0D15 /* ChangeGPSView.swift */,
 				A9E312B72901C908005E0D15 /* LocationManager.swift */,
 				A9E312B92901DDF0005E0D15 /* DayView.swift */,
+				A9027519290206F4008C0B9F /* GCApplicationState.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */,
 				1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */,
 				0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */,
+				A902751A290206F4008C0B9F /* GCApplicationState.swift in Sources */,
 				28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */,
 				0B4FD195120DA96A0019F3E5 /* MainViewController.m in Sources */,
 				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,

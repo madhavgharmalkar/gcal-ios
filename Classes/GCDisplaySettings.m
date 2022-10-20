@@ -9,6 +9,8 @@
 #import "GCDisplaySettings.h"
 #import "BalaCalAppDelegate.h"
 
+#import "GCAL-Swift.h"
+
 @implementation GCDisplaySettings
 
 
@@ -26,7 +28,7 @@
 
 +(GCDisplaySettings *)sharedSettings
 {
-    return ((BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate]).dispSettings;
+    return ((BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate]).applicationState.displaySettings;
 }
 
 -(void)setDefaultValues

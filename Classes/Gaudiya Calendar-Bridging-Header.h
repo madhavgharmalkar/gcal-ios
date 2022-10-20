@@ -5,3 +5,4 @@
 #import "BalaCalAppDelegate.h"
 #import "MainViewController.h"
 #import "SettingsViewTableController.h"
+#import "GCDisplaySettings.h"

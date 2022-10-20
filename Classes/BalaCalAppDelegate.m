@@ -18,6 +18,7 @@
 #import "GCCalendarDay.h"
 #import "GCTodayInfoData.h"
 #import "DayResultsView.h"
+#import "GCDisplaySettings.h"
 
 #import "GCAL-Swift.h"
 
@@ -33,6 +34,9 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     self.defaultsChangesPending = NO;
     
+    self.applicationState = [[GCApplicationState alloc] initWithAppDelegate:self];
+    GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
+    
 	//NSLog(@"appl did finish 1");
     //[myWebView loadHTMLString:[calcToday formatInitialHtml] baseURL:nil];
     NSLog(@"gstr prepare strings");
@@ -41,13 +45,13 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     //BalaCalAppDelegate * appDeleg = [[UIApplication sharedApplication] delegate];
     //calcToday.disp = appDeleg.appDispSettings;
     //calcCalendar.disp = appDeleg.appDispSettings;
-    [self.dispSettings readFromFile];
     
-    self.myLocation.city = self.dispSettings.locCity;
-    self.myLocation.country = self.dispSettings.locCountry;
-    self.myLocation.latitude = self.dispSettings.locLatitude;
-    self.myLocation.longitude = self.dispSettings.locLongitude;
-    self.myLocation.timeZone = [NSTimeZone timeZoneWithName:self.dispSettings.locTimeZone];
+    self.theEngine.theSettings = displaySettings;
+    self.myLocation.city = displaySettings.locCity;
+    self.myLocation.country = displaySettings.locCountry;
+    self.myLocation.latitude = displaySettings.locLatitude;
+    self.myLocation.longitude = displaySettings.locLongitude;
+    self.myLocation.timeZone = [NSTimeZone timeZoneWithName:displaySettings.locTimeZone];
     if (self.myLocation.timeZone == nil)
         self.myLocation.timeZone = [NSTimeZone systemTimeZone];
     
@@ -91,7 +95,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     self.mainViewCtrl.scrollViewD = self.scrollViewD;
     self.mainViewCtrl.dayView = self.dayView;
     self.mainViewCtrl.scrollViewV = self.scrollViewV;
-    self.mainViewCtrl.theSettings = self.dispSettings;
+    self.mainViewCtrl.theSettings = displaySettings;
     
 
     self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
@@ -157,8 +161,9 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     //[self performSelectorInBackground:@selector(generateFutureNotifications) withObject:nil];
 }
 
--(void)generateFutureNotifications
-{
+-(void)generateFutureNotifications{
+    GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
+    
     @try {
         NSUserDefaults * udef = [NSUserDefaults standardUserDefaults];
         NSTimeInterval ti = [[NSDate date] timeIntervalSince1970];
@@ -205,7 +210,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
                     [str appendString:@"\n"];
                 }
             }
-            if (type > 0 && self.dispSettings.note_fd_today)
+            if (type > 0 && displaySettings.note_fd_today)
             {
                 UILocalNotification * note = [UILocalNotification new];
                 //note.alertTitle = @"GCAL Break fast";
@@ -226,7 +231,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
                 note.soundName = UILocalNotificationDefaultSoundName;
                 [ma addObject:note];
             }
-            if (type > 0 && self.dispSettings.note_fd_tomorrow)
+            if (type > 0 && displaySettings.note_fd_tomorrow)
             {
                 UILocalNotification * note = [UILocalNotification new];
                 //note.alertTitle = @"GCAL Break fast";
@@ -255,7 +260,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
                 [str appendString:[tid.calendarDay GetTextEP:self.gstrings]];
                 [str appendString:@"\n"];
                 
-                if (self.dispSettings.note_bf_today)
+                if (displaySettings.note_bf_today)
                 {
                     UILocalNotification * note = [UILocalNotification new];
                     //note.alertTitle = @"GCAL Break fast";
@@ -276,7 +281,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
                     note.soundName = UILocalNotificationDefaultSoundName;
                     [ma addObject:note];
                 }
-                if (self.dispSettings.note_bf_tomorrow)
+                if (displaySettings.note_bf_tomorrow)
                 {
                     UILocalNotification * note = [UILocalNotification new];
                     //note.alertTitle = @"GCAL Break fast";
@@ -375,7 +380,8 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [self.dispSettings writeToFile];
+    GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
+    [displaySettings writeToFile];
     [self.mainViewCtrl releaseDialogs];
 }
 
@@ -393,7 +399,8 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [self.dispSettings writeToFile];
+    GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
+    [displaySettings writeToFile];
     
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
@@ -758,13 +765,14 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 }
 
 
--(void)storeMyLocation
-{
-    self.dispSettings.locCity = self.myLocation.city;
-    self.dispSettings.locCountry = self.myLocation.country;
-    self.dispSettings.locLatitude = self.myLocation.latitude;
-    self.dispSettings.locLongitude = self.myLocation.longitude;
-    self.dispSettings.locTimeZone = [self.myLocation.timeZone name];
+-(void)storeMyLocation {
+    GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
+    
+    displaySettings.locCity = self.myLocation.city;
+    displaySettings.locCountry = self.myLocation.country;
+    displaySettings.locLatitude = self.myLocation.latitude;
+    displaySettings.locLongitude = self.myLocation.longitude;
+    displaySettings.locTimeZone = [self.myLocation.timeZone name];
 }
 
 -(void)setViewMode:(NSInteger)sm
