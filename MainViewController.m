@@ -19,7 +19,6 @@
 
 #import "Classes/GpsViewController.h"
 #import "Classes/GVChangeLocationDlg.h"
-#import "Classes/GVHelpIntroViewController.h"
 #import "Classes/DayResultsView.h"
 
 #import "GCAL-Swift.h"
@@ -56,7 +55,6 @@
 -(void)releaseDialogs
 {
     self.chlDlg1 = nil;
-    self.findDlg1 = nil;
     self.setDlg1 = nil;
     self.gpsDlg1 = nil;
 }

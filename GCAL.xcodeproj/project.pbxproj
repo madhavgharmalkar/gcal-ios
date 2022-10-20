@@ -46,8 +46,6 @@
 		0BE27A1B1AB30D7B00F694BF /* CalendarResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */; };
 		0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1D1AB30E0B00F694BF /* VUScrollView.m */; };
 		0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A201AB31D8500F694BF /* ResultsViewBase.m */; };
-		0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */; };
-		0BE27A2A1AB6B81000F694BF /* GVHelpIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */; };
 		0BFDC2231AA203430067676C /* GCCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2221AA203430067676C /* GCCanvas.m */; };
 		0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */; };
 		0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */; };
@@ -139,9 +137,6 @@
 		0BE27A1D1AB30E0B00F694BF /* VUScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VUScrollView.m; sourceTree = "<group>"; };
 		0BE27A1F1AB31D8500F694BF /* ResultsViewBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewBase.h; sourceTree = "<group>"; };
 		0BE27A201AB31D8500F694BF /* ResultsViewBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewBase.m; sourceTree = "<group>"; };
-		0BE27A261AB6B80F00F694BF /* GVHelpIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVHelpIntroViewController.h; sourceTree = "<group>"; };
-		0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVHelpIntroViewController.m; sourceTree = "<group>"; };
-		0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVHelpIntroViewController.xib; sourceTree = "<group>"; };
 		0BE5B17B2569392900C219D3 /* GCAL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GCAL.entitlements; sourceTree = "<group>"; };
 		0BFDC2211AA203430067676C /* GCCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCanvas.h; sourceTree = "<group>"; };
 		0BFDC2221AA203430067676C /* GCCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCanvas.m; sourceTree = "<group>"; };
@@ -346,20 +341,9 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
-		0BE27A221AB6B7C600F694BF /* HelpIntro */ = {
-			isa = PBXGroup;
-			children = (
-				0BE27A261AB6B80F00F694BF /* GVHelpIntroViewController.h */,
-				0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */,
-				0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */,
-			);
-			name = HelpIntro;
-			sourceTree = "<group>";
-		};
 		0BFDC2271AAC43600067676C /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
-				0BE27A221AB6B7C600F694BF /* HelpIntro */,
 				0BFDC2451AAC86F00067676C /* ChangeLocationDlg */,
 				0B158F661A9D04F40010A2DF /* GPS View */,
 				0B7433A21212E8BF002A423E /* Settings View */,
@@ -524,7 +508,6 @@
 				0B7962DD121C5F13002A79BA /* GpsViewController.xib in Resources */,
 				0B158F641A9A1A510010A2DF /* Media.xcassets in Resources */,
 				0B1FCBB21232BAB100F1052E /* GCalLoc.sqlite in Resources */,
-				0BE27A2A1AB6B81000F694BF /* GVHelpIntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,7 +576,6 @@
 				A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */,
 				A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */,
 				A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */,
-				0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */,
 				0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */,
 				0B7433A71212E8FC002A423E /* LCity.m in Sources */,
 				0BFDC2231AA203430067676C /* GCCanvas.m in Sources */,

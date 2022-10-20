@@ -31,19 +31,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-	
-    // Override point for customization after application launch.
-
-//    @try {
-//        if ([application respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)])
-//        {
-//            [application setMinimumBackgroundFetchInterval:7200];
-//        }
-//    }
-//    @catch (NSException *exception) {
-//    }
-//    @finally {
-//    }
     self.defaultsChangesPending = NO;
     
 	//NSLog(@"appl did finish 1");

@@ -39,7 +39,6 @@
 @property GCDisplaySettings * theSettings;
 
 //@property GVChangeLocationIntro * locDlg1;
-@property GVSelectFindMethod * findDlg1;
 @property UINavigationController * setDlg1;
 @property GpsViewController * gpsDlg1;
 @property GVChangeLocationDlg * chlDlg1;
