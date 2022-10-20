@@ -10,11 +10,12 @@ import SwiftUI
 
 struct LegacyMainView : UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> MainViewController {
-        guard let vc = UIApplication.shared.delegate as? BalaCalAppDelegate else {
+        guard let rootDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
             return MainViewController()
         }
         
-        return vc.mainViewCtrl
+        let vc = rootDelegate.mainViewCtrl as MainViewController
+        return vc
     }
     
     func updateUIViewController(_ uiViewController: MainViewController, context: Context) {}

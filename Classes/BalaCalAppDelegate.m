@@ -581,21 +581,18 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 #pragma mark - User Actions
 
--(IBAction)onTodayButton:(id)sender
-{
+-(void)onTodayButton {
     GCGregorianTime * today = [GCGregorianTime today];
     [self showDate:today];
 }
 
--(IBAction)onFindButton:(id)sender {
-    [self.mainViewCtrl displayActionSheet:sender];
+-(void)onFindButton {
+    [self.mainViewCtrl displayActionSheet:nil];
 }
 
--(IBAction)onSettingsButton:(id)sender
-{
-    [self.mainViewCtrl onSettingsButton:sender];
+-(void)onSettingsButton {
+    [self.mainViewCtrl onSettingsButton:nil];
 }
-
 
 #pragma mark - Core Data stack
 

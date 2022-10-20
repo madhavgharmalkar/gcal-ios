@@ -9,7 +9,37 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        LegacyMainView()
+        NavigationView {
+            LegacyMainView()
+                .navigationTitle("Today")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Button("Today") {
+                            guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
+                                return
+                            }
+
+                            appDelegate.onTodayButton()
+                        }
+                        Spacer()
+                        Button("Action") {
+                            guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
+                                return
+                            }
+
+                            appDelegate.onFindButton()
+                        }
+                        Spacer()
+                        Button("Settings") {
+                            guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
+                                return
+                            }
+                            appDelegate.onSettingsButton()
+                        }
+                    }
+                }
+        }
     }
 }
 
