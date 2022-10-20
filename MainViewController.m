@@ -76,8 +76,7 @@
 #pragma mark -
 #pragma mark User Interface actions
 
--(void)onShowGps:(id)sender
-{
+-(void)onShowGps {
     if (self.gpsDlg1 == nil)
     {
         self.gpsDlg1 = [[GpsViewController alloc] initWithNibName:@"GpsViewController" bundle:nil];
@@ -87,8 +86,7 @@
     [self.mainView addSubview:self.gpsDlg1.view];
 }
 
--(void)onShowLocationDlg:(id)sender
-{
+-(void)onShowLocationDlg {
     if (self.chlDlg1 == nil)
     {
         self.chlDlg1 = [[GVChangeLocationDlg alloc] initWithNibName:@"GVChangeLocationDlg" bundle:nil];
@@ -99,7 +97,7 @@
     [self.mainView addSubview:self.chlDlg1.view];
 }
 
--(void)onShowDateChangeView:(id)sender {
+-(void)onShowDateChangeView {
     if (self.chdDlg1 == nil)
     {
         self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
@@ -131,38 +129,6 @@
     self.scrollViewD.contentOffset = CGPointZero;
     self.scrollViewD.contentSize = self.dayView.frame.size;
     [self.dayView setNeedsDisplay];
-}
-
--(IBAction)displayActionSheet:(id)sender {
-    UIAlertController* actionSheet = [UIAlertController alertControllerWithTitle:nil
-                                   message:@"Choose Option"
-                                   preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction* goToDateAction = [UIAlertAction actionWithTitle:@"Go to date" style:UIAlertActionStyleDefault
-       handler:^(UIAlertAction * action) {
-        [self onShowDateChangeView:nil];
-    }];
-    
-    UIAlertAction* selectLocation = [UIAlertAction actionWithTitle:@"Change location (select)" style:UIAlertActionStyleDefault
-       handler:^(UIAlertAction * action) {
-        [self onShowLocationDlg:nil];
-    }];
-    
-    UIAlertAction* gpsLocation = [UIAlertAction actionWithTitle:@"Change location (GPS)" style:UIAlertActionStyleDefault
-       handler:^(UIAlertAction * action) {
-        [self onShowGps:nil];
-    }];
-    
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
-       handler:^(UIAlertAction * action) {
-    }];
-    
-    [actionSheet addAction:goToDateAction];
-    [actionSheet addAction:selectLocation];
-    [actionSheet addAction:gpsLocation];
-    [actionSheet addAction:cancelAction];
-    
-    [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 -(IBAction)onSettingsButton:(id)sender

@@ -586,10 +586,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     [self showDate:today];
 }
 
--(void)onFindButton {
-    [self.mainViewCtrl displayActionSheet:nil];
-}
-
 -(void)onSettingsButton {
     [self.mainViewCtrl onSettingsButton:nil];
 }

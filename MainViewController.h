@@ -54,15 +54,17 @@
 -(IBAction)actionToday:(id)sender;
 -(IBAction)actionSettings:(id)sender;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
--(IBAction)displayActionSheet:(id)sender;
 -(IBAction)onSettingsButton:(id)sender;
 -(void)setNewLocation:(NSManagedObject *)location;
 -(IBAction)actionNormalView:(id)sender;
 
--(void)onShowGps:(id)sender;
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year;
--(void)onShowLocationDlg:(id)sender;
 -(void)releaseDialogs;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;
+
+// User actions
+-(void)onShowDateChangeView;
+-(void)onShowLocationDlg;
+-(void)onShowGps;
 
 @end
