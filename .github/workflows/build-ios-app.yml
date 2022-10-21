@@ -14,3 +14,10 @@ jobs:
       - run: fastlane release
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          APP_ID: ${{ secrets.APP_ID }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
+          TEAM_ID: ${{ secrets.TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY: ${{ secrets.ASC_KEY }}
