@@ -13,9 +13,8 @@ final class GCalScreenshots: XCTestCase {
         setupSnapshot(app)
         app.launch()
     }
-    
+
     func testHomeScreen() {
         snapshot("01HomeScreen")
     }
-    
 }
