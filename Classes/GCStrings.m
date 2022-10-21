@@ -13,7 +13,7 @@
 #import "GcStringRec.h"
 #import "BalaCalAppDelegate.h"
 
-
+#import "GCAL-Swift.h"
 
 @implementation GCStrings
 
@@ -26,10 +26,9 @@
 	return self;
 }
 
-+(GCStrings *)shared
-{
++(GCStrings *)shared {
     BalaCalAppDelegate * d = (BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate];
-    return d.gstrings;
+    return d.applicationState.gcStrings;
 }
 
 -(void)clearMappedStrings

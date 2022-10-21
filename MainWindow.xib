@@ -15,7 +15,6 @@
         <customObject id="3" userLabel="AppDelegate" customClass="BalaCalAppDelegate">
             <connections>
                 <outlet property="dayView" destination="789-Mg-tjb" id="tNX-bv-19M"/>
-                <outlet property="gstrings" destination="Fuz-9N-HrN" id="N92-SM-Cie"/>
                 <outlet property="mainView" destination="gXt-bg-uzJ" id="dFI-1i-eLm"/>
                 <outlet property="myLocation" destination="dwb-eo-PvV" id="EhG-A3-9mi"/>
                 <outlet property="scrollViewD" destination="K54-qi-8Kq" id="Ib7-pv-Om3"/>
@@ -66,11 +65,9 @@
             <point key="canvasLocation" x="104.65116279069767" y="48.605150214592278"/>
         </window>
         <customObject id="dwb-eo-PvV" userLabel="Location" customClass="GcLocation"/>
-        <customObject id="Fuz-9N-HrN" customClass="GCStrings"/>
         <customObject id="wkr-8z-mQ0" customClass="GCEngine">
             <connections>
                 <outlet property="myLocation" destination="dwb-eo-PvV" id="wZs-Kf-yIY"/>
-                <outlet property="myStrings" destination="Fuz-9N-HrN" id="PYn-YN-MgZ"/>
             </connections>
         </customObject>
     </objects>

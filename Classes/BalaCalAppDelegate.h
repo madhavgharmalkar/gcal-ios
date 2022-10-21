@@ -13,7 +13,6 @@
 #import "LCity.h"
 
 @class DayResultsView;
-@class GCStrings;
 @class HUScrollView, VUScrollView;
 @class GCGregorianTime;
 @class GCApplicationState;
@@ -33,7 +32,6 @@
 @property IBOutlet UIScrollView * scrollViewD;
 @property IBOutlet VUScrollView * scrollViewV;
 @property IBOutlet DayResultsView * dayView;
-@property IBOutlet GCStrings * gstrings;
 @property IBOutlet GcLocation * myLocation;
 @property IBOutlet UIView * menuBar;
 @property (strong) NSMutableArray * defaultEvents;

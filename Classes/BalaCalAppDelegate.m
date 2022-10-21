@@ -39,14 +39,14 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
 	//NSLog(@"appl did finish 1");
     //[myWebView loadHTMLString:[calcToday formatInitialHtml] baseURL:nil];
-    NSLog(@"gstr prepare strings");
-    [self.gstrings prepareStrings];
     
     //BalaCalAppDelegate * appDeleg = [[UIApplication sharedApplication] delegate];
     //calcToday.disp = appDeleg.appDispSettings;
     //calcCalendar.disp = appDeleg.appDispSettings;
     
     self.theEngine.theSettings = displaySettings;
+    self.theEngine.myStrings = self.applicationState.gcStrings;
+    
     self.myLocation.city = displaySettings.locCity;
     self.myLocation.country = displaySettings.locCountry;
     self.myLocation.latitude = displaySettings.locLatitude;
@@ -163,6 +163,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 -(void)generateFutureNotifications{
     GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
+    GCStrings *const gcStrings = self.applicationState.gcStrings;
     
     @try {
         NSUserDefaults * udef = [NSUserDefaults standardUserDefaults];
@@ -257,7 +258,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
             {
                 type = 3;
                 //NSLog(@"%@ Parana: %@", tid.calendarDay.date.longDateString, [tid.calendarDay GetTextEP:self.gstrings]);
-                [str appendString:[tid.calendarDay GetTextEP:self.gstrings]];
+                [str appendString:[tid.calendarDay GetTextEP:gcStrings]];
                 [str appendString:@"\n"];
                 
                 if (displaySettings.note_bf_today)
