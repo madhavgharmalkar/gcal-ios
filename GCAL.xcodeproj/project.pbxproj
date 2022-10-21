@@ -55,6 +55,9 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		A902751A290206F4008C0B9F /* GCApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9027519290206F4008C0B9F /* GCApplicationState.swift */; };
+		A9027522290292F6008C0B9F /* GCalScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9027521290292F6008C0B9F /* GCalScreenshots.swift */; };
+		A9027524290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */; };
+		A902752D29029342008C0B9F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902752C29029342008C0B9F /* SnapshotHelper.swift */; };
 		A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
@@ -64,6 +67,16 @@
 		A9E312B82901C908005E0D15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B72901C908005E0D15 /* LocationManager.swift */; };
 		A9E312BA2901DDF0005E0D15 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E312B92901DDF0005E0D15 /* DayView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9027525290292F6008C0B9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = "Gaudiya Calendar";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B158F631A9A1A510010A2DF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -149,6 +162,10 @@
 		32CA4F630368D1EE00C91783 /* GCAL_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAL_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GCAL-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GCAL-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A9027519290206F4008C0B9F /* GCApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCApplicationState.swift; sourceTree = "<group>"; };
+		A902751F290292F6008C0B9F /* GCalScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCalScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9027521290292F6008C0B9F /* GCalScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalScreenshots.swift; sourceTree = "<group>"; };
+		A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
+		A902752C29029342008C0B9F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMainView.swift; sourceTree = "<group>"; };
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -170,6 +187,13 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				0B7962F1121C6D76002A79BA /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A902751C290292F6008C0B9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,11 +359,12 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* GCAL.app */,
+				A902751F290292F6008C0B9F /* GCalScreenshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				0BE5B17B2569392900C219D3 /* GCAL.entitlements */,
@@ -347,6 +372,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				0BE05380175E3C07001FF94B /* iPad */,
+				A9027520290292F6008C0B9F /* GCalScreenshots */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -384,6 +410,16 @@
 				0B7962F0121C6D76002A79BA /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9027520290292F6008C0B9F /* GCalScreenshots */ = {
+			isa = PBXGroup;
+			children = (
+				A9027521290292F6008C0B9F /* GCalScreenshots.swift */,
+				A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */,
+				A902752C29029342008C0B9F /* SnapshotHelper.swift */,
+			);
+			path = GCalScreenshots;
 			sourceTree = "<group>";
 		};
 		A9969EF228FDFB4C001E0858 /* BetterGCal */ = {
@@ -424,18 +460,37 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* GCAL.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A902751E290292F6008C0B9F /* GCalScreenshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A902752B290292F7008C0B9F /* Build configuration list for PBXNativeTarget "GCalScreenshots" */;
+			buildPhases = (
+				A902751B290292F6008C0B9F /* Sources */,
+				A902751C290292F6008C0B9F /* Frameworks */,
+				A902751D290292F6008C0B9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9027526290292F6008C0B9F /* PBXTargetDependency */,
+			);
+			name = GCalScreenshots;
+			productName = GCalScreenshots;
+			productReference = A902751F290292F6008C0B9F /* GCalScreenshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 9NMF79953V;
 						LastSwiftMigration = 1400;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -444,6 +499,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					A902751E290292F6008C0B9F = {
+						CreatedOnToolsVersion = 14.0.1;
+						DevelopmentTeam = 9NMF79953V;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -458,12 +519,13 @@
 				de,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Gaudiya Calendar */,
+				A902751E290292F6008C0B9F /* GCalScreenshots */,
 			);
 		};
 /* End PBXProject section */
@@ -478,6 +540,13 @@
 				0B4FD1FE120DCD3A0019F3E5 /* IGCal-Icon.png in Resources */,
 				0B158F641A9A1A510010A2DF /* Media.xcassets in Resources */,
 				0B1FCBB21232BAB100F1052E /* GCalLoc.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A902751D290292F6008C0B9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +626,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A902751B290292F6008C0B9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9027524290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift in Sources */,
+				A9027522290292F6008C0B9F /* GCalScreenshots.swift in Sources */,
+				A902752D29029342008C0B9F /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9027526290292F6008C0B9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* Gaudiya Calendar */;
+			targetProxy = A9027525290292F6008C0B9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0B2C91EB122E884F00E9CA26 /* Debug Build Locations */ = {
@@ -799,6 +886,168 @@
 			};
 			name = Release;
 		};
+		A9027527290292F7008C0B9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9NMF79953V;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.GCalScreenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Gaudiya Calendar";
+			};
+			name = Debug;
+		};
+		A9027528290292F7008C0B9F /* Debug Build Locations */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9NMF79953V;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.GCalScreenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Gaudiya Calendar";
+			};
+			name = "Debug Build Locations";
+		};
+		A9027529290292F7008C0B9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9NMF79953V;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.GCalScreenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Gaudiya Calendar";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A902752A290292F7008C0B9F /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9NMF79953V;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nilamadhava.GCalScreenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Gaudiya Calendar";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -890,6 +1139,17 @@
 				0B2C91EC122E884F00E9CA26 /* Debug Build Locations */,
 				1D6058950D05DD3E006BFB54 /* Release */,
 				0B409C671359799A00AD3036 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A902752B290292F7008C0B9F /* Build configuration list for PBXNativeTarget "GCalScreenshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9027527290292F7008C0B9F /* Debug */,
+				A9027528290292F7008C0B9F /* Debug Build Locations */,
+				A9027529290292F7008C0B9F /* Release */,
+				A902752A290292F7008C0B9F /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-               BuildableName = "GCAL.app"
-               BlueprintName = "Gaudiya Calendar"
+               BlueprintIdentifier = "A902751E290292F6008C0B9F"
+               BuildableName = "GCalScreenshots.xctest"
+               BlueprintName = "GCalScreenshots"
                ReferencedContainer = "container:GCAL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,16 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "GCAL.app"
-            BlueprintName = "Gaudiya Calendar"
-            ReferencedContainer = "container:GCAL.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -68,16 +58,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "GCAL.app"
-            BlueprintName = "Gaudiya Calendar"
+            BlueprintIdentifier = "A902751E290292F6008C0B9F"
+            BuildableName = "GCalScreenshots.xctest"
+            BlueprintName = "GCalScreenshots"
             ReferencedContainer = "container:GCAL.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
