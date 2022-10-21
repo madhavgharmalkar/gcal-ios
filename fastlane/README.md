@@ -15,6 +15,32 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
+### ios generate_appicon
+
+```sh
+[bundle exec] fastlane ios generate_appicon
+```
+
+Generate App Icons
+
+### ios build_number
+
+```sh
+[bundle exec] fastlane ios build_number
+```
+
+
+
+### ios version_number
+
+```sh
+[bundle exec] fastlane ios version_number
+```
+
+Generate the version number
+
+For now we will use the date in the YYYY.MM.DD format
+
 ### ios release
 
 ```sh
@@ -22,6 +48,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 ```
 
 Push a new release build to the App Store
+
+### ios load_asc_api_key
+
+```sh
+[bundle exec] fastlane ios load_asc_api_key
+```
+
+Load ASC API Key information to use in subsequent lanes
 
 ----
 

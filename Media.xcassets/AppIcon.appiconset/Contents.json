@@ -1,158 +1,116 @@
 {
-  "images" : [
+  "images": [
     {
-      "size" : "20x20",
-      "idiom" : "iphone",
-      "filename" : "gcal40-1.png",
-      "scale" : "2x"
+      "idiom": "ios-marketing",
+      "filename": "app_icon-1024x1024.png",
+      "scale": "1x",
+      "size": "1024x1024"
     },
     {
-      "size" : "20x20",
-      "idiom" : "iphone",
-      "filename" : "gcal0060.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "filename": "app_icon-180x180.png",
+      "scale": "3x",
+      "size": "60x60"
     },
     {
-      "size" : "29x29",
-      "idiom" : "iphone",
-      "filename" : "gcal29.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "filename": "app_icon-167x167.png",
+      "scale": "2x",
+      "size": "83.5x83.5"
     },
     {
-      "size" : "29x29",
-      "idiom" : "iphone",
-      "filename" : "gcal58.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "filename": "app_icon-152x152.png",
+      "scale": "2x",
+      "size": "76x76"
     },
     {
-      "size" : "29x29",
-      "idiom" : "iphone",
-      "filename" : "gcal0087.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "filename": "app_icon-120x120.png",
+      "scale": "3x",
+      "size": "40x40"
     },
     {
-      "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "gcal80.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "filename": "app_icon-120x120.png",
+      "scale": "2x",
+      "size": "60x60"
     },
     {
-      "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "gcal0120.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "filename": "app_icon-87x87.png",
+      "scale": "3x",
+      "size": "29x29"
     },
     {
-      "size" : "57x57",
-      "idiom" : "iphone",
-      "filename" : "gcal57.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "filename": "app_icon-80x80.png",
+      "scale": "2x",
+      "size": "40x40"
     },
     {
-      "size" : "57x57",
-      "idiom" : "iphone",
-      "filename" : "gcal114.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "filename": "app_icon-80x80.png",
+      "scale": "2x",
+      "size": "40x40"
     },
     {
-      "size" : "60x60",
-      "idiom" : "iphone",
-      "filename" : "gcal120.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "filename": "app_icon-76x76.png",
+      "scale": "1x",
+      "size": "76x76"
     },
     {
-      "size" : "60x60",
-      "idiom" : "iphone",
-      "filename" : "gcal180.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "filename": "app_icon-60x60.png",
+      "scale": "3x",
+      "size": "20x20"
     },
     {
-      "size" : "20x20",
-      "idiom" : "ipad",
-      "filename" : "gcal0020.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "filename": "app_icon-58x58.png",
+      "scale": "2x",
+      "size": "29x29"
     },
     {
-      "size" : "20x20",
-      "idiom" : "ipad",
-      "filename" : "gcal40-2.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "filename": "app_icon-58x58.png",
+      "scale": "2x",
+      "size": "29x29"
     },
     {
-      "size" : "29x29",
-      "idiom" : "ipad",
-      "filename" : "gcal29-1.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "filename": "app_icon-40x40.png",
+      "scale": "1x",
+      "size": "40x40"
     },
     {
-      "size" : "29x29",
-      "idiom" : "ipad",
-      "filename" : "gcal58-1.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "filename": "app_icon-40x40.png",
+      "scale": "2x",
+      "size": "20x20"
     },
     {
-      "size" : "40x40",
-      "idiom" : "ipad",
-      "filename" : "gcal40.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "filename": "app_icon-40x40.png",
+      "scale": "2x",
+      "size": "20x20"
     },
     {
-      "size" : "40x40",
-      "idiom" : "ipad",
-      "filename" : "gcal80-1.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "filename": "app_icon-29x29.png",
+      "scale": "1x",
+      "size": "29x29"
     },
     {
-      "size" : "50x50",
-      "idiom" : "ipad",
-      "filename" : "gcal50.png",
-      "scale" : "1x"
-    },
-    {
-      "size" : "50x50",
-      "idiom" : "ipad",
-      "filename" : "gcal100.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "72x72",
-      "idiom" : "ipad",
-      "filename" : "gcal72.png",
-      "scale" : "1x"
-    },
-    {
-      "size" : "72x72",
-      "idiom" : "ipad",
-      "filename" : "gcal144.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "76x76",
-      "idiom" : "ipad",
-      "filename" : "gcal76.png",
-      "scale" : "1x"
-    },
-    {
-      "size" : "76x76",
-      "idiom" : "ipad",
-      "filename" : "gcal152.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "83.5x83.5",
-      "idiom" : "ipad",
-      "filename" : "gcal0167.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "1024x1024",
-      "idiom" : "ios-marketing",
-      "filename" : "gcal1024.jpg",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "filename": "app_icon-20x20.png",
+      "scale": "1x",
+      "size": "20x20"
     }
   ],
-  "info" : {
-    "version" : 1,
-    "author" : "xcode"
+  "info": {
+    "version": 1,
+    "author": "fastlane"
   }
 }

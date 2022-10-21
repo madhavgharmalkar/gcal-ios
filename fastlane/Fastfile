@@ -16,8 +16,57 @@
 default_platform(:ios)
 
 platform :ios do
+
+  desc "Generate App Icons"
+  lane :generate_appicon do
+    appicon(
+      appicon_devices: [:ipad, :iphone, :ios_marketing],
+      appicon_path: "./Media.xcassets"
+    )
+  end
+
+  lane :build_number do |options|
+    current_version = options[:version]
+    current_build_number = latest_testflight_build_number(version: current_version)
+    increment_build_number(
+      build_number: current_build_number + 1
+    )
+  end
+
+  desc "Generate the version number"
+  desc "For now we will use the date in the YYYY.MM.DD format"
+  lane :version_number do
+    time = Time.new
+    version = time.strftime("%Y.%m.%d")
+    increment_version_number(
+      version_number: version
+    )
+
+    version
+  end
+
+  desc "Load ASC API Key information to use in subsequent lanes"
+  lane :load_asc_api_key do
+    api_key = app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_ISSUER_ID"],
+      key_content: ENV["ASC_KEY"],
+      in_house: false # detecting this via ASC private key not currently supported
+    )
+  end
+
   desc "Push a new release build to the App Store"
   lane :release do
+    setup_ci if ENV['CI']
+
+    load_asc_api_key
+    version = version_number
+    build_number(
+      version: version
+    )
+    
+    generate_appicon
+    
     match(app_identifier: "com.nilamadhava.bettergcal", type: "appstore")
     build_app(
       scheme: "GCAL"
