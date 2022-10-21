@@ -92,11 +92,6 @@
     [self.dayView setNeedsDisplay];
 }
 
--(IBAction)onSettingsButton:(id)sender
-{
-    [self actionSettings:sender];
-}
-
 -(IBAction)actionPrevDay:(id)sender
 {
 	[self.calcToday setPrevDay];
@@ -170,35 +165,6 @@
     // recalculate last scheduled calendar event
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GCAL_resetFutureNotifications" object:nil]];
 
-}
-
--(IBAction)actionSettings:(id)sender
-{
-    if (self.setDlg1 == nil)
-    {
-        UIBarButtonItem * rbItem = [[UIBarButtonItem alloc] initWithTitle:@"Calendar"
-                                                                    style:UIBarButtonItemStyleBordered
-                                                                   target:self
-                                                                   action:@selector(actionNormalView:)];
-
-        // create nac controller and register in this controller
-        SettingsViewTableController * settingsTable = [[SettingsViewTableController alloc] initWithStyle: UITableViewStyleGrouped];
-        settingsTable.title = @"Display Settings";
-        settingsTable.navigationItem.leftBarButtonItem = rbItem;
-        settingsTable.tableView.rowHeight = 60;
-        settingsTable.appDispSettings = self.theSettings;
-        
-        //settingsTable.navigationItem
-        self.setDlg1 = [[UINavigationController alloc] initWithRootViewController:settingsTable];
-        [settingsTable setNavigParent:self.setDlg1];
-        
-    }
-    
-	[self.setDlg1 viewWillAppear:YES];
-	[self.mainView addSubview:self.setDlg1.view];
-	[self.mainView bringSubviewToFront:self.setDlg1.view];
-    self.setDlg1.view.frame = self.mainView.frame;
-	[self.setDlg1 viewDidAppear:YES];
 }
 
 -(NSString *)firstCountryWithCode:(NSString *)code inContext:(NSManagedObjectContext *)ctx

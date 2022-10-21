@@ -46,9 +46,7 @@
 -(IBAction)actionPrevDay:(id)sender;
 -(IBAction)actionNextDay:(id)sender;
 -(IBAction)actionToday:(id)sender;
--(IBAction)actionSettings:(id)sender;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
--(IBAction)onSettingsButton:(id)sender;
 -(void)setNewLocation:(NSManagedObject *)location;
 -(IBAction)actionNormalView:(id)sender;
 

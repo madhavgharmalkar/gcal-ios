@@ -563,10 +563,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     [self showDate:today];
 }
 
--(void)onSettingsButton {
-    [self.mainViewCtrl onSettingsButton:nil];
-}
-
 #pragma mark - Core Data stack
 
 - (NSManagedObjectContext *)managedObjectContext {

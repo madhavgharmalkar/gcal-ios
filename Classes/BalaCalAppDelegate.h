@@ -63,7 +63,6 @@
 
 // User Actions - for some reason this is passed through the root delegate - will need to refactor at some point
 -(void)onTodayButton;
--(void)onSettingsButton;
 
 // application state - we want to move all state to this object, that can be read here and in SwiftUI
 @property (strong) GCApplicationState *applicationState;
