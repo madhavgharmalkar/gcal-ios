@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-@objc public final class GCApplicationState: NSObject {
+@objc public final class GCApplicationState: NSObject, ObservableObject {
     private var appDelegate: BalaCalAppDelegate
 
     // current public variables
@@ -16,10 +17,10 @@ import Foundation
 
     @objc public init(appDelegate: BalaCalAppDelegate) {
         self.appDelegate = appDelegate
-        
+
         self.displaySettings = GCDisplaySettings()
         self.displaySettings.readFromFile()
-        
+
         self.gcStrings = GCStrings()
         self.gcStrings.prepare()
 

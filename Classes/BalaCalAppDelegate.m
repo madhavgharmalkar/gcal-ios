@@ -37,13 +37,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     self.applicationState = [[GCApplicationState alloc] initWithAppDelegate:self];
     GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
     
-	//NSLog(@"appl did finish 1");
-    //[myWebView loadHTMLString:[calcToday formatInitialHtml] baseURL:nil];
-    
-    //BalaCalAppDelegate * appDeleg = [[UIApplication sharedApplication] delegate];
-    //calcToday.disp = appDeleg.appDispSettings;
-    //calcCalendar.disp = appDeleg.appDispSettings;
-    
     self.theEngine.theSettings = displaySettings;
     self.theEngine.myStrings = self.applicationState.gcStrings;
     
