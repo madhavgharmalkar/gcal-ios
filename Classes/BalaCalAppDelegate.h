@@ -32,7 +32,6 @@
 @property IBOutlet UIScrollView * scrollViewD;
 @property IBOutlet VUScrollView * scrollViewV;
 @property IBOutlet DayResultsView * dayView;
-@property IBOutlet GcLocation * myLocation;
 @property IBOutlet UIView * menuBar;
 @property (strong) NSMutableArray * defaultEvents;
 
@@ -54,8 +53,7 @@
 -(void)initLocationsDb;
 -(NSArray *)locSubgroupsForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx;
 -(NSArray *)locCitiesForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx;
--(void)setGpsLongitude:(double)longitude latitude:(double)latitude
-				  city:(NSString *)inCity country:(NSString *)inCountry timeZone:(NSString *)inTimeZone;
+-(void)setGPS;
 -(NSArray *)getLocationsRoot:(NSManagedObjectContext *)ctx;
 
 -(void)setLocationData:(GcLocation *)locationdata;

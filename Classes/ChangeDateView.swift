@@ -40,7 +40,6 @@ struct ChangeDateView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
-
             }
         }
         .padding()

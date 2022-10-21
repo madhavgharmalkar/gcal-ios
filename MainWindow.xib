@@ -16,7 +16,6 @@
             <connections>
                 <outlet property="dayView" destination="789-Mg-tjb" id="tNX-bv-19M"/>
                 <outlet property="mainView" destination="gXt-bg-uzJ" id="dFI-1i-eLm"/>
-                <outlet property="myLocation" destination="dwb-eo-PvV" id="EhG-A3-9mi"/>
                 <outlet property="scrollViewD" destination="K54-qi-8Kq" id="Ib7-pv-Om3"/>
                 <outlet property="scrollViewV" destination="viP-gX-pte" id="Zje-8V-Aow"/>
                 <outlet property="theEngine" destination="wkr-8z-mQ0" id="rRz-0i-D6A"/>
@@ -64,11 +63,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="104.65116279069767" y="48.605150214592278"/>
         </window>
-        <customObject id="dwb-eo-PvV" userLabel="Location" customClass="GcLocation"/>
-        <customObject id="wkr-8z-mQ0" customClass="GCEngine">
-            <connections>
-                <outlet property="myLocation" destination="dwb-eo-PvV" id="wZs-Kf-yIY"/>
-            </connections>
-        </customObject>
+        <customObject id="wkr-8z-mQ0" customClass="GCEngine"/>
     </objects>
 </document>

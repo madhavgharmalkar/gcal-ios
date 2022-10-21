@@ -12,7 +12,6 @@ struct DayView: View {
 
     // state
     @State private var showDateSheet = false
-    @State private var showGpsSheet = false
 
     var body: some View {
         LegacyMainView()
@@ -32,20 +31,13 @@ struct DayView: View {
                         Button("Go to date") {
                             showDateSheet.toggle()
                         }
-                        Button("Change location (select)") {
-                            getMainViewController()?.onShowLocationDlg()
-                        }
-                        Button("Change location (GPS)") {
-                            showGpsSheet.toggle()
+                        NavigationLink("Change location (GPS)") {
+                            ChangeGPSView()
                         }
                     }
                     .sheet(isPresented: $showDateSheet) {
                         ChangeDateView(isPresented: $showDateSheet)
                             .presentationDetents([.medium])
-                    }
-                    .sheet(isPresented: $showGpsSheet) {
-                        ChangeGPSView(isPresented: $showGpsSheet)
-                            .presentationDetents([.medium, .large])
                     }
                     Spacer()
                     NavigationLink("Settings") {

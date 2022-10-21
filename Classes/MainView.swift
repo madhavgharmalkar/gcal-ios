@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var applicationState = (UIApplication.shared.delegate as! BalaCalAppDelegate).applicationState
+
     var body: some View {
         NavigationStack {
             DayView()
         }
+        .environmentObject(applicationState)
     }
 }
 

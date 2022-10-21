@@ -39,15 +39,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
     self.theEngine.theSettings = displaySettings;
     self.theEngine.myStrings = self.applicationState.gcStrings;
-    
-    self.myLocation.city = displaySettings.locCity;
-    self.myLocation.country = displaySettings.locCountry;
-    self.myLocation.latitude = displaySettings.locLatitude;
-    self.myLocation.longitude = displaySettings.locLongitude;
-    self.myLocation.timeZone = [NSTimeZone timeZoneWithName:displaySettings.locTimeZone];
-    if (self.myLocation.timeZone == nil)
-        self.myLocation.timeZone = [NSTimeZone systemTimeZone];
-    
+    self.theEngine.myLocation = self.applicationState.gcLocation;
 
     GCGregorianTime * dateToShow = [GCGregorianTime today];
 
@@ -713,16 +705,8 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 	return [ctx executeFetchRequest:request error:NULL];
 }
 
--(void)setGpsLongitude:(double)longitude latitude:(double)latitude
-				  city:(NSString *)inCity country:(NSString *)inCountry timeZone:(NSString *)inTimeZone
-{
+-(void)setGPS {
     [self.theEngine reset];
-	self.myLocation.longitude = longitude;
-	self.myLocation.latitude = latitude;
-	self.myLocation.city = inCity;
-	self.myLocation.country = inCountry;
-	self.myLocation.timeZone = [NSTimeZone timeZoneWithName:inTimeZone];
-	
 	[self storeMyLocation];
 	[self.mainViewCtrl actionNormalView:self];
 //    if (self.scrollViewH.hidden == NO)
@@ -749,11 +733,11 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 -(void)setLocationData:(GcLocation *)locationdata
 {
-    self.myLocation.city = locationdata.city;
-    self.myLocation.country = locationdata.country;
-    self.myLocation.latitude = locationdata.latitude;
-    self.myLocation.longitude = locationdata.longitude;
-    self.myLocation.timeZone = locationdata.timeZone;
+    self.applicationState.gcLocation.city = locationdata.city;
+    self.applicationState.gcLocation.country = locationdata.country;
+    self.applicationState.gcLocation.latitude = locationdata.latitude;
+    self.applicationState.gcLocation.longitude = locationdata.longitude;
+    self.applicationState.gcLocation.timeZone = locationdata.timeZone;
     
     [self storeMyLocation];
 }
@@ -762,11 +746,11 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 -(void)storeMyLocation {
     GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
     
-    displaySettings.locCity = self.myLocation.city;
-    displaySettings.locCountry = self.myLocation.country;
-    displaySettings.locLatitude = self.myLocation.latitude;
-    displaySettings.locLongitude = self.myLocation.longitude;
-    displaySettings.locTimeZone = [self.myLocation.timeZone name];
+    displaySettings.locCity = self.applicationState.gcLocation.city;
+    displaySettings.locCountry = self.applicationState.gcLocation.country;
+    displaySettings.locLatitude = self.applicationState.gcLocation.latitude;
+    displaySettings.locLongitude =self.applicationState.gcLocation.longitude;
+    displaySettings.locTimeZone = [self.applicationState.gcLocation.timeZone name];
 }
 
 -(void)setViewMode:(NSInteger)sm

@@ -8,3 +8,4 @@
 
 #import "GCDisplaySettings.h"
 #import "GCStrings.h"
+#import "GcLocation.h"

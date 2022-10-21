@@ -5,74 +5,74 @@
 //  Created by Madhav Gharmalkar on 10/20/22.
 //
 
-import SwiftUI
-import MapKit
 import CoreLocation
 import CoreLocationUI
+import MapKit
+import SwiftUI
 
 struct ChangeGPSView: View {
-    @Binding var isPresented: Bool
     @StateObject var locationManager = LocationManager()
+    @EnvironmentObject var applicationState: GCApplicationState
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        ZStack {
+        VStack {
             Map(coordinateRegion: $locationManager.region)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea()
                 .disabled(true)
+                .frame(maxHeight: .infinity)
+                .ignoresSafeArea()
 
             VStack {
-                HStack(alignment: .top) {
-                    if let location = locationManager.location {
-                        Text("**Current location:**\n \(location.latitude), \(location.longitude)")
-                                           .font(.callout)
-                                           .foregroundColor(.white)
-                                           .padding()
-                                           .background(.gray)
-                                           .clipShape(RoundedRectangle(cornerRadius: 10))
-                                   }
-                    Spacer()
+                if locationManager.placemark == nil {
                     LocationButton(.currentLocation) {
                         locationManager.requestLocation()
                     }
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
                     .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .labelStyle(.iconOnly)
                 }
-                .padding(.horizontal)
-                Spacer()
-                HStack(alignment: .bottom) {
-                    Button(role: .cancel) {
-                        isPresented.toggle()
-                    } label: {
-                        Text("Cancel")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.automatic)
 
-                    Button {
-                        isPresented.toggle()
-                    } label: {
-                        Text("Use")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(locationManager.location == nil)
+                if let placemark = locationManager.placemark {
+                    Text("Your location").bold()
+                    Text("\(placemark.locality ?? ""), \(placemark.country ?? "")")
+                    Text("\(placemark.timeZone?.identifier ?? "")")
+                    Text("\(placemark.location?.coordinate.longitude ?? 0), \(placemark.location?.coordinate.latitude ?? 0)")
 
-                }.padding(.horizontal)
-            }
-            .padding([.top], 20)
+                    Spacer()
+
+                    HStack(alignment: .center) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Cancel")
+                                .frame(maxWidth: .infinity)
+                        }
+
+                        Button {
+                            guard let placemark = locationManager.placemark else {
+                                dismiss()
+                                return
+                            }
+
+                            applicationState.setLocation(placemark: placemark)
+                            dismiss()
+                        } label: {
+                            Text("Set")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
+            }.frame(maxHeight: .infinity)
         }
-
+        .navigationTitle("Set location")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct ChangeGPSView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Hello world")
-            .sheet(isPresented: .constant(true)) {
-                ChangeGPSView(isPresented: .constant(true))
-                    .presentationDetents([.medium, .large])
-            }
+        NavigationStack {
+            ChangeGPSView()
+        }
     }
 }

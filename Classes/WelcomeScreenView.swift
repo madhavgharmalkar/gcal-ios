@@ -5,8 +5,8 @@
 //  Created by Madhav Gharmalkar on 10/17/22.
 //
 
-import SwiftUI
 import CoreLocationUI
+import SwiftUI
 
 struct WelcomeScreenView: View {
     @State private var tabSelection = 1
@@ -82,7 +82,6 @@ struct RequestLocationView: View {
             .foregroundColor(.white)
             .cornerRadius(10)
             .font(.body)
-
         }
         .padding(.horizontal, 20)
     }

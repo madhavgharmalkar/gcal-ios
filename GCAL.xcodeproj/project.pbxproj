@@ -37,8 +37,6 @@
 		0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7433691212D3B3002A423E /* LocationViewTableController.m */; };
 		0B7433A71212E8FC002A423E /* LCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7433A61212E8FC002A423E /* LCity.m */; };
 		0B7433AC1212E913002A423E /* LGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7433AB1212E913002A423E /* LGroup.m */; };
-		0B7962DC121C5F13002A79BA /* GpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7962DA121C5F13002A79BA /* GpsViewController.m */; };
-		0B7962DD121C5F13002A79BA /* GpsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7962DB121C5F13002A79BA /* GpsViewController.xib */; };
 		0B7962F1121C6D76002A79BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7962F0121C6D76002A79BA /* CoreLocation.framework */; };
 		0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B7EBC1218204900A6EC76 /* InitLocations.m */; };
 		0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */; };
@@ -48,8 +46,6 @@
 		0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A201AB31D8500F694BF /* ResultsViewBase.m */; };
 		0BFDC2231AA203430067676C /* GCCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2221AA203430067676C /* GCCanvas.m */; };
 		0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */; };
-		0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */; };
-		0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */; };
 		1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -124,9 +120,6 @@
 		0B7433A61212E8FC002A423E /* LCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCity.m; sourceTree = "<group>"; };
 		0B7433AA1212E913002A423E /* LGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGroup.h; sourceTree = "<group>"; };
 		0B7433AB1212E913002A423E /* LGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGroup.m; sourceTree = "<group>"; };
-		0B7962D9121C5F13002A79BA /* GpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsViewController.h; sourceTree = "<group>"; };
-		0B7962DA121C5F13002A79BA /* GpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsViewController.m; sourceTree = "<group>"; };
-		0B7962DB121C5F13002A79BA /* GpsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GpsViewController.xib; sourceTree = "<group>"; };
 		0B7962F0121C6D76002A79BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0B9B7EBC1218204900A6EC76 /* InitLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitLocations.m; sourceTree = "<group>"; };
 		0BB84F4F120EA75200C06ED1 /* SettingsViewTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewTableController.h; sourceTree = "<group>"; };
@@ -143,9 +136,6 @@
 		0BFDC2221AA203430067676C /* GCCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCanvas.m; sourceTree = "<group>"; };
 		0BFDC2241AA2F2B90067676C /* GCCoreEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCoreEvent.h; sourceTree = "<group>"; };
 		0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCoreEvent.m; sourceTree = "<group>"; };
-		0BFDC2461AAC871B0067676C /* GVChangeLocationDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVChangeLocationDlg.h; sourceTree = "<group>"; };
-		0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVChangeLocationDlg.m; sourceTree = "<group>"; };
-		0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVChangeLocationDlg.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* BalaCalAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalaCalAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalaCalAppDelegate.m; sourceTree = "<group>"; };
@@ -213,16 +203,6 @@
 				0BC5F7282090ABAE007F54C1 /* Launch Screen.storyboard */,
 			);
 			name = "Main Window";
-			sourceTree = "<group>";
-		};
-		0B158F661A9D04F40010A2DF /* GPS View */ = {
-			isa = PBXGroup;
-			children = (
-				0B7962DB121C5F13002A79BA /* GpsViewController.xib */,
-				0B7962D9121C5F13002A79BA /* GpsViewController.h */,
-				0B7962DA121C5F13002A79BA /* GpsViewController.m */,
-			);
-			name = "GPS View";
 			sourceTree = "<group>";
 		};
 		0B158F671A9D08150010A2DF /* UnlimitedScrollView */ = {
@@ -346,21 +326,9 @@
 		0BFDC2271AAC43600067676C /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
-				0BFDC2451AAC86F00067676C /* ChangeLocationDlg */,
-				0B158F661A9D04F40010A2DF /* GPS View */,
 				0B7433A21212E8BF002A423E /* Settings View */,
 			);
 			name = Dialogs;
-			sourceTree = "<group>";
-		};
-		0BFDC2451AAC86F00067676C /* ChangeLocationDlg */ = {
-			isa = PBXGroup;
-			children = (
-				0BFDC2461AAC871B0067676C /* GVChangeLocationDlg.h */,
-				0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */,
-				0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */,
-			);
-			name = ChangeLocationDlg;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -504,11 +472,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */,
 				0BC5F7292090ABAE007F54C1 /* Launch Screen.storyboard in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				0B4FD1FE120DCD3A0019F3E5 /* IGCal-Icon.png in Resources */,
-				0B7962DD121C5F13002A79BA /* GpsViewController.xib in Resources */,
 				0B158F641A9A1A510010A2DF /* Media.xcassets in Resources */,
 				0B1FCBB21232BAB100F1052E /* GCalLoc.sqlite in Resources */,
 			);
@@ -554,7 +520,6 @@
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
 				A9E312B62901C0B5005E0D15 /* ChangeGPSView.swift in Sources */,
-				0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */,
 				0B4FD1CF120DB62C0019F3E5 /* gc_astro_arr.m in Sources */,
 				0B4FD1D0120DB62C0019F3E5 /* gc_astro_conj.m in Sources */,
 				0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */,
@@ -588,7 +553,6 @@
 				0B158F781A9FA4CB0010A2DF /* GCTodayInfoData.m in Sources */,
 				0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */,
 				0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */,
-				0B7962DC121C5F13002A79BA /* GpsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

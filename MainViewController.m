@@ -17,8 +17,6 @@
 #import "Classes/HUScrollView.h"
 #import "Classes/VUScrollView.h"
 
-#import "Classes/GpsViewController.h"
-#import "Classes/GVChangeLocationDlg.h"
 #import "Classes/DayResultsView.h"
 
 #import "GCAL-Swift.h"
@@ -70,27 +68,6 @@
 
 #pragma mark -
 #pragma mark User Interface actions
-
--(void)onShowGps {
-    if (self.gpsDlg1 == nil)
-    {
-        self.gpsDlg1 = [[GpsViewController alloc] initWithNibName:@"GpsViewController" bundle:nil];
-    }
-    
-    self.gpsDlg1.view.frame = self.mainView.bounds;
-    [self.mainView addSubview:self.gpsDlg1.view];
-}
-
--(void)onShowLocationDlg {
-    if (self.chlDlg1 == nil)
-    {
-        self.chlDlg1 = [[GVChangeLocationDlg alloc] initWithNibName:@"GVChangeLocationDlg" bundle:nil];
-    }
-    
-    CGRect rect = self.mainView.bounds;
-    self.chlDlg1.view.frame = rect;
-    [self.mainView addSubview:self.chlDlg1.view];
-}
 
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year
 {

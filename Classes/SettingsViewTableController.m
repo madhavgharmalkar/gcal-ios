@@ -11,7 +11,6 @@
 #import "SettingsItem.h"
 #import "UISwitchWithTag.h"
 #import "LocationViewTableController.h"
-#import "GpsViewController.h"
 #import "GCGregorianTime.h"
 
 @implementation SettingsViewTableController

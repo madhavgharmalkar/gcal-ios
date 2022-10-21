@@ -56,9 +56,4 @@
 -(void)releaseDialogs;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;
 
-// User actions
--(void)onShowDateChangeView;
--(void)onShowLocationDlg;
--(void)onShowGps;
-
 @end

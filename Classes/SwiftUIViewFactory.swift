@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class SwiftUIViewFactory: NSObject {
-  @objc static func makeSwiftUIView() -> UIViewController {
-    return UIHostingController(rootView: MainView())
-  }
+    @objc static func makeSwiftUIView() -> UIViewController {
+        return UIHostingController(rootView: MainView())
+    }
 }

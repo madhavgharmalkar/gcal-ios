@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct LegacyMainView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> MainViewController {
+    func makeUIViewController(context _: Context) -> MainViewController {
         guard let rootDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
             return MainViewController()
         }
@@ -18,7 +18,7 @@ struct LegacyMainView: UIViewControllerRepresentable {
         return vc
     }
 
-    func updateUIViewController(_ uiViewController: MainViewController, context: Context) {}
+    func updateUIViewController(_: MainViewController, context _: Context) {}
 
     typealias UIViewControllerType = MainViewController
 }

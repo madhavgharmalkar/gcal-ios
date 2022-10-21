@@ -11,8 +11,7 @@ import SwiftUI
 struct LegacySettingsView: UIViewControllerRepresentable {
     typealias UIViewControllerType = SettingsViewTableController
 
-    func makeUIViewController(context: Context) -> SettingsViewTableController {
-
+    func makeUIViewController(context _: Context) -> SettingsViewTableController {
         let vc = SettingsViewTableController()
         let mainVc = getMainViewController()
         vc.appDispSettings = mainVc?.theSettings
@@ -20,8 +19,7 @@ struct LegacySettingsView: UIViewControllerRepresentable {
         return vc
     }
 
-    func updateUIViewController(_ uiViewController: SettingsViewTableController, context: Context) {
-    }
+    func updateUIViewController(_: SettingsViewTableController, context _: Context) {}
 }
 
 struct LegacySettingsView_Previews: PreviewProvider {
