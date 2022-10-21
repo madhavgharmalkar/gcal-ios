@@ -42,6 +42,7 @@ platform :ios do
       version_number: version
     )
 
+    puts version
     version
   end
 

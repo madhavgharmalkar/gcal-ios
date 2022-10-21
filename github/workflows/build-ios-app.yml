@@ -1,11 +1,14 @@
 name: build-ios-app
+
 on:
   push:
-    branches:
-      - "master"
+    branches: ["master"]
+
 jobs:
   build:
+    name: Upload app to AppStore
     runs-on: macos-latest
+
     steps:
       - uses: actions/checkout@v2
       - run: fastlane release
