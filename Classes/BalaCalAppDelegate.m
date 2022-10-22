@@ -36,10 +36,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
     self.applicationState = [[GCApplicationState alloc] initWithAppDelegate:self];
     GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
-    
-    self.theEngine.theSettings = displaySettings;
-    self.theEngine.myStrings = self.applicationState.gcStrings;
-    self.theEngine.myLocation = self.applicationState.gcLocation;
 
     GCGregorianTime * dateToShow = [GCGregorianTime today];
 
@@ -81,8 +77,11 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     self.mainViewCtrl.dayView = self.dayView;
     self.mainViewCtrl.scrollViewV = self.scrollViewV;
     self.mainViewCtrl.theSettings = displaySettings;
+    self.mainViewCtrl.theEngine = self.applicationState.gcEngine;
     
-
+    self.scrollViewV.engine = self.applicationState.gcEngine;
+    self.dayView.engine = self.applicationState.gcEngine;
+    
     self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
     self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     
@@ -149,6 +148,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 -(void)generateFutureNotifications{
     GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
     GCStrings *const gcStrings = self.applicationState.gcStrings;
+    GCEngine *const gcEngine = self.applicationState.gcEngine;
     
     @try {
         NSUserDefaults * udef = [NSUserDefaults standardUserDefaults];
@@ -182,7 +182,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
             julPage = julDay / 32;
             julPageIndex = julDay % 32;
 
-            tid = [self.theEngine requestPage:julPage view:nil itemIndex:julPageIndex];
+            tid = [gcEngine requestPage:julPage view:nil itemIndex:julPageIndex];
             julDay++;
             [str setString:@""];
             type = 0;
@@ -302,7 +302,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
             julPage = julDay / 32;
             julPageIndex = julDay % 32;
             
-            tid = [self.theEngine requestPage:julPage view:nil itemIndex:julPageIndex];
+            tid = [gcEngine requestPage:julPage view:nil itemIndex:julPageIndex];
             NSLog(@"Final notification scheduled for %@", [tid.calendarDay.date longDateString]);
             
             UILocalNotification * note = [UILocalNotification new];
@@ -702,8 +702,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 }
 
 -(void)setGPS {
-    [self.theEngine reset];
-	[self storeMyLocation];
 	[self.mainViewCtrl actionNormalView:self];
 //    if (self.scrollViewH.hidden == NO)
 //        [self.scrollViewH reloadData];
@@ -734,19 +732,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     self.applicationState.gcLocation.latitude = locationdata.latitude;
     self.applicationState.gcLocation.longitude = locationdata.longitude;
     self.applicationState.gcLocation.timeZone = locationdata.timeZone;
-    
-    [self storeMyLocation];
-}
-
-
--(void)storeMyLocation {
-    GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
-    
-    displaySettings.locCity = self.applicationState.gcLocation.city;
-    displaySettings.locCountry = self.applicationState.gcLocation.country;
-    displaySettings.locLatitude = self.applicationState.gcLocation.latitude;
-    displaySettings.locLongitude =self.applicationState.gcLocation.longitude;
-    displaySettings.locTimeZone = [self.applicationState.gcLocation.timeZone name];
 }
 
 -(void)setViewMode:(NSInteger)sm

@@ -27,7 +27,6 @@
 
 @property (nonatomic) IBOutlet UIWindow *window;
 @property IBOutlet UIView * mainView;
-@property IBOutlet GCEngine * theEngine;
 //@property IBOutlet HUScrollView * scrollViewH;
 @property IBOutlet UIScrollView * scrollViewD;
 @property IBOutlet VUScrollView * scrollViewV;

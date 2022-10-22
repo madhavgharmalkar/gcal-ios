@@ -17,6 +17,7 @@ import SwiftUI
     @objc public var displaySettings: GCDisplaySettings
     @objc public var gcStrings: GCStrings
     @objc public var gcLocation: GcLocation
+    @objc public var gcEngine: GCEngine
 
     @objc public init(appDelegate: BalaCalAppDelegate) {
         self.appDelegate = appDelegate
@@ -37,6 +38,11 @@ import SwiftUI
             gcLocation.timeZone = TimeZone.current
         }
 
+        gcEngine = GCEngine()
+        gcEngine.theSettings = displaySettings
+        gcEngine.myStrings = gcStrings
+        gcEngine.myLocation = gcLocation
+
         super.init()
     }
 
@@ -55,6 +61,14 @@ import SwiftUI
         gcLocation.city = city
         gcLocation.country = country
         gcLocation.timeZone = timezone
+
+        displaySettings.locCity = city
+        displaySettings.locCountry = country
+        displaySettings.locLatitude = location.coordinate.latitude
+        displaySettings.locLongitude = location.coordinate.longitude
+        displaySettings.locTimeZone = timezone.identifier
+
+        gcEngine.reset()
 
         appDelegate.setGPS()
     }

@@ -4,4 +4,5 @@ Next steps
 
 - [ ] pull out GCEngine into application state
 - [ ] pull out the date management into application state
-- [ ] generate app icons
+- [x] generate app icons
+- [ ] fix CI deployments
