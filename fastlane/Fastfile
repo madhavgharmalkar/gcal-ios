@@ -68,7 +68,7 @@ platform :ios do
     
     generate_appicon
     
-    match(app_identifier: "com.nilamadhava.bettergcal", type: "appstore")
+    match(app_identifier: "com.nilamadhava.bettergcal", type: "appstore", readonly: is_ci)
     build_app(
       scheme: "GCAL"
     )
