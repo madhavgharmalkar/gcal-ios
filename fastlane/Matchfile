@@ -1,4 +1,4 @@
-git_url("git@github.com:madhavgharmalkar/better-gcal-certs.git")
+git_url("https://github.com/madhavgharmalkar/better-gcal-certs.git")
 
 storage_mode("git")
 
