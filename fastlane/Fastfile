@@ -68,7 +68,12 @@ platform :ios do
     
     generate_appicon
     
-    match(app_identifier: "com.nilamadhava.bettergcal", type: "appstore", readonly: is_ci)
+    match(
+      app_identifier: "com.nilamadhava.bettergcal", 
+      type: "appstore",
+      readonly: is_ci
+      git_basic_authorization: Base64.strict_encode64(ENV["GIT_AUTHORIZATION"]),
+    )
     build_app(
       scheme: "GCAL"
     )

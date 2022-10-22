@@ -12,12 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_KEY }}
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
       - run: fastlane release
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -29,3 +23,4 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY: ${{ secrets.ASC_KEY }}
+          GIT_AUTHORIZATION: ${{ secrets.GIT_AUTHORIZATION }}
