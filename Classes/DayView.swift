@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DayView: View {
-    @State private var showingActions = false
-
     // state
+    @State private var showingActions = false
     @State private var showDateSheet = false
+
+    @EnvironmentObject private var applicationState: GCApplicationState
 
     var body: some View {
         LegacyMainView()
@@ -46,6 +47,17 @@ struct DayView: View {
                     }
                 }
             }
+            .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+                .onEnded { value in
+                    switch (value.translation.width, value.translation.height) {
+                    case (...0, -30 ... 30):
+                        applicationState.swipe(left: true)
+                    case (0..., -30 ... 30):
+                        applicationState.swipe(right: true)
+                    default:
+                        print("no swipe that we care about")
+                    }
+                })
     }
 }
 

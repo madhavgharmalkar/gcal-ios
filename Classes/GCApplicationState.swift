@@ -72,4 +72,12 @@ import SwiftUI
 
         appDelegate.setGPS()
     }
+
+    func swipe(left _: Bool) {
+        appDelegate.onSwipeLeft()
+    }
+
+    func swipe(right _: Bool) {
+        appDelegate.onSwipeRight()
+    }
 }

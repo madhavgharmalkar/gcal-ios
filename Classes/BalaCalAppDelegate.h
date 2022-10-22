@@ -37,10 +37,6 @@
 @property (strong) MainViewController * mainViewCtrl;
 @property (strong) NSString * lastNotificationDateTomorrow;
 @property (strong) NSString * lastNotificationDateToday;
-@property (strong) UISwipeGestureRecognizer * leftSwipe;
-@property (strong) UISwipeGestureRecognizer * rightSwipe;
-@property (strong) UISwipeGestureRecognizer * leftSwipe2;
-@property (strong) UISwipeGestureRecognizer * rightSwipe2;
 @property IBOutlet UIButton * nextDay;
 @property IBOutlet UIButton * prevDay;
 @property BOOL defaultsChangesPending;
@@ -62,6 +58,8 @@
 
 // User Actions - for some reason this is passed through the root delegate - will need to refactor at some point
 -(void)onTodayButton;
+-(void)onSwipeLeft;
+-(void)onSwipeRight;
 
 // application state - we want to move all state to this object, that can be read here and in SwiftUI
 @property (strong) GCApplicationState *applicationState;

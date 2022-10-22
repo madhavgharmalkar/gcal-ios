@@ -81,25 +81,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
     self.scrollViewV.engine = self.applicationState.gcEngine;
     self.dayView.engine = self.applicationState.gcEngine;
-    
-    self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
-    self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    
-    [self.mainViewCtrl.scrollViewD addGestureRecognizer:self.leftSwipe];
-    
-    self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
-    self.rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.mainViewCtrl.scrollViewD addGestureRecognizer:self.rightSwipe];
-
-    self.leftSwipe2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
-    self.leftSwipe2.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.mainView addGestureRecognizer:self.leftSwipe2];
-    
-    self.rightSwipe2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
-    self.rightSwipe2.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.mainView addGestureRecognizer:self.rightSwipe2];
-
-    
+        
     CGFloat minn = MIN(self.mainView.frame.size.width, self.mainView.frame.size.height);
     CGRect oframe = self.mainViewCtrl.scrollViewV.frame;
     oframe.size.width = ceil((1 - (minn - 320)/1200.0)*minn);
@@ -344,15 +326,13 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     }
 }
 
--(IBAction)onSwipeLeft:(id)sender
-{
+-(void)onSwipeLeft {
     GCGregorianTime * date = [[self.dayView attachedDate] nextDay];
     
     [self.mainViewCtrl showDateSingle:date];
 }
 
--(IBAction)onSwipeRight:(id)sender
-{
+-(void)onSwipeRight {
     GCGregorianTime * date = [[self.dayView attachedDate] previousDay];
     
     [self.mainViewCtrl showDateSingle:date];
