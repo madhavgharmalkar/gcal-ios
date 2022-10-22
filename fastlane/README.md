@@ -41,14 +41,6 @@ Generate the version number
 
 For now we will use the date in the YYYY.MM.DD format
 
-### ios release
-
-```sh
-[bundle exec] fastlane ios release
-```
-
-Push a new release build to the App Store
-
 ### ios load_asc_api_key
 
 ```sh
@@ -56,6 +48,14 @@ Push a new release build to the App Store
 ```
 
 Load ASC API Key information to use in subsequent lanes
+
+### ios release
+
+```sh
+[bundle exec] fastlane ios release
+```
+
+Push a new release build to the App Store
 
 ----
 
