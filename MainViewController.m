@@ -79,18 +79,10 @@
     self.view.hidden = NO;
 }
 
--(void)setRecalculationPage
-{
-    self.view.hidden = YES;
-}
-
 -(IBAction)actionToday:(id)sender
 {
-	if (self.calcToday != nil && self.myWebView != nil)
-	{
-		[self setRecalculationPage];
+	if (self.calcToday != nil && self.myWebView != nil) {
 		[self performSelectorInBackground:@selector(opCalcToday) withObject:nil];
-        
 	}
 
     if (!self.scrollViewD.hidden)
