@@ -10,7 +10,6 @@
 #import "SettingsViewTableController.h"
 #import "SettingsItem.h"
 #import "UISwitchWithTag.h"
-#import "LocationViewTableController.h"
 #import "GCGregorianTime.h"
 
 @implementation SettingsViewTableController
@@ -132,16 +131,6 @@
         return nil;
     }
     
-}
-
--(LGroup *)rootLocationGroup
-{
-    BalaCalAppDelegate * deleg = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext * ctx = [deleg managedObjectContext];
-    NSArray * a = [deleg getLocationsRoot:ctx];
-    
-    if ([a count] < 1) return nil;
-    return [a objectAtIndex:0];
 }
 
 #pragma mark -

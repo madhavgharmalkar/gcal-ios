@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GCDisplaySettings.h"
-#import "LGroup.h"
 
 #define kMySettingNoneType       0
 #define kMySettingDirType        1
@@ -36,7 +35,6 @@
 -(void)setNavigParent:(UINavigationController *)navig;
 -(UINavigationController *)navigParent;
 -(IBAction)switchValueChanged:(id)sender;
--(LGroup *)rootLocationGroup;
 
 
 

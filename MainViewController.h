@@ -43,15 +43,10 @@
 @property GpsViewController * gpsDlg1;
 @property GVChangeLocationDlg * chlDlg1;
 
--(IBAction)actionPrevDay:(id)sender;
--(IBAction)actionNextDay:(id)sender;
 -(IBAction)actionToday:(id)sender;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
--(void)setNewLocation:(NSManagedObject *)location;
 -(IBAction)actionNormalView:(id)sender;
 
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year;
--(void)releaseDialogs;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;
 
 @end

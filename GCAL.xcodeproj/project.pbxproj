@@ -34,11 +34,7 @@
 		0B4FD21A120DD4550019F3E5 /* GcEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD219120DD4550019F3E5 /* GcEvents.m */; };
 		0B70DD381211626700196EA4 /* SettingsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B70DD371211626700196EA4 /* SettingsItem.m */; };
 		0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B74332612127E19002A423E /* UISwitchWithTag.m */; };
-		0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7433691212D3B3002A423E /* LocationViewTableController.m */; };
-		0B7433A71212E8FC002A423E /* LCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7433A61212E8FC002A423E /* LCity.m */; };
-		0B7433AC1212E913002A423E /* LGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7433AB1212E913002A423E /* LGroup.m */; };
 		0B7962F1121C6D76002A79BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7962F0121C6D76002A79BA /* CoreLocation.framework */; };
-		0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B7EBC1218204900A6EC76 /* InitLocations.m */; };
 		0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */; };
 		0BC5F7292090ABAE007F54C1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC5F7282090ABAE007F54C1 /* Launch Screen.storyboard */; };
 		0BE27A1B1AB30D7B00F694BF /* CalendarResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */; };
@@ -127,14 +123,7 @@
 		0B70DD371211626700196EA4 /* SettingsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsItem.m; sourceTree = "<group>"; };
 		0B74332512127E19002A423E /* UISwitchWithTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISwitchWithTag.h; sourceTree = "<group>"; };
 		0B74332612127E19002A423E /* UISwitchWithTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISwitchWithTag.m; sourceTree = "<group>"; };
-		0B7433681212D3B3002A423E /* LocationViewTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewTableController.h; sourceTree = "<group>"; };
-		0B7433691212D3B3002A423E /* LocationViewTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewTableController.m; sourceTree = "<group>"; };
-		0B7433A51212E8FC002A423E /* LCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCity.h; sourceTree = "<group>"; };
-		0B7433A61212E8FC002A423E /* LCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCity.m; sourceTree = "<group>"; };
-		0B7433AA1212E913002A423E /* LGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGroup.h; sourceTree = "<group>"; };
-		0B7433AB1212E913002A423E /* LGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGroup.m; sourceTree = "<group>"; };
 		0B7962F0121C6D76002A79BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0B9B7EBC1218204900A6EC76 /* InitLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitLocations.m; sourceTree = "<group>"; };
 		0BB84F4F120EA75200C06ED1 /* SettingsViewTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewTableController.h; sourceTree = "<group>"; };
 		0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewTableController.m; sourceTree = "<group>"; };
 		0BC5F7282090ABAE007F54C1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -209,7 +198,6 @@
 				0B158F6B1A9D08590010A2DF /* DayResultsView */,
 				0B158F671A9D08150010A2DF /* UnlimitedScrollView */,
 				0B158F651A9D04C30010A2DF /* Main Window */,
-				0B7433A11212E89C002A423E /* Locations View */,
 				0B4FD1D6120DB6CD0019F3E5 /* CalAstro */,
 				0B4FD1D5120DB63B0019F3E5 /* BaseAstro */,
 			);
@@ -311,20 +299,6 @@
 				0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */,
 			);
 			name = CalAstro;
-			sourceTree = "<group>";
-		};
-		0B7433A11212E89C002A423E /* Locations View */ = {
-			isa = PBXGroup;
-			children = (
-				0B7433681212D3B3002A423E /* LocationViewTableController.h */,
-				0B7433691212D3B3002A423E /* LocationViewTableController.m */,
-				0B7433A51212E8FC002A423E /* LCity.h */,
-				0B7433A61212E8FC002A423E /* LCity.m */,
-				0B7433AA1212E913002A423E /* LGroup.h */,
-				0B7433AB1212E913002A423E /* LGroup.m */,
-				0B9B7EBC1218204900A6EC76 /* InitLocations.m */,
-			);
-			name = "Locations View";
 			sourceTree = "<group>";
 		};
 		0B7433A21212E8BF002A423E /* Settings View */ = {
@@ -611,18 +585,14 @@
 				0B70DD381211626700196EA4 /* SettingsItem.m in Sources */,
 				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
-				0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */,
 				A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */,
 				A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */,
 				A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */,
 				0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */,
-				0B7433A71212E8FC002A423E /* LCity.m in Sources */,
 				0BFDC2231AA203430067676C /* GCCanvas.m in Sources */,
-				0B7433AC1212E913002A423E /* LGroup.m in Sources */,
 				A9969EF528FDFC16001E0858 /* MainView.swift in Sources */,
 				0B158F781A9FA4CB0010A2DF /* GCTodayInfoData.m in Sources */,
 				0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */,
-				0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,7 +668,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0.0.1;
@@ -717,7 +687,7 @@
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.nilamadhava.bettergcal";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -780,7 +750,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 0.0.1;
@@ -797,7 +767,7 @@
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.nilamadhava.bettergcal";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -819,7 +789,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0.0.1;
@@ -838,7 +808,7 @@
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.nilamadhava.bettergcal";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -860,7 +830,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 0.0.1;
@@ -877,7 +847,7 @@
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.nilamadhava.bettergcal";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

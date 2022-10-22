@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "MainViewController.h"
-#import "LGroup.h"
-#import "LCity.h"
 
 @class DayResultsView;
 @class HUScrollView, VUScrollView;

@@ -7,8 +7,6 @@
 //
 
 #import "BalaCalAppDelegate.h"
-#import "LGroup.h"
-#import "LCity.h"
 #import "MainViewController.h"
 #import "GCStrings.h"
 #import "GcLocation.h"
@@ -23,10 +21,6 @@
 #import "GCAL-Swift.h"
 
 @implementation BalaCalAppDelegate
-
-#pragma mark === from InitLocations.h ===
-
-int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
 #pragma mark Application lifecycle
 
@@ -348,7 +342,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 {
     GCDisplaySettings *const displaySettings = self.applicationState.displaySettings;
     [displaySettings writeToFile];
-    [self.mainViewCtrl releaseDialogs];
 }
 
 
@@ -691,18 +684,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
         [self.scrollViewV reloadData];
     
     [self resetFutureNotifications];
-}
-
-
--(void)initLocationsDb
-{
-	NSManagedObjectContext * ctx = [self managedObjectContext];
-	
-	// reload all items
-	ADD_ALL_LOCATION_ITEMS(ctx);
-
-	// save all items
-	[ctx save:NULL];
 }
 
 -(void)setLocationData:(GcLocation *)locationdata
