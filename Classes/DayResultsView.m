@@ -99,23 +99,13 @@
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
     
-//    if (self.viewState == DRV_MODE_ASSIGNED_CONTAINER || self.viewState == DRV_MODE_ASSIGNED)
-//    {
-        // draws date and day data
-        [self drawGregorianDate:canvas];
-        [self drawVedicDate:canvas];
-        [self drawSpecialFestivals:canvas];
-        [self drawSunTimes:canvas];
-        [self drawFestivals:canvas];
-        [self drawSunriseInfo:canvas];
-        [self drawCoreEvents:canvas];
-        
-//    }
-//    else if (self.viewState == DRV_MODE_ASSIGNED_WAITING || self.viewState == DRV_MODE_ASSIGNED_WAITING_CONTAINER)
-//    {
-//        // draws only date
-//        [self drawGregorianDate:canvas];
-//    }
+    [self drawGregorianDate:canvas];
+    [self drawVedicDate:canvas];
+    [self drawSpecialFestivals:canvas];
+    [self drawSunTimes:canvas];
+    [self drawFestivals:canvas];
+    [self drawSunriseInfo:canvas];
+    [self drawCoreEvents:canvas];
 
     self.drawBottom = canvas.currY + 40;
 }

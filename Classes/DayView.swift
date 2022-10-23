@@ -19,11 +19,7 @@ struct DayView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button("Today") {
-                        guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
-                            return
-                        }
-
-                        appDelegate.onTodayButton()
+                        applicationState.date = Date()
                     }
                     Spacer()
                     Button("Action") {
@@ -51,9 +47,9 @@ struct DayView: View {
                 .onEnded { value in
                     switch (value.translation.width, value.translation.height) {
                     case (...0, -30 ... 30):
-                        applicationState.swipe(left: true)
+                        applicationState.date = Calendar.current.date(byAdding: .day, value: 1, to: applicationState.date) ?? Date()
                     case (0..., -30 ... 30):
-                        applicationState.swipe(right: true)
+                        applicationState.date = Calendar.current.date(byAdding: .day, value: -1, to: applicationState.date) ?? Date()
                     default:
                         print("no swipe that we care about")
                     }
@@ -63,6 +59,8 @@ struct DayView: View {
 
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
-        DayView()
+        NavigationStack {
+            DayView()
+        }
     }
 }

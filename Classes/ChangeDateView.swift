@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ChangeDateView: View {
     @State private var date = Date()
+
     @Binding var isPresented: Bool
+    @EnvironmentObject private var applicationState: GCApplicationState
 
     var body: some View {
         VStack(spacing: 10) {
@@ -26,14 +28,7 @@ struct ChangeDateView: View {
                 }.buttonStyle(.bordered)
 
                 Button {
-                    let vc = getMainViewController()
-                    let calendar = Calendar.current
-                    let day = calendar.component(.day, from: date)
-                    let month = calendar.component(.month, from: date)
-                    let year = calendar.component(.year, from: date)
-
-                    vc?.setCurrentDay(Int32(day), month: Int32(month), year: Int32(year))
-
+                    applicationState.date = date
                     isPresented.toggle()
                 } label: {
                     Text("Set")

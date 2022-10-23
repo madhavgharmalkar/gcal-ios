@@ -19,6 +19,27 @@ import SwiftUI
     @objc public var gcLocation: GcLocation
     @objc public var gcEngine: GCEngine
 
+    // the current date information,idk if we'll switch this to native SwiftUI Dates
+    private var gcDate: GCGregorianTime
+    @Published @objc public var date = Date() {
+        didSet {
+            if oldValue != date {
+                let calendar = Calendar.current
+                let day = calendar.component(.day, from: date)
+                let month = calendar.component(.month, from: date)
+                let year = calendar.component(.year, from: date)
+
+                let gct = GCGregorianTime()
+                gct.year = Int32(year)
+                gct.month = Int32(month)
+                gct.day = Int32(day)
+                gcDate = gct
+
+                appDelegate.showDate(gct)
+            }
+        }
+    }
+
     @objc public init(appDelegate: BalaCalAppDelegate) {
         self.appDelegate = appDelegate
 
@@ -43,7 +64,13 @@ import SwiftUI
         gcEngine.myStrings = gcStrings
         gcEngine.myLocation = gcLocation
 
+        gcDate = GCGregorianTime.today()
+
         super.init()
+
+//        $date.sink { receivedDate in
+//            print(receivedDate)
+//        }
     }
 
     func setLocation(placemark: CLPlacemark) {
@@ -71,13 +98,5 @@ import SwiftUI
         gcEngine.reset()
 
         appDelegate.setGPS()
-    }
-
-    func swipe(left _: Bool) {
-        appDelegate.onSwipeLeft()
-    }
-
-    func swipe(right _: Bool) {
-        appDelegate.onSwipeRight()
     }
 }

@@ -23,11 +23,3 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
-
-func getMainViewController() -> MainViewController? {
-    guard let appDelegate = UIApplication.shared.delegate as? BalaCalAppDelegate else {
-        return nil
-    }
-
-    return appDelegate.mainViewCtrl
-}

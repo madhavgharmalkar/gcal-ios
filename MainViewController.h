@@ -34,7 +34,6 @@
 @property IBOutlet UIScrollView * scrollViewD;
 @property IBOutlet DayResultsView * dayView;
 @property UIView * mainView;
-@property IBOutlet WKWebView * myWebView;
 @property GcResultToday * calcToday;
 @property GCDisplaySettings * theSettings;
 
@@ -46,7 +45,6 @@
 -(IBAction)actionToday:(id)sender;
 -(IBAction)actionNormalView:(id)sender;
 
--(void)setCurrentDay:(int)day month:(int)month year:(int)year;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;
 
 @end

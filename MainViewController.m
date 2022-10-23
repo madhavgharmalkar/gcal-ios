@@ -37,20 +37,6 @@
 #pragma mark -
 #pragma mark User Interface actions
 
--(void)setCurrentDay:(int)day month:(int)month year:(int)year
-{
-    GCGregorianTime * gct = [GCGregorianTime new];
-    gct.year = year;
-    gct.month = month;
-    gct.day = day;
-    if (!self.scrollViewD.hidden)
-    {
-        [self showDateSingle:gct];
-    }
-    if (!self.scrollViewV.hidden)
-        [self.scrollViewV showDate:gct];
-}
-
 -(void)showDateSingle:(GCGregorianTime *)dateToShow
 {
     [self.dayView attachDate:dateToShow];
@@ -60,31 +46,7 @@
     [self.dayView setNeedsDisplay];
 }
 
--(void)opCalcToday
-{
-	@autoreleasepool {
-		[self.calcToday calcDate:[GCGregorianTime today]];
-		[self.myWebView loadHTMLString:[self.calcToday formatTodayHtml]
-						  baseURL:nil];
-	}
-    self.view.hidden = NO;
-}
-
--(void)opRecalc
-{
-	@autoreleasepool {
-		[self.calcToday recalc];
-		[self.myWebView loadHTMLString:[self.calcToday formatTodayHtml] baseURL:nil];
-	}
-    self.view.hidden = NO;
-}
-
--(IBAction)actionToday:(id)sender
-{
-	if (self.calcToday != nil && self.myWebView != nil) {
-		[self performSelectorInBackground:@selector(opCalcToday) withObject:nil];
-	}
-
+-(IBAction)actionToday:(id)sender {
     if (!self.scrollViewD.hidden)
         [self showDateSingle:[GCGregorianTime today]];
     if (!self.scrollViewV.hidden)

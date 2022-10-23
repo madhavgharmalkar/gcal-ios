@@ -43,21 +43,11 @@
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (NSString *)applicationDocumentsDirectory;
--(void)initLocationsDb;
--(NSArray *)locSubgroupsForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx;
--(NSArray *)locCitiesForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx;
 -(void)setGPS;
--(NSArray *)getLocationsRoot:(NSManagedObjectContext *)ctx;
 
 -(void)setLocationData:(GcLocation *)locationdata;
 -(void)setViewMode:(NSInteger)sm;
 -(void)showDate:(GCGregorianTime *)dateToShow;
-
-
-// User Actions - for some reason this is passed through the root delegate - will need to refactor at some point
--(void)onTodayButton;
--(void)onSwipeLeft;
--(void)onSwipeRight;
 
 // application state - we want to move all state to this object, that can be read here and in SwiftUI
 @property (strong) GCApplicationState *applicationState;

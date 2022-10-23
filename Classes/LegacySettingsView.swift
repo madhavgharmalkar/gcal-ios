@@ -11,11 +11,11 @@ import SwiftUI
 struct LegacySettingsView: UIViewControllerRepresentable {
     typealias UIViewControllerType = SettingsViewTableController
 
+    @EnvironmentObject var applicationState: GCApplicationState
+
     func makeUIViewController(context _: Context) -> SettingsViewTableController {
         let vc = SettingsViewTableController()
-        let mainVc = getMainViewController()
-        vc.appDispSettings = mainVc?.theSettings
-
+        vc.appDispSettings = applicationState.displaySettings
         return vc
     }
 

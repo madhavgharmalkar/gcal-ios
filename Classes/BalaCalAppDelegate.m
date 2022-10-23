@@ -86,13 +86,6 @@
     NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
     NSInteger viewMode = [ud integerForKey:@"viewMode"];
     [self setViewMode:viewMode];
-	
-	// init data if not initialized
-#ifdef GCAL_DEBUG_BUILD_LOCATIONS
-	NSLog(@"Now it is going to build locations list.\n");
-	[self initLocationsDb];
-	NSLog(@"Building locations list is completed.\n");
-#endif
 
     [self showDate:dateToShow];
     [self applicationRegisterForLocalNotifications];
@@ -320,18 +313,6 @@
     }
 }
 
--(void)onSwipeLeft {
-    GCGregorianTime * date = [[self.dayView attachedDate] nextDay];
-    
-    [self.mainViewCtrl showDateSingle:date];
-}
-
--(void)onSwipeRight {
-    GCGregorianTime * date = [[self.dayView attachedDate] previousDay];
-    
-    [self.mainViewCtrl showDateSingle:date];
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     
@@ -528,14 +509,6 @@
 //    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 //}
 
-
-#pragma mark - User Actions
-
--(void)onTodayButton {
-    GCGregorianTime * today = [GCGregorianTime today];
-    [self showDate:today];
-}
-
 #pragma mark - Core Data stack
 
 - (NSManagedObjectContext *)managedObjectContext {
@@ -635,45 +608,6 @@
 
 #pragma mark - location database
 
--(NSArray *)getLocationsRoot:(NSManagedObjectContext *)ctx
-{
-	NSFetchRequest * request = [[NSFetchRequest alloc] init];
-	NSEntityDescription * ed = [NSEntityDescription entityForName:@"LGroup"
-										   inManagedObjectContext:ctx];
-	NSPredicate * prd = [NSPredicate predicateWithFormat:@"title = \"ROOT\""];
-	
-	[request setEntity:ed];
-	[request setPredicate:prd];
-	
-	return [ctx executeFetchRequest:request error:NULL];
-}
-
--(NSArray *)locSubgroupsForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx
-{
-	NSFetchRequest * request = [[NSFetchRequest alloc] init];
-	NSEntityDescription * ed = [NSEntityDescription entityForName:@"LGroup"
-										   inManagedObjectContext:ctx];
-	NSPredicate * prd = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"parentCode = \"%@\"",strKey]];
-	
-	[request setEntity:ed];
-	[request setPredicate:prd];
-	
-	return [ctx executeFetchRequest:request error:NULL];
-}
-
--(NSArray *)locCitiesForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx
-{
-	NSFetchRequest * request = [[NSFetchRequest alloc] init];
-	NSEntityDescription * ed = [NSEntityDescription entityForName:@"LCity"
-										   inManagedObjectContext:ctx];
-	NSPredicate * prd = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"parentCode = \"%@\"",strKey]];
-	
-	[request setEntity:ed];
-	[request setPredicate:prd];
-	
-	return [ctx executeFetchRequest:request error:NULL];
-}
-
 -(void)setGPS {
 	[self.mainViewCtrl actionNormalView:self];
 //    if (self.scrollViewH.hidden == NO)
@@ -713,13 +647,8 @@
 {
 //    if (!self.scrollViewH.hidden)
 //        [self.scrollViewH showDate:dateToShow];
-    if (!self.scrollViewD.hidden)
-    {
-        [self.dayView attachDate:dateToShow];
-        [self.dayView refreshDateAttachement];
-        self.scrollViewD.contentOffset = CGPointZero;
-        self.scrollViewD.contentSize = self.dayView.frame.size;
-        [self.dayView setNeedsDisplay];
+    if (!self.scrollViewD.hidden) {
+        [self.mainViewCtrl showDateSingle:dateToShow];
     }
     if (!self.scrollViewV.hidden)
         [self.scrollViewV showDate:dateToShow];
