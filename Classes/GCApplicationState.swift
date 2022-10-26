@@ -21,7 +21,8 @@ import SwiftUI
 
     // the current date information,idk if we'll switch this to native SwiftUI Dates
     private var gcDate: GCGregorianTime
-    @Published @objc public var date = Date() {
+
+    @Published public var date = Date() {
         didSet {
             if oldValue != date {
                 let calendar = Calendar.current
@@ -37,6 +38,43 @@ import SwiftUI
 
                 appDelegate.showDate(gct)
             }
+        }
+    }
+
+    @Published public var placemark: CLPlacemark? {
+        didSet {
+            if oldValue == placemark {
+                return
+            }
+
+            guard let newPlacemark = placemark else {
+                return
+            }
+
+            guard let location = newPlacemark.location else {
+                return
+            }
+
+            gcLocation.longitude = location.coordinate.longitude
+            gcLocation.latitude = location.coordinate.latitude
+
+            guard let city = newPlacemark.locality, let country = newPlacemark.country, let timezone = newPlacemark.timeZone else {
+                return
+            }
+
+            gcLocation.city = city
+            gcLocation.country = country
+            gcLocation.timeZone = timezone
+
+            displaySettings.locCity = city
+            displaySettings.locCountry = country
+            displaySettings.locLatitude = location.coordinate.latitude
+            displaySettings.locLongitude = location.coordinate.longitude
+            displaySettings.locTimeZone = timezone.identifier
+
+            gcEngine.reset()
+
+            appDelegate.setGPS()
         }
     }
 
@@ -67,36 +105,5 @@ import SwiftUI
         gcDate = GCGregorianTime.today()
 
         super.init()
-
-//        $date.sink { receivedDate in
-//            print(receivedDate)
-//        }
-    }
-
-    func setLocation(placemark: CLPlacemark) {
-        guard let location = placemark.location else {
-            return
-        }
-
-        gcLocation.longitude = location.coordinate.longitude
-        gcLocation.latitude = location.coordinate.latitude
-
-        guard let city = placemark.locality, let country = placemark.country, let timezone = placemark.timeZone else {
-            return
-        }
-
-        gcLocation.city = city
-        gcLocation.country = country
-        gcLocation.timeZone = timezone
-
-        displaySettings.locCity = city
-        displaySettings.locCountry = country
-        displaySettings.locLatitude = location.coordinate.latitude
-        displaySettings.locLongitude = location.coordinate.longitude
-        displaySettings.locTimeZone = timezone.identifier
-
-        gcEngine.reset()
-
-        appDelegate.setGPS()
     }
 }

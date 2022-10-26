@@ -53,7 +53,7 @@ struct ChangeGPSView: View {
                                 return
                             }
 
-                            applicationState.setLocation(placemark: placemark)
+                            applicationState.placemark = placemark
                             dismiss()
                         } label: {
                             Text("Set")
