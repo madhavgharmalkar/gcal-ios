@@ -44,6 +44,4 @@
 -(IBAction)actionToday:(id)sender;
 -(IBAction)actionNormalView:(id)sender;
 
--(void)showDateSingle:(GCGregorianTime *)dateToShow;
-
 @end

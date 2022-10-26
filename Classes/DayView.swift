@@ -19,9 +19,31 @@ struct DayView: View {
             Text(applicationState.date.formatted(.dateTime.weekday(.wide).day().month().year()))
                 .font(.title)
                 .padding(.horizontal)
+            HStack(spacing: 0) {
+                Image(systemName: "location.fill")
+                Text("\(applicationState.displaySettings.locCity) / \(applicationState.displaySettings.locCountry)")
+            }.padding(.horizontal)
+                .font(.subheadline)
 
-            Text("\(applicationState.displaySettings.locCity) / \(applicationState.displaySettings.locCountry)")
-                .padding(.horizontal)
+            HStack {
+                Spacer()
+                VStack {
+                    Image(systemName: "sunrise")
+                    Text(applicationState.todayInfoData.calendarDay.shortSunriseTime())
+                }
+                Spacer()
+                VStack {
+                    Image(systemName: "sun.max")
+                    Text(applicationState.todayInfoData.calendarDay.shortNoonTime())
+                }
+                Spacer()
+                VStack {
+                    Image(systemName: "sunset")
+                    Text(applicationState.todayInfoData.calendarDay.shortSunsetTime())
+                }
+                Spacer()
+            }
+            .padding(.vertical)
 
             LegacyMainView()
                 .toolbar {

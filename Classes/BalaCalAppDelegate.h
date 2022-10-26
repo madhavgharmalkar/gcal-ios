@@ -35,8 +35,6 @@
 @property (strong) MainViewController * mainViewCtrl;
 @property (strong) NSString * lastNotificationDateTomorrow;
 @property (strong) NSString * lastNotificationDateToday;
-@property IBOutlet UIButton * nextDay;
-@property IBOutlet UIButton * prevDay;
 @property BOOL defaultsChangesPending;
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;

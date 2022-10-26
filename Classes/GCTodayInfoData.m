@@ -10,18 +10,12 @@
 
 @implementation GCTodayInfoData
 
-
--(id)initWithCalendarDay:(GCCalendarDay *)cd
-{
-    self = [super init];
-    
-    if (self) {
-        self.calendarDay = cd;
+-(instancetype)initWithCalendarDay:(GCCalendarDay *)calendarDay {
+    if (self = [super init]) {
+        _calendarDay = calendarDay;
     }
     
     return self;
 }
-
-
 
 @end

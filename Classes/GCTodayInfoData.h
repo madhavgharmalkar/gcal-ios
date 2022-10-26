@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 @class GCCalendarDay;
 
-@interface GCTodayInfoData : NSObject
+@interface GCTodayInfoData : NSObject {
+}
 
+@property(strong) GCCalendarDay *calendarDay;
 
-@property GCCalendarDay * calendarDay;
-
--(id)initWithCalendarDay:(GCCalendarDay *)cd;
+- (instancetype)initWithCalendarDay:(GCCalendarDay *)calendarDay;
 
 
 @end

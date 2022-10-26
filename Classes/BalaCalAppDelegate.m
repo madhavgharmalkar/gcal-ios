@@ -59,7 +59,6 @@
     
     UIViewController *swiftUiVc = [SwiftUIViewFactory makeSwiftUIView];
     self.window.rootViewController = swiftUiVc;
-    self.mainViewCtrl.view.frame = self.mainView.frame;
     
     [self.window makeKeyAndVisible];
 
@@ -329,9 +328,8 @@
 }
 
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [self.mainViewCtrl actionToday:self];
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    self.applicationState.date = NSDate.now;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -507,16 +505,16 @@
     }
 }
 
--(void)showDate:(GCGregorianTime *)dateToShow
-{
-//    if (!self.scrollViewH.hidden)
-//        [self.scrollViewH showDate:dateToShow];
+-(void)showDate:(GCGregorianTime *)dateToShow {
     if (!self.scrollViewD.hidden) {
-        [self.mainViewCtrl showDateSingle:dateToShow];
+        [self.dayView attachDate:dateToShow];
+        [self.dayView refreshDateAttachement];
+        self.scrollViewD.contentOffset = CGPointZero;
+        self.scrollViewD.contentSize = self.dayView.frame.size;
+        [self.dayView setNeedsDisplay];
     }
     if (!self.scrollViewV.hidden)
         [self.scrollViewV showDate:dateToShow];
-
 }
 
 @end

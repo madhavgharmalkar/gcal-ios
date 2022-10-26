@@ -22,7 +22,10 @@ import SwiftUI
     // the current date information,idk if we'll switch this to native SwiftUI Dates
     private var gcDate: GCGregorianTime
 
-    @Published public var date = Date() {
+    // the current data for the selected date
+    var todayInfoData: GCTodayInfoData
+
+    @Published @objc public var date = Date() {
         didSet {
             if oldValue != date {
                 let calendar = Calendar.current
@@ -35,6 +38,12 @@ import SwiftUI
                 gct.month = Int32(month)
                 gct.day = Int32(day)
                 gcDate = gct
+
+                let jullianDate = gct.getJulianInteger()
+                let julPage = jullianDate / 32
+                let julPageIndex = jullianDate % 32
+
+                todayInfoData = gcEngine.requestPageSynchronous(Int32(julPage), itemIndex: Int32(julPageIndex))
 
                 appDelegate.showDate(gct)
             }
@@ -88,6 +97,8 @@ import SwiftUI
         gcEngine = GCEngine()
         gcDate = GCGregorianTime.today()
 
+        todayInfoData = GCTodayInfoData()
+
         super.init()
 
         displaySettings.readFromFile()
@@ -105,5 +116,6 @@ import SwiftUI
         gcEngine.theSettings = displaySettings
         gcEngine.myStrings = gcStrings
         gcEngine.myLocation = gcLocation
+        todayInfoData.calendarDay = GCCalendarDay()
     }
 }

@@ -36,23 +36,6 @@
 #pragma mark -
 #pragma mark User Interface actions
 
--(void)showDateSingle:(GCGregorianTime *)dateToShow
-{
-    [self.dayView attachDate:dateToShow];
-    [self.dayView refreshDateAttachement];
-    self.scrollViewD.contentOffset = CGPointZero;
-    self.scrollViewD.contentSize = self.dayView.frame.size;
-    [self.dayView setNeedsDisplay];
-}
-
--(IBAction)actionToday:(id)sender {
-    if (!self.scrollViewD.hidden)
-        [self showDateSingle:[GCGregorianTime today]];
-    if (!self.scrollViewV.hidden)
-        [self.scrollViewV showDate:[GCGregorianTime today]];
-
-}
-
 -(IBAction)actionNormalView:(id)sender
 {
     [self.theSettings writeToFile];

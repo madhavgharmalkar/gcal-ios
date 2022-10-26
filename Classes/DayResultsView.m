@@ -76,7 +76,7 @@
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
     
-    [self drawGregorianDate:canvas];
+//    [self drawGregorianDate:canvas];
     [self drawVedicDate:canvas];
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
@@ -218,8 +218,6 @@
     
     CGRect fillArea = CGRectMake(canvas.leftMargin-2, canvas.currY-2, canvas.rightMargin-canvas.leftMargin + 4, 0);
 
-    if (self.engine.theSettings.t_sunrise)
-        fillArea.size.height += s1.height + s2.height + 8;
     if (self.engine.theSettings.t_sandhya)
         fillArea.size.height += s1.height + s2.height + 8;
     if (self.engine.theSettings.t_brahma)
@@ -244,26 +242,6 @@
             [canvas drawCenterString:str style:@"normal-1" left:canvas.leftMargin right:canvas.rightMargin];
             canvas.currY += 5;
             //        [canvas newLine];
-        }
-
-        if (self.engine.theSettings.t_sunrise)
-        {
-            y = canvas.currY;
-            
-            [canvas drawCenterString:[gstr string:51] style:@"normal-1" left:canvas.leftMargin right:mA];
-            [canvas drawCenterString:[p shortSunriseTime] style:@"bold-1.5" left:canvas.leftMargin right:mA];
-
-            canvas.currY = y;
-            [canvas drawCenterString:[gstr string:857] style:@"normal-1" left:mA right:mB];
-            [canvas drawCenterString:[p shortNoonTime] style:@"bold-1.5" left:mA right:mB];
-
-            canvas.currY = y;
-            [canvas drawCenterString:[gstr string:52] style:@"normal-1"  left:mB right:canvas.rightMargin];
-            [canvas drawCenterString:[p shortSunsetTime] style:@"bold-1.5"  left:mB right:canvas.rightMargin];
-
-
-            canvas.currX = canvas.leftMargin;
-            canvas.currY += 8;
         }
         
         if (self.engine.theSettings.t_sandhya)

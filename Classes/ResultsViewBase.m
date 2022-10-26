@@ -11,12 +11,9 @@
 
 @implementation ResultsViewBase
 
--(void)attachDate:(GCGregorianTime *)date
-{
+-(void)attachDate:(GCGregorianTime *)date {
     self.attachedDate = date;
     self.hasAttachedDate = YES;
-
-    [self refreshDateAttachement];
 }
 
 -(void)refreshDateAttachement
@@ -26,17 +23,6 @@
     int julPageIndex = julDay % 32;
     
     self.data = [self.engine requestPage:julPage view:self itemIndex:julPageIndex];
-//    if (self.data == nil)
-//    {
-//        self.viewState = DRV_MODE_ASSIGNED_WAITING;
-//        //NSLog(@"Put to waiting for date %@", [date longDateString]);
-//    }
-//    else
-//    {
-//        self.viewState = DRV_MODE_ASSIGNED;
-//    }
-    
-//    [self setNeedsDisplay];
     
     CGRect rect = self.frame;
     rect.size = [self calculateContentSize];

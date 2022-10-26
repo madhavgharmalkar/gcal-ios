@@ -160,15 +160,13 @@
     [self.pagesLock lock];
     
     for (GCCalculatedDaysPage * page in self.pages) {
-        if (page.pageNo == pageNo)
-        {
+        if (page.pageNo == pageNo) {
             data = [page objectAtIndex:index];
             break;
         }
     }
     
-    if (data == nil)
-    {
+    if (data == nil) {
         newPage = [GCCalculatedDaysPage new];
         newPage.usage = 0;
         newPage.done = NO;
@@ -178,8 +176,7 @@
     
     [self.pagesLock unlock];
 
-    if (data != nil)
-    {
+    if (data != nil) {
         return data;
     }
     
