@@ -61,6 +61,7 @@ struct ChangeGPSView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
+                    .padding(.horizontal)
                 }
             }.frame(maxHeight: .infinity)
         }

@@ -82,6 +82,11 @@ import SwiftUI
             displaySettings.locTimeZone = timezone.identifier
 
             gcEngine.reset()
+            
+            let jullianDate = gcDate.getJulianInteger()
+            let julPage = jullianDate / 32
+            let julPageIndex = jullianDate % 32
+            todayInfoData = gcEngine.requestPageSynchronous(Int32(julPage), itemIndex: Int32(julPageIndex))
 
             appDelegate.setGPS()
         }

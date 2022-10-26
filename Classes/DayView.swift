@@ -19,11 +19,11 @@ struct DayView: View {
             Text(applicationState.date.formatted(.dateTime.weekday(.wide).day().month().year()))
                 .font(.title)
                 .padding(.horizontal)
-            HStack(spacing: 0) {
+            HStack(spacing: 3) {
                 Image(systemName: "location.fill")
                 Text("\(applicationState.displaySettings.locCity) / \(applicationState.displaySettings.locCountry)")
             }.padding(.horizontal)
-                .font(.subheadline)
+                .font(.caption)
 
             HStack {
                 Spacer()
@@ -44,35 +44,9 @@ struct DayView: View {
                 Spacer()
             }
             .padding(.vertical)
+            .font(.subheadline)
 
             LegacyMainView()
-                .toolbar {
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        Button("Today") {
-                            applicationState.date = Date()
-                        }
-                        Spacer()
-                        Button("Action") {
-                            showingActions = true
-                        }.confirmationDialog("Choose Option", isPresented: $showingActions) {
-                            Button("Go to date") {
-                                showDateSheet.toggle()
-                            }
-                            NavigationLink("Change location (GPS)") {
-                                ChangeGPSView()
-                            }
-                        }
-                        .sheet(isPresented: $showDateSheet) {
-                            ChangeDateView(isPresented: $showDateSheet)
-                                .presentationDetents([.medium])
-                        }
-                        Spacer()
-                        NavigationLink("Settings") {
-                            LegacySettingsView()
-                                .navigationTitle("Settings")
-                        }
-                    }
-                }
                 .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
                     .onEnded { value in
                         switch (value.translation.width, value.translation.height) {
@@ -86,6 +60,33 @@ struct DayView: View {
                     })
         }
         .frame(maxWidth: .infinity)
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button("Today") {
+                    applicationState.date = Date()
+                }
+                Spacer()
+                Button("Action") {
+                    showingActions = true
+                }.confirmationDialog("Choose Option", isPresented: $showingActions) {
+                    Button("Go to date") {
+                        showDateSheet.toggle()
+                    }
+                    NavigationLink("Change location (GPS)") {
+                        ChangeGPSView()
+                    }
+                }
+                .sheet(isPresented: $showDateSheet) {
+                    ChangeDateView(isPresented: $showDateSheet)
+                        .presentationDetents([.medium])
+                }
+                Spacer()
+                NavigationLink("Settings") {
+                    LegacySettingsView()
+                        .navigationTitle("Settings")
+                }
+            }
+        }
     }
 }
 
