@@ -99,7 +99,7 @@
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
     
-    [self drawGregorianDate:canvas];
+//    [self drawGregorianDate:canvas];
     [self drawVedicDate:canvas];
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];

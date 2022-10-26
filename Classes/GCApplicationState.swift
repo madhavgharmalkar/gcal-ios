@@ -14,7 +14,7 @@ import SwiftUI
     private var appDelegate: BalaCalAppDelegate
 
     // current public variables
-    @objc public var displaySettings: GCDisplaySettings
+    @Published @objc public var displaySettings: GCDisplaySettings
     @objc public var gcStrings: GCStrings
     @objc public var gcLocation: GcLocation
     @objc public var gcEngine: GCEngine
@@ -82,12 +82,17 @@ import SwiftUI
         self.appDelegate = appDelegate
 
         displaySettings = GCDisplaySettings()
-        displaySettings.readFromFile()
+        gcLocation = GcLocation()
 
         gcStrings = GCStrings()
+        gcEngine = GCEngine()
+        gcDate = GCGregorianTime.today()
+
+        super.init()
+
+        displaySettings.readFromFile()
         gcStrings.prepare()
 
-        gcLocation = GcLocation()
         gcLocation.city = displaySettings.locCity
         gcLocation.country = displaySettings.locCountry
         gcLocation.latitude = displaySettings.locLatitude
@@ -97,13 +102,8 @@ import SwiftUI
             gcLocation.timeZone = TimeZone.current
         }
 
-        gcEngine = GCEngine()
         gcEngine.theSettings = displaySettings
         gcEngine.myStrings = gcStrings
         gcEngine.myLocation = gcLocation
-
-        gcDate = GCGregorianTime.today()
-
-        super.init()
     }
 }

@@ -19,12 +19,10 @@ struct DayView: View {
             Text(applicationState.date.formatted(.dateTime.weekday(.wide).day().month().year()))
                 .font(.title)
                 .padding(.horizontal)
-            
-            if let placemark = applicationState.placemark, let city = placemark.locality, let country = placemark.country {
-                Text("\(city) / \(country)")
-                    .padding(.horizontal)
-            }
-            
+
+            Text("\(applicationState.displaySettings.locCity) / \(applicationState.displaySettings.locCountry)")
+                .padding(.horizontal)
+
             LegacyMainView()
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
