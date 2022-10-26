@@ -49,6 +49,14 @@ For now we will use the date in the YYYY.MM.DD format
 
 Load ASC API Key information to use in subsequent lanes
 
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+Capture Screenshots
+
 ### ios release
 
 ```sh

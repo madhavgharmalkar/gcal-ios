@@ -50,8 +50,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
-        -> Void)
-    {
+        -> Void) {
         // Use the last reported location.
         if let lastLocation = location {
             let geocoder = CLGeocoder()

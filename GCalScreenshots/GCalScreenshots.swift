@@ -15,6 +15,23 @@ final class GCalScreenshots: XCTestCase {
     }
 
     func testHomeScreen() {
+        addUIInterruptionMonitor(withDescription: "notifications alert") { alert in
+            let btnAllow = alert.buttons["Allow"]
+            let btnAllowAlways = alert.buttons["Always Allow"]
+            if btnAllow.exists {
+                btnAllow.tap()
+                return true
+            }
+            if btnAllowAlways.exists {
+                btnAllowAlways.tap()
+                return true
+            }
+            XCTFail("Unexpected System Alert")
+            return false
+        }
+
+        let app = XCUIApplication()
+        app.tap()
         snapshot("01HomeScreen")
     }
 }
