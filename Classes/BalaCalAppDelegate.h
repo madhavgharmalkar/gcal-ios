@@ -45,7 +45,6 @@
 - (NSString *)applicationDocumentsDirectory;
 -(void)setGPS;
 
--(void)setLocationData:(GcLocation *)locationdata;
 -(void)setViewMode:(NSInteger)sm;
 -(void)showDate:(GCGregorianTime *)dateToShow;
 

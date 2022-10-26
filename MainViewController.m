@@ -30,7 +30,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     self.view.userInteractionEnabled = NO;
-    self.mainView.userInteractionEnabled = NO;
     [super viewDidLoad];
 }
 

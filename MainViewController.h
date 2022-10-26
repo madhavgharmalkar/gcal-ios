@@ -33,7 +33,6 @@
 @property IBOutlet VUScrollView * scrollViewV;
 @property IBOutlet UIScrollView * scrollViewD;
 @property IBOutlet DayResultsView * dayView;
-@property UIView * mainView;
 @property GcResultToday * calcToday;
 @property GCDisplaySettings * theSettings;
 

@@ -60,13 +60,10 @@
     UIViewController *swiftUiVc = [SwiftUIViewFactory makeSwiftUIView];
     self.window.rootViewController = swiftUiVc;
     self.mainViewCtrl.view.frame = self.mainView.frame;
-    [self.mainView addSubview:self.mainViewCtrl.view];
     
     [self.window makeKeyAndVisible];
 
     self.mainViewCtrl.view = self.mainView;
-    self.mainViewCtrl.mainView = self.mainView;
-//    self.mainViewCtrl.scrollViewH = self.scrollViewH;
     self.mainViewCtrl.scrollViewD = self.scrollViewD;
     self.mainViewCtrl.dayView = self.dayView;
     self.mainViewCtrl.scrollViewV = self.scrollViewV;
@@ -381,133 +378,11 @@
     }
 }
 
-//-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-//{
-//    //NSLog(@"BACKGROUND FETCH WORKS");
-//    completionHandler(UIBackgroundFetchResultNoData);
-//    
-//    GCGregorianTime * today = [GCGregorianTime today];
-//    
-//    NSString * key = [today longDateString];
-//
-//    // calculation for today only after 3 AM
-//    if (today.shour >= 3/24.0 && ![self.lastNotificationDateToday isEqualToString:key])
-//    {
-//        NSString * notice = [self getTodayNotifications:today];
-//        
-//        if (notice)
-//        {
-//            NSString * date = [NSString stringWithFormat:@"%d.%d.%d", today.year, today.month, today.day];
-//            [self scheduleNotificationWithItem:notice date:date];
-//        }
-//        self.lastNotificationDateToday = key;
-//
-//    }
-//
-//    // here get data for tomorrow
-//    today = [today nextDay];
-//    key = [today longDateString];
-//
-//    // calculation for tomorrow only after 9 AM
-//    if (today.shour > 9/24.0 && ![self.lastNotificationDateTomorrow isEqualToString:key])
-//    {
-//        NSString * notice = [self getTomorrowNotifications:today];
-//        
-//        if (notice)
-//        {
-//            NSString * date = [NSString stringWithFormat:@"%d.%d.%d", today.year, today.month, today.day];
-//            [self scheduleNotificationWithItem:notice date:date];
-//        }
-//        self.lastNotificationDateTomorrow = key;
-//    }
-//}
-
-//-(NSString *)getTodayNotifications:(GCGregorianTime *)today
-//{
-//    int julDay = [today getJulianInteger];
-//    int julPage = julDay / 32;
-//    int julPageIndex = julDay % 32;
-//    
-//    GCTodayInfoData * data = [self.theEngine requestPageSynchronous:julPage itemIndex:julPageIndex];
-//    NSMutableString * notice = [NSMutableString new];
-//    [notice appendString:@"GCAL Today: "];
-//    NSInteger initialLength = [notice length];
-//    if (data.calendarDay.isEkadasiParana && self.dispSettings.note_bf_today)
-//    {
-//        [notice appendString:[data.calendarDay GetTextEP:self.gstrings]];
-//    }
-//    
-//    for (GcDayFestival * fest in data.calendarDay.festivals) {
-//        if ((fest.highlight == 1 || fest.highlight == 2) && (self.dispSettings.note_fd_today))
-//        {
-//            if ([notice length] > initialLength)
-//            {
-//                [notice appendString:@", "];
-//            }
-//            [notice appendString:fest.name];
-//        }
-//    }
-//    
-//    if (notice.length > initialLength)
-//        return notice;
-//    return nil;
-//}
-//
-//-(NSString *)getTomorrowNotifications:(GCGregorianTime *)today
-//{
-//    int julDay = [today getJulianInteger];
-//    int julPage = julDay / 32;
-//    int julPageIndex = julDay % 32;
-//    
-//    GCTodayInfoData * data = [self.theEngine requestPageSynchronous:julPage itemIndex:julPageIndex];
-//    NSMutableString * notice = [NSMutableString new];
-//    [notice appendString:@"GCAL Tomorrow: "];
-//    NSInteger initialLength = [notice length];
-//    if (data.calendarDay.isEkadasiParana && self.dispSettings.note_bf_tomorrow)
-//    {
-//        [notice appendString:[data.calendarDay GetTextEP:self.gstrings]];
-//    }
-//    
-//    for (GcDayFestival * fest in data.calendarDay.festivals) {
-//        if ((fest.highlight == 1 || fest.highlight == 2) && (self.dispSettings.note_fd_tomorrow))
-//        {
-//            if ([notice length] > initialLength)
-//            {
-//                [notice appendString:@", "];
-//            }
-//            [notice appendString:fest.name];
-//        }
-//    }
-//
-//    if (notice.length > initialLength)
-//        return notice;
-//    return nil;
-//}
-
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSString *itemName = [notification.userInfo objectForKey:@"GCALEvent"];
     NSLog(@"In background ItemName: %@", itemName);
 }
-
-//- (void)scheduleNotificationWithItem:(NSString *)eventTitle date:(NSString *)date
-//{
-//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-//    if (localNotif == nil)
-//        return;
-//    localNotif.fireDate = nil;
-//    localNotif.timeZone = [NSTimeZone defaultTimeZone];
-//    localNotif.alertBody = eventTitle;
-//    localNotif.alertAction = NSLocalizedString(@"View Details", nil);
-//    
-//    localNotif.soundName = UILocalNotificationDefaultSoundName;
-//    localNotif.applicationIconBadgeNumber = 0;
-//    
-//    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"ShowDate", @"action", date, @"date", nil];
-//    localNotif.userInfo = infoDict;
-//    
-//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-//}
 
 #pragma mark - Core Data stack
 
@@ -606,8 +481,6 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
-#pragma mark - location database
-
 -(void)setGPS {
 	[self.mainViewCtrl actionNormalView:self];
 //    if (self.scrollViewH.hidden == NO)
@@ -618,15 +491,6 @@
         [self.scrollViewV reloadData];
     
     [self resetFutureNotifications];
-}
-
--(void)setLocationData:(GcLocation *)locationdata
-{
-    self.applicationState.gcLocation.city = locationdata.city;
-    self.applicationState.gcLocation.country = locationdata.country;
-    self.applicationState.gcLocation.latitude = locationdata.latitude;
-    self.applicationState.gcLocation.longitude = locationdata.longitude;
-    self.applicationState.gcLocation.timeZone = locationdata.timeZone;
 }
 
 -(void)setViewMode:(NSInteger)sm
