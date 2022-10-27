@@ -107,42 +107,6 @@
     self.drawBottom = canvas.currY + 40;
 }
 
--(void)drawVedicDate:(GCCanvas *)canvas
-{
-    GCStrings * gstr = [GCStrings shared];
-    GCCalendarDay * p = self.data.calendarDay;
-    
-    [canvas addY:10];
-    
-    NSString * text1 = [gstr GetTithiName:p.astrodata.nTithi];
-    NSString * text2 = [NSString stringWithFormat:@", %@ %@", [gstr GetPaksaName:p.astrodata.nPaksa],
-                        [gstr string:20]];
-    CGSize size1 = [canvas sizeOfString:text1 style:@"bold-1.5"];
-    CGSize size2 = [canvas sizeOfString:text2 style:@"normal-1.5"];
-    
-    canvas.currX = (canvas.leftMargin + canvas.rightMargin - size1.width - size2.width)/2;
-    
-    [canvas drawString:text1 style:@"bold-1.5"];
-    [canvas drawString:text2 style:@"normal-1.5"];
-    [canvas newLine];
-    [canvas addY:5];
-    
-    NSString * str = [p resolveSpecialEkadasiMessage];
-    if (str.length > 0)
-    {
-        [canvas drawCenterString:str style:@"normal-1.5" left:canvas.leftMargin right:canvas.rightMargin];
-        [canvas addY:5];
-    }
-    
-    str = [NSString stringWithFormat:@"%@ %@, %d Gaurabda",
-     [gstr GetMasaName:p.astrodata.nMasa], [gstr string:22], p.astrodata.nGaurabdaYear];
-    
-    [canvas drawCenterString:str style:@"normal-1" left:canvas.leftMargin right:canvas.rightMargin];
-//    [canvas newLine];
-    canvas.currY += 8;
-    
-}
-
 /*
  @YES, @"t_brahma",
  @YES, @"t_sandhya",
