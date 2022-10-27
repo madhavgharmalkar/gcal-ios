@@ -76,7 +76,6 @@
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
     
-//    [self drawGregorianDate:canvas];
     [self drawVedicDate:canvas];
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
@@ -99,7 +98,6 @@
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
     
-//    [self drawGregorianDate:canvas];
     [self drawVedicDate:canvas];
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
@@ -108,56 +106,6 @@
     [self drawCoreEvents:canvas];
 
     self.drawBottom = canvas.currY + 40;
-}
-
-
-- (void)drawGregorianDate:(GCCanvas *)canvas
-{
-    NSString * dateString = [self.attachedDate longDateString];
-    NSString * text2 = [self.attachedDate relativeTodayString];
-    NSString * text3 = [self.attachedDate longDowString];
-    NSString * space = @" ";
-    
-    CGSize dateStringSize = [canvas sizeOfString:dateString style:@"bold-1.5"];
-    CGSize text2Size = [canvas sizeOfString:text2 style:@"normal-1.5"];
-    CGSize text3Size = [canvas sizeOfString:text3 style:@"normal-1.5"];
-    CGSize spaceSize = [canvas sizeOfString:space style:@"bold-1.5"];
-
-    CGFloat twoLinesWidth = dateStringSize.width + spaceSize.width + text2Size.width;
-    CGFloat oneLineWidth = twoLinesWidth + spaceSize.width + text3Size.width;
-    
-    if (oneLineWidth > (canvas.rightMargin - canvas.leftMargin))
-    {
-        canvas.currX = (canvas.rightMargin + canvas.leftMargin - twoLinesWidth)/2;
-        [canvas drawString:dateString style:@"bold-1.5"];
-        [canvas drawString:space style:@"bold-1.5"];
-        [canvas drawString:text2 style:@"normal-1.5"];
-        [canvas newLine];
-        canvas.currX = (canvas.rightMargin + canvas.leftMargin - text3Size.width) / 2;
-        [canvas drawString:text3 style:@"normal-1.5"];
-        [canvas newLine];
-    }
-    else
-    {
-        canvas.currX = (canvas.rightMargin + canvas.leftMargin - oneLineWidth) / 2;
-        [canvas drawString:dateString style:@"bold-1.5"];
-        [canvas drawString:space style:@"bold-1.5"];
-        [canvas drawString:text2 style:@"normal-1.5"];
-        [canvas drawString:space style:@"bold-1.5"];
-        [canvas drawString:text3 style:@"normal-1.5"];
-        [canvas newLine];
-    }
-
-    
-    // first line
-    [canvas drawCenterString:[self.engine.myLocation fullName] style:@"location-subtitle"
-                        left:canvas.leftMargin right:canvas.rightMargin];
-    
-    [canvas drawCenterString:[self.engine.myLocation timeZoneNameForDate:self.attachedDate]
-                       style:@"location-subtitle" left:canvas.leftMargin right:canvas.rightMargin];
-    
-    
-    return;
 }
 
 -(void)drawVedicDate:(GCCanvas *)canvas

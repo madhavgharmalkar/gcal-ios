@@ -15,6 +15,11 @@ struct DayView: View {
     @EnvironmentObject private var applicationState: GCApplicationState
 
     var body: some View {
+        let calendarDay = applicationState.appDelegate.mainViewCtrl.dayView.data.calendarDay as GCCalendarDay
+
+        let monthName = applicationState.gcStrings.getMasaName(calendarDay.astrodata.nMasa) ?? ""
+        let vedicMonthAndYear = "\(monthName), \(calendarDay.astrodata.nGaurabdaYear) Gaurabda"
+
         VStack(alignment: .leading, spacing: 0) {
             Text(applicationState.date.formatted(.dateTime.weekday(.wide).day().month().year()))
                 .font(.title)
@@ -25,39 +30,34 @@ struct DayView: View {
             }.padding(.horizontal)
                 .font(.caption)
 
+            Spacer()
+                .frame(height: 10)
+
+            Text(vedicMonthAndYear)
+                .padding(.horizontal)
+                .font(.headline)
+
             HStack {
                 Spacer()
                 VStack {
                     Image(systemName: "sunrise")
-                    Text(applicationState.todayInfoData.calendarDay.shortSunriseTime())
+                    Text(calendarDay.shortSunriseTime())
                 }
                 Spacer()
                 VStack {
                     Image(systemName: "sun.max")
-                    Text(applicationState.todayInfoData.calendarDay.shortNoonTime())
+                    Text(calendarDay.shortNoonTime())
                 }
                 Spacer()
                 VStack {
                     Image(systemName: "sunset")
-                    Text(applicationState.todayInfoData.calendarDay.shortSunsetTime())
+                    Text(calendarDay.shortSunsetTime())
                 }
                 Spacer()
             }
             .padding(.vertical)
             .font(.subheadline)
-
             LegacyMainView()
-                .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
-                    .onEnded { value in
-                        switch (value.translation.width, value.translation.height) {
-                        case (...0, -30 ... 30):
-                            applicationState.date = Calendar.current.date(byAdding: .day, value: 1, to: applicationState.date) ?? Date()
-                        case (0..., -30 ... 30):
-                            applicationState.date = Calendar.current.date(byAdding: .day, value: -1, to: applicationState.date) ?? Date()
-                        default:
-                            print("no swipe that we care about")
-                        }
-                    })
         }
         .frame(maxWidth: .infinity)
         .toolbar {
@@ -87,6 +87,17 @@ struct DayView: View {
                 }
             }
         }
+        .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+            .onEnded { value in
+                switch (value.translation.width, value.translation.height) {
+                case (...0, -30 ... 30):
+                    applicationState.date = Calendar.current.date(byAdding: .day, value: 1, to: applicationState.date) ?? Date()
+                case (0..., -30 ... 30):
+                    applicationState.date = Calendar.current.date(byAdding: .day, value: -1, to: applicationState.date) ?? Date()
+                default:
+                    print("no swipe that we care about")
+                }
+            })
     }
 }
 

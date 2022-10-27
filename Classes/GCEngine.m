@@ -103,8 +103,7 @@
     
 }
 
--(GCTodayInfoData *)requestPage:(int)pageNo view:(ResultsViewBase *)view itemIndex:(int)index
-{
+-(GCTodayInfoData *)requestPage:(int)pageNo view:(ResultsViewBase *)view itemIndex:(int)index {
     GCTodayInfoData * data = nil;
     GCCalculatedDaysPage * newPage = nil;
     

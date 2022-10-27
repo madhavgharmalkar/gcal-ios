@@ -11,7 +11,7 @@ import MapKit
 import SwiftUI
 
 @objc public final class GCApplicationState: NSObject, ObservableObject {
-    private var appDelegate: BalaCalAppDelegate
+    public var appDelegate: BalaCalAppDelegate
 
     // current public variables
     @Published @objc public var displaySettings: GCDisplaySettings
@@ -21,9 +21,6 @@ import SwiftUI
 
     // the current date information,idk if we'll switch this to native SwiftUI Dates
     private var gcDate: GCGregorianTime
-
-    // the current data for the selected date
-    var todayInfoData: GCTodayInfoData
 
     @Published @objc public var date = Date() {
         didSet {
@@ -39,11 +36,10 @@ import SwiftUI
                 gct.day = Int32(day)
                 gcDate = gct
 
-                let jullianDate = gct.getJulianInteger()
-                let julPage = jullianDate / 32
-                let julPageIndex = jullianDate % 32
-
-                todayInfoData = gcEngine.requestPageSynchronous(Int32(julPage), itemIndex: Int32(julPageIndex))
+//                let jullianDate = gct.getJulianInteger()
+//                let julPage = jullianDate / 32
+//                let julPageIndex = jullianDate % 32
+//                todayInfoData = gcEngine.requestPageSynchronous(Int32(julPage), itemIndex: Int32(julPageIndex))
 
                 appDelegate.showDate(gct)
             }
@@ -82,11 +78,11 @@ import SwiftUI
             displaySettings.locTimeZone = timezone.identifier
 
             gcEngine.reset()
-            
-            let jullianDate = gcDate.getJulianInteger()
-            let julPage = jullianDate / 32
-            let julPageIndex = jullianDate % 32
-            todayInfoData = gcEngine.requestPageSynchronous(Int32(julPage), itemIndex: Int32(julPageIndex))
+
+//            let jullianDate = gcDate.getJulianInteger()
+//            let julPage = jullianDate / 32
+//            let julPageIndex = jullianDate % 32
+//            todayInfoData = gcEngine.requestPageSynchronous(Int32(julPage), itemIndex: Int32(julPageIndex))
 
             appDelegate.setGPS()
         }
@@ -101,8 +97,6 @@ import SwiftUI
         gcStrings = GCStrings()
         gcEngine = GCEngine()
         gcDate = GCGregorianTime.today()
-
-        todayInfoData = GCTodayInfoData()
 
         super.init()
 
@@ -121,6 +115,5 @@ import SwiftUI
         gcEngine.theSettings = displaySettings
         gcEngine.myStrings = gcStrings
         gcEngine.myLocation = gcLocation
-        todayInfoData.calendarDay = GCCalendarDay()
     }
 }

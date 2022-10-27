@@ -13,3 +13,4 @@
 #import "GCGregorianTime.h"
 #import "GCTodayInfoData.h"
 #import "GCCalendarDay.h"
+#import "DayResultsView.h"
