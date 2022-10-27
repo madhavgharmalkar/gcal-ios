@@ -8,6 +8,10 @@
 	<string>Better GCal</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleGetInfoString</key>
+	<array>
+		<string></string>
+	</array>
 	<key>CFBundleIconFile</key>
 	<string>IGCal-Icon.png</string>
 	<key>CFBundleIcons</key>
@@ -44,6 +48,10 @@
 	<string>MainWindow</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen.storyboard</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UIStatusBarStyle</key>
