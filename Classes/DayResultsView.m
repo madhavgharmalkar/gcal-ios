@@ -76,7 +76,6 @@
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
     
-    [self drawVedicDate:canvas];
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
     [self drawFestivals:canvas];
@@ -97,8 +96,8 @@
     canvas.currX = 20;
     canvas.rightMargin = rect.size.width - 20;
     canvas.engine = self.engine;
+    canvas.currY += 20;
     
-    [self drawVedicDate:canvas];
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
     [self drawFestivals:canvas];

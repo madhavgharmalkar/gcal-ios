@@ -20,6 +20,9 @@ struct DayView: View {
         let monthName = applicationState.gcStrings.getMasaName(calendarDay.astrodata.nMasa) ?? ""
         let vedicMonthAndYear = "\(monthName), \(calendarDay.astrodata.nGaurabdaYear) Gaurabda"
 
+        let tithiName = applicationState.gcStrings.getTithiName(calendarDay.astrodata.nTithi) ?? ""
+        let paksaName = applicationState.gcStrings.getPaksaName(calendarDay.astrodata.nPaksa) ?? ""
+
         VStack(alignment: .leading, spacing: 0) {
             Text(applicationState.date.formatted(.dateTime.weekday(.wide).day().month().year()))
                 .font(.title)
@@ -33,9 +36,13 @@ struct DayView: View {
             Spacer()
                 .frame(height: 10)
 
+            Text("\(tithiName), \(paksaName) Paksa")
+                .padding(.horizontal)
+                .font(.callout)
+
             Text(vedicMonthAndYear)
                 .padding(.horizontal)
-                .font(.headline)
+                .font(.caption)
 
             HStack {
                 Spacer()
