@@ -43,27 +43,10 @@ struct DayView: View {
             Text(vedicMonthAndYear)
                 .padding(.horizontal)
                 .font(.caption)
-
-            HStack {
-                Spacer()
-                VStack {
-                    Image(systemName: "sunrise")
-                    Text(calendarDay.shortSunriseTime())
-                }
-                Spacer()
-                VStack {
-                    Image(systemName: "sun.max")
-                    Text(calendarDay.shortNoonTime())
-                }
-                Spacer()
-                VStack {
-                    Image(systemName: "sunset")
-                    Text(calendarDay.shortSunsetTime())
-                }
-                Spacer()
-            }
-            .padding(.vertical)
-            .font(.subheadline)
+            
+            SunTimes(calendarDay: calendarDay)
+                .frame(maxWidth: .infinity)
+            
             LegacyMainView()
         }
         .frame(maxWidth: .infinity)

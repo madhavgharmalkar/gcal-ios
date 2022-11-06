@@ -55,6 +55,8 @@
 		A9027524290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */; };
 		A902752D29029342008C0B9F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902752C29029342008C0B9F /* SnapshotHelper.swift */; };
 		A91D9CF32903AA5F000800C9 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D9CF22903AA5F000800C9 /* ResultsView.swift */; };
+		A92436742917589B0005C562 /* SunTimeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92436732917589B0005C562 /* SunTimeHelpers.swift */; };
+		A924367729175BF50005C562 /* SunTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A924367629175BF50005C562 /* SunTimes.swift */; };
 		A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */; };
 		A9969EF528FDFC16001E0858 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF428FDFC16001E0858 /* MainView.swift */; };
 		A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */; };
@@ -157,6 +159,8 @@
 		A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
 		A902752C29029342008C0B9F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		A91D9CF22903AA5F000800C9 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		A92436732917589B0005C562 /* SunTimeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunTimeHelpers.swift; sourceTree = "<group>"; };
+		A924367629175BF50005C562 /* SunTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunTimes.swift; sourceTree = "<group>"; };
 		A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMainView.swift; sourceTree = "<group>"; };
 		A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gaudiya Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9969EF428FDFC16001E0858 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -398,9 +402,18 @@
 			path = GCalScreenshots;
 			sourceTree = "<group>";
 		};
+		A924367529175BC70005C562 /* DayView */ = {
+			isa = PBXGroup;
+			children = (
+				A924367629175BF50005C562 /* SunTimes.swift */,
+			);
+			name = DayView;
+			sourceTree = "<group>";
+		};
 		A9969EF228FDFB4C001E0858 /* BetterGCal */ = {
 			isa = PBXGroup;
 			children = (
+				A924367529175BC70005C562 /* DayView */,
 				A9969EF428FDFC16001E0858 /* MainView.swift */,
 				A9969EF328FDFC15001E0858 /* Gaudiya Calendar-Bridging-Header.h */,
 				A9969EF628FDFDA9001E0858 /* SwiftUIViewFactory.swift */,
@@ -412,6 +425,7 @@
 				A9E312B92901DDF0005E0D15 /* DayView.swift */,
 				A9027519290206F4008C0B9F /* GCApplicationState.swift */,
 				A91D9CF22903AA5F000800C9 /* ResultsView.swift */,
+				A92436732917589B0005C562 /* SunTimeHelpers.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -581,6 +595,7 @@
 				0B4FD1EE120DB9830019F3E5 /* GcStringRec.m in Sources */,
 				A91D9CF32903AA5F000800C9 /* ResultsView.swift in Sources */,
 				0B4FD1EF120DB9830019F3E5 /* GCStrings.m in Sources */,
+				A92436742917589B0005C562 /* SunTimeHelpers.swift in Sources */,
 				0BE27A1B1AB30D7B00F694BF /* CalendarResultsView.m in Sources */,
 				0B4FD1F9120DBB640019F3E5 /* GCCalendarDay.m in Sources */,
 				0B4FD1FA120DBB640019F3E5 /* GcResultCalendar.m in Sources */,
@@ -590,6 +605,7 @@
 				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
 				A9E312B029010177005E0D15 /* ChangeDateView.swift in Sources */,
+				A924367729175BF50005C562 /* SunTimes.swift in Sources */,
 				A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */,
 				A9969EF728FDFDA9001E0858 /* SwiftUIViewFactory.swift in Sources */,
 				0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */,
@@ -676,7 +692,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -759,7 +775,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -799,7 +815,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -841,7 +857,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -884,7 +900,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -927,7 +943,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -970,7 +986,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1008,7 +1024,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9NMF79953V;
 				ENABLE_NS_ASSERTIONS = NO;

@@ -79,7 +79,6 @@
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
     [self drawFestivals:canvas];
-    [self drawSunriseInfo:canvas];
     [self drawCoreEvents:canvas];
     
     return CGSizeMake(rect.size.width, ceil(canvas.currY) + 80);
@@ -101,7 +100,6 @@
     [self drawSpecialFestivals:canvas];
     [self drawSunTimes:canvas];
     [self drawFestivals:canvas];
-    [self drawSunriseInfo:canvas];
     [self drawCoreEvents:canvas];
 
     self.drawBottom = canvas.currY + 40;
@@ -148,8 +146,6 @@
             gc_daytime_sub_minutes(&tdB, 48);
             //str = @"Brahma-muhurta ";
             //[canvas drawString:str style:@"normal-1"];
-            str = [NSString stringWithFormat:@"Brahma-muhurta %2d:%02d - %2d:%02d", tdA.hour, tdA.minute, tdB.hour, tdB.minute];
-            canvas.currY += 5;
             [canvas drawCenterString:str style:@"normal-1" left:canvas.leftMargin right:canvas.rightMargin];
             canvas.currY += 5;
             //        [canvas newLine];
@@ -277,31 +273,6 @@
             }
             [canvas drawLine:pdf.name style:@"bold-1"];
         }
-    }
-
-}
-
--(void)drawSunriseInfo:(GCCanvas *)canvas
-{
-    
-    if (self.engine.theSettings.t_riseinfo)
-    {
-        GCStrings * gstr = self.engine.myStrings;
-        GCCalendarDay * p = self.data.calendarDay;
-        NSString * str;
-        
-        str = [NSString stringWithFormat:@"%@ info", [gstr string:51]];
-        [canvas drawSubheader:str style:@"normal-1"];
-
-        str = [NSString stringWithFormat:@"Moon in the %@ %@", [gstr GetNaksatraName:p.astrodata.nNaksatra], [gstr string:15]];
-        [canvas drawString:str style:@"normal-1"];
-        [canvas newLine];
-        str = [NSString stringWithFormat:@"%@ %@", [gstr GetYogaName:p.astrodata.nYoga], [gstr string:104]];
-        [canvas drawString:str style:@"normal-1"];
-        [canvas newLine];
-        str = [NSString stringWithFormat:@"Sun in the %@ %@", [gstr GetSankrantiName:p.astrodata.nRasi], [gstr string:105]];
-        [canvas drawString:str style:@"normal-1"];
-        [canvas newLine];
     }
 
 }

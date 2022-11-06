@@ -14,3 +14,4 @@
 #import "GCTodayInfoData.h"
 #import "GCCalendarDay.h"
 #import "DayResultsView.h"
+#import "gc_dtypes.h"
