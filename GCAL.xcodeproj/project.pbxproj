@@ -55,6 +55,8 @@
 		A9027524290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */; };
 		A902752D29029342008C0B9F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902752C29029342008C0B9F /* SnapshotHelper.swift */; };
 		A91D9CF32903AA5F000800C9 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D9CF22903AA5F000800C9 /* ResultsView.swift */; };
+		A9224BB92928587300E8DADE /* generateFutureNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9224BB82928587300E8DADE /* generateFutureNotifications.swift */; };
+		A9224BBD29285AE300E8DADE /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9224BBC29285AE300E8DADE /* NotificationManager.swift */; };
 		A92436742917589B0005C562 /* SunTimeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92436732917589B0005C562 /* SunTimeHelpers.swift */; };
 		A924367729175BF50005C562 /* SunTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A924367629175BF50005C562 /* SunTimes.swift */; };
 		A94BA47E2900DA36003D5C6D /* LegacyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */; };
@@ -159,6 +161,8 @@
 		A9027523290292F6008C0B9F /* GCalScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
 		A902752C29029342008C0B9F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		A91D9CF22903AA5F000800C9 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		A9224BB82928587300E8DADE /* generateFutureNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateFutureNotifications.swift; sourceTree = "<group>"; };
+		A9224BBC29285AE300E8DADE /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A92436732917589B0005C562 /* SunTimeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunTimeHelpers.swift; sourceTree = "<group>"; };
 		A924367629175BF50005C562 /* SunTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunTimes.swift; sourceTree = "<group>"; };
 		A94BA47D2900DA36003D5C6D /* LegacyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMainView.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9224BB72928585300E8DADE /* Notifications */,
 				A9969EF228FDFB4C001E0858 /* BetterGCal */,
 				0BFDC2271AAC43600067676C /* Dialogs */,
 				0B158F721A9FA28F0010A2DF /* GCEngine */,
@@ -402,10 +407,20 @@
 			path = GCalScreenshots;
 			sourceTree = "<group>";
 		};
+		A9224BB72928585300E8DADE /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A9224BB82928587300E8DADE /* generateFutureNotifications.swift */,
+				A9224BBC29285AE300E8DADE /* NotificationManager.swift */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
 		A924367529175BC70005C562 /* DayView */ = {
 			isa = PBXGroup;
 			children = (
 				A924367629175BF50005C562 /* SunTimes.swift */,
+				A92436732917589B0005C562 /* SunTimeHelpers.swift */,
 			);
 			name = DayView;
 			sourceTree = "<group>";
@@ -425,7 +440,6 @@
 				A9E312B92901DDF0005E0D15 /* DayView.swift */,
 				A9027519290206F4008C0B9F /* GCApplicationState.swift */,
 				A91D9CF22903AA5F000800C9 /* ResultsView.swift */,
-				A92436732917589B0005C562 /* SunTimeHelpers.swift */,
 			);
 			name = BetterGCal;
 			sourceTree = "<group>";
@@ -573,6 +587,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				A9E312B42901BD4A005E0D15 /* LegacySettingsView.swift in Sources */,
 				1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */,
+				A9224BBD29285AE300E8DADE /* NotificationManager.swift in Sources */,
 				0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */,
 				A902751A290206F4008C0B9F /* GCApplicationState.swift in Sources */,
 				28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */,
@@ -586,6 +601,7 @@
 				0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */,
 				0B158F711A9FA1DC0010A2DF /* GCEngine.m in Sources */,
 				0B4FD1D1120DB62C0019F3E5 /* gc_astro_moon.m in Sources */,
+				A9224BB92928587300E8DADE /* generateFutureNotifications.swift in Sources */,
 				0B158F751A9FA4B00010A2DF /* GCCalculatedDaysPage.m in Sources */,
 				0B4FD1D2120DB62C0019F3E5 /* gc_astro_sun.m in Sources */,
 				0B4FD1D3120DB62C0019F3E5 /* gc_astro.m in Sources */,

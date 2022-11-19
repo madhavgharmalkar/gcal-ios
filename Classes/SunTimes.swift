@@ -16,24 +16,49 @@ struct SunTimes: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Spacer()
-                VStack {
+                VStack() {
                     Image(systemName: "sunrise")
+                        .font(.title2)
                     Text(calendarDay.shortSunriseTime())
+                        .font(.callout)
+                        .padding([.vertical], 1)
+
+                    Text("Gayatri")
+                        .font(.headline)
+                    
+                    Text(calculateSunTimes(gc_daytime: calendarDay.astrodata.sun.rise))
                 }
                 Spacer()
-                VStack {
+                VStack() {
                     Image(systemName: "sun.max")
+                        .font(.title2)
                     Text(calendarDay.shortNoonTime())
+                        .font(.callout)
+                        .padding([.vertical], 1)
+
+                    Text("Savitri")
+                        .font(.headline)
+
+                    Text(calculateSunTimes(gc_daytime: calendarDay.astrodata.sun.noon))
+
+                    
                 }
                 Spacer()
-                VStack {
+                VStack() {
                     Image(systemName: "sunset")
+                        .font(.title2)
+                    
                     Text(calendarDay.shortSunsetTime())
+                        .font(.callout)
+                        .padding([.vertical], 1)
+
+                    Text("Sarasvati")
+                        .font(.headline)
+                    
+                    Text(calculateSunTimes(gc_daytime: calendarDay.astrodata.sun.set))
                 }
-                Spacer()
             }
-            .font(.subheadline)
+            .padding()
             
             VStack {
                 Text("Brahma Mahurta")
@@ -51,10 +76,9 @@ struct SunTimes: View {
                 Text("\(applicationState.gcStrings.getYogaName(calendarDay.astrodata.nYoga)) Yoga")
                 Text("Sun in \(applicationState.gcStrings.getSankrantiName(calendarDay.astrodata.nRasi)) Rasi")
             }
-            .font(.subheadline)
             .font(.callout)
+            .padding()
         }
-        .padding()
         .frame(maxWidth: .infinity)
     }
 }

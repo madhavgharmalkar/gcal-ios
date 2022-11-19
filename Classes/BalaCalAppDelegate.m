@@ -84,7 +84,7 @@
     [self setViewMode:viewMode];
 
     [self showDate:dateToShow];
-    [self applicationRegisterForLocalNotifications];
+    [NotificationManager applicationRegisterForLocalNotifications];
     
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(userDefaultsChanged:) name:@"GCAL_resetFutureNotifications" object:nil];
@@ -142,8 +142,7 @@
         GCTodayInfoData * tid;
         NSCalendar * calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
         
-        for(int i = 0; i < 30; i++)
-        {
+        for(int i = 0; i < 30; i++) {
             julPage = julDay / 32;
             julPageIndex = julDay % 32;
 
@@ -161,8 +160,8 @@
                     [str appendString:@"\n"];
                 }
             }
-            if (type > 0 && displaySettings.note_fd_today)
-            {
+            
+            if (type > 0 && displaySettings.note_fd_today) {
                 UILocalNotification * note = [UILocalNotification new];
                 //note.alertTitle = @"GCAL Break fast";
                 note.alertBody = [NSString stringWithFormat:@"%@, %@", tid.calendarDay.date.longDateString, str];
@@ -182,8 +181,8 @@
                 note.soundName = UILocalNotificationDefaultSoundName;
                 [ma addObject:note];
             }
-            if (type > 0 && displaySettings.note_fd_tomorrow)
-            {
+            
+            if (type > 0 && displaySettings.note_fd_tomorrow) {
                 UILocalNotification * note = [UILocalNotification new];
                 //note.alertTitle = @"GCAL Break fast";
                 note.alertBody = [NSString stringWithFormat:@"%@, %@", tid.calendarDay.date.longDateString, str];
@@ -204,8 +203,7 @@
                 [ma addObject:note];
             }
             
-            if (tid.calendarDay.isEkadasiParana)
-            {
+            if (tid.calendarDay.isEkadasiParana) {
                 type = 3;
                 //NSLog(@"%@ Parana: %@", tid.calendarDay.date.longDateString, [tid.calendarDay GetTextEP:self.gstrings]);
                 [str appendString:[tid.calendarDay GetTextEP:gcStrings]];
@@ -232,8 +230,8 @@
                     note.soundName = UILocalNotificationDefaultSoundName;
                     [ma addObject:note];
                 }
-                if (displaySettings.note_bf_tomorrow)
-                {
+                
+                if (displaySettings.note_bf_tomorrow) {
                     UILocalNotification * note = [UILocalNotification new];
                     //note.alertTitle = @"GCAL Break fast";
                     note.alertBody = [NSString stringWithFormat:@"%@, %@", tid.calendarDay.date.longDateString, str];
@@ -256,41 +254,34 @@
                     [ma addObject:note];
                 }
             }
-            
-            
-
-            
         }
 
-        if (1)
-        {
-            julPage = julDay / 32;
-            julPageIndex = julDay % 32;
-            
-            tid = [gcEngine requestPage:julPage view:nil itemIndex:julPageIndex];
-            NSLog(@"Final notification scheduled for %@", [tid.calendarDay.date longDateString]);
-            
-            UILocalNotification * note = [UILocalNotification new];
-            //note.alertTitle = @"GCAL Break fast";
-            note.alertBody = @"Run Gaudiya Calendar to generate calendar notifications for next 30 days.";
-            note.timeZone = [NSTimeZone defaultTimeZone];
-            NSDateComponents * dc = [NSDateComponents new];
-            GCGregorianTime * tt = tid.calendarDay.date;
-            dc.timeZone = note.timeZone;
-            dc.year = tt.year;
-            dc.month = tt.month;
-            dc.day = tt.day;
-            dc.hour = 7;
-            dc.minute = 0;
-            note.fireDate = [calendar dateFromComponents:dc];
-            //NSLog(@"fire date %@", note.fireDate);
-            NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"ShowDate", @"action", [NSString stringWithFormat:@"%d.%d.%d", tt.year, tt.month, tt.day], @"date", @"RunGCAL", @"GCALEvent", nil];
-            note.userInfo = infoDict;
-            note.alertAction = @"View Details";
-            note.soundName = UILocalNotificationDefaultSoundName;
-            note.hasAction = YES;
-            [ma addObject:note];
-        }
+        julPage = julDay / 32;
+        julPageIndex = julDay % 32;
+        
+        tid = [gcEngine requestPage:julPage view:nil itemIndex:julPageIndex];
+        NSLog(@"Final notification scheduled for %@", [tid.calendarDay.date longDateString]);
+        
+        UILocalNotification * note = [UILocalNotification new];
+        //note.alertTitle = @"GCAL Break fast";
+        note.alertBody = @"Run Gaudiya Calendar to generate calendar notifications for next 30 days.";
+        note.timeZone = [NSTimeZone defaultTimeZone];
+        NSDateComponents * dc = [NSDateComponents new];
+        GCGregorianTime * tt = tid.calendarDay.date;
+        dc.timeZone = note.timeZone;
+        dc.year = tt.year;
+        dc.month = tt.month;
+        dc.day = tt.day;
+        dc.hour = 7;
+        dc.minute = 0;
+        note.fireDate = [calendar dateFromComponents:dc];
+        //NSLog(@"fire date %@", note.fireDate);
+        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"ShowDate", @"action", [NSString stringWithFormat:@"%d.%d.%d", tt.year, tt.month, tt.day], @"date", @"RunGCAL", @"GCALEvent", nil];
+        note.userInfo = infoDict;
+        note.alertAction = @"View Details";
+        note.soundName = UILocalNotificationDefaultSoundName;
+        note.hasAction = YES;
+        [ma addObject:note];
         
         double currNextValue = [udef doubleForKey:@"nextFutureCalc"];
         double proposedNextValue = [[NSDate date] timeIntervalSince1970] + 15*86400.0;
@@ -300,7 +291,6 @@
         }
         
         [[UIApplication sharedApplication] setScheduledLocalNotifications:ma];
-        
     }
     @catch (NSException *exception) {
     }
@@ -354,28 +344,6 @@
 
 #pragma mark -
 #pragma mark OS Notification Center
-
-- (void)applicationRegisterForLocalNotifications {
-    UIApplication * app = [UIApplication sharedApplication];
-    @try {
-        if ([app respondsToSelector:@selector(registerUserNotificationSettings:)])
-        {
-            UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-            
-            UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-            
-            [app registerUserNotificationSettings:mySettings];
-            
-//            self.lastNotificationDateTomorrow = @"";
-//            self.lastNotificationDateToday = @"";
-        }
-    }
-    @catch (NSException *exception) {
-    }
-    @finally {
-    }
-}
-
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSString *itemName = [notification.userInfo objectForKey:@"GCALEvent"];

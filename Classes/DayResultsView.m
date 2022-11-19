@@ -77,7 +77,6 @@
     canvas.engine = self.engine;
     
     [self drawSpecialFestivals:canvas];
-    [self drawSunTimes:canvas];
     [self drawFestivals:canvas];
     [self drawCoreEvents:canvas];
     
@@ -98,93 +97,10 @@
     canvas.currY += 20;
     
     [self drawSpecialFestivals:canvas];
-    [self drawSunTimes:canvas];
     [self drawFestivals:canvas];
     [self drawCoreEvents:canvas];
 
     self.drawBottom = canvas.currY + 40;
-}
-
-/*
- @YES, @"t_brahma",
- @YES, @"t_sandhya",
- @YES, @"t_sunrise",
- */
-
--(void)drawSunTimes:(GCCanvas *)canvas
-{
-    gc_daytime tdA, tdB;
-    GCStrings * gstr = [GCStrings shared];
-    GCCalendarDay * p = self.data.calendarDay;
-    CGFloat mA = (canvas.leftMargin * 2 + canvas.rightMargin) / 3;
-    CGFloat mB = (canvas.leftMargin + canvas.rightMargin * 2) / 3;
-    CGFloat y;
-    
-    NSString * str = [gstr string:51];
-    CGSize s1 = [str sizeWithAttributes:[self.engine.styles objectForKey:@"normal-1"]];
-    CGSize s2 = [str sizeWithAttributes:[self.engine.styles objectForKey:@"bold-1.5"]];
-
-    
-    CGRect fillArea = CGRectMake(canvas.leftMargin-2, canvas.currY-2, canvas.rightMargin-canvas.leftMargin + 4, 0);
-
-    if (self.engine.theSettings.t_sandhya)
-        fillArea.size.height += s1.height + s2.height + 8;
-    if (self.engine.theSettings.t_brahma)
-        fillArea.size.height += s1.height + 10;
-
-    if (fillArea.size.height > 1)
-    {
-        [canvas fillRect:fillArea color:self.engine.sunTimesBackground.CGColor];
-
-        
-        if (self.engine.theSettings.t_brahma)
-        {
-            NSString * str;
-            gc_daytime tdA = p.astrodata.sun.rise;
-            gc_daytime tdB = p.astrodata.sun.rise;
-            gc_daytime_sub_minutes(&tdA, 96);
-            gc_daytime_sub_minutes(&tdB, 48);
-            //str = @"Brahma-muhurta ";
-            //[canvas drawString:str style:@"normal-1"];
-            [canvas drawCenterString:str style:@"normal-1" left:canvas.leftMargin right:canvas.rightMargin];
-            canvas.currY += 5;
-            //        [canvas newLine];
-        }
-        
-        if (self.engine.theSettings.t_sandhya)
-        {
-            y = canvas.currY;
-            
-            tdA = p.astrodata.sun.rise;
-            tdB = p.astrodata.sun.rise;
-            gc_daytime_sub_minutes(&tdA, 24);
-            gc_daytime_add_minutes(&tdB, 24);
-            [canvas drawCenterString:@"Gayatri" style:@"normal-1" left:canvas.leftMargin right:mA];
-            [canvas drawCenterString:[NSString stringWithFormat:@"%02d:%02d - %02d:%02d", tdA.hour, tdA.minute, tdB.hour, tdB.minute]
-                         style:@"bold-1" left:canvas.leftMargin right:mA];
-            canvas.currY = y;
-            tdA = p.astrodata.sun.noon;
-            tdB = p.astrodata.sun.noon;
-            gc_daytime_sub_minutes(&tdA, 24);
-            gc_daytime_add_minutes(&tdB, 24);
-            [canvas drawCenterString:@"Savitri" style:@"normal-1" left:mA right:mB];
-            [canvas drawCenterString:[NSString stringWithFormat:@"%02d:%02d - %02d:%02d", tdA.hour, tdA.minute, tdB.hour, tdB.minute]
-                         style:@"bold-1" left:mA right:mB];
-            canvas.currY = y;
-            tdA = p.astrodata.sun.set;
-            tdB = p.astrodata.sun.set;
-            gc_daytime_sub_minutes(&tdA, 24);
-            gc_daytime_add_minutes(&tdB, 24);
-            [canvas drawCenterString:@"Sarasvati" style:@"normal-1"   left:mB right:canvas.rightMargin];
-            [canvas drawCenterString:[NSString stringWithFormat:@"%02d:%02d - %02d:%02d", tdA.hour, tdA.minute, tdB.hour, tdB.minute]
-                         style:@"bold-1"   left:mB right:canvas.rightMargin];
-            canvas.currX = canvas.leftMargin;
-            canvas.currY += 8;
-        }
-        
-        canvas.lineHeight = 4;
-    }
-
 }
 
 - (void)drawTextInRoundrect:(GCCanvas *)canvas pdf:(NSString *)pdf
