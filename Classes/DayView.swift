@@ -62,7 +62,7 @@ struct DayView: View {
                     Button("Go to date") {
                         showDateSheet.toggle()
                     }
-                    NavigationLink("Change location (GPS)") {
+                    NavigationLink("Change location") {
                         ChangeGPSView()
                     }
                 }

@@ -17,8 +17,7 @@ struct ChangeGPSView: View {
 
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $locationManager.region)
-                .disabled(true)
+            Map(coordinateRegion: $locationManager.region, interactionModes: [.pan, .zoom], showsUserLocation: true)
                 .frame(maxHeight: .infinity)
                 .ignoresSafeArea(edges: .bottom)
 
@@ -40,23 +39,23 @@ struct ChangeGPSView: View {
                 HStack {
                     Spacer()
                     Button {
-                        guard let placemark = locationManager.placemark else {
-                            dismiss()
-                            return
-                        }
+                        Task {
+                            guard let placemark = await locationManager.lookUpCurrentLocation() else {
+                                return
+                            }
 
-                        applicationState.placemark = placemark
-                        dismiss()
+                            applicationState.placemark = placemark
+                            dismiss()
+                        }
                     } label: {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .frame(width: 25, height: 25)
-                            .foregroundStyle(locationManager.placemark == nil ? .gray : .white)
+                            .foregroundStyle(.white)
                             .padding(7.5)
                     }
                     .background(Color.blue)
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    .disabled(locationManager.placemark == nil)
 
                 }.padding(.trailing, 16)
             }.frame(maxWidth: .infinity)

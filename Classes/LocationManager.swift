@@ -17,11 +17,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         span: MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
     )
 
-    private var location: CLLocation?
-    @Published var locationCoordinate: CLLocationCoordinate2D?
-    @Published var placemark: CLPlacemark?
-    @Published var hasPlacemark: Bool = false
-
     override init() {
         super.init()
         manager.delegate = self
@@ -36,40 +31,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             return
         }
 
-        self.location = location
         region.center = location.coordinate
-        locationCoordinate = location.coordinate
-        lookUpCurrentLocation { placemark in
-            self.placemark = placemark
-            self.hasPlacemark = true
-        }
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
 
-    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
-        -> Void)
-    {
-        // Use the last reported location.
-        if let lastLocation = location {
-            let geocoder = CLGeocoder()
+    func lookUpCurrentLocation() async -> CLPlacemark? {
+        let geocoder = CLGeocoder()
+        let lastLocation = CLLocation(latitude: region.center.latitude, longitude: region.center.longitude)
 
-            // Look up the location and pass it to the completion handler
-            geocoder.reverseGeocodeLocation(lastLocation,
-                                            completionHandler: { placemarks, error in
-                                                if error == nil {
-                                                    let firstLocation = placemarks?[0]
-                                                    completionHandler(firstLocation)
-                                                } else {
-                                                    // An error occurred during geocoding.
-                                                    completionHandler(nil)
-                                                }
-                                            })
-        } else {
-            // No location was available.
-            completionHandler(nil)
+        do {
+            let placemarks = try await geocoder.reverseGeocodeLocation(lastLocation)
+            return placemarks.first
+        } catch {
+            return nil
         }
     }
 
