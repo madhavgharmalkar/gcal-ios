@@ -1,5 +1,5 @@
 //
-//  ApplicationState.swift
+//  GCApplicationState.swift
 //  Gaudiya Calendar
 //
 //  Created by Madhav Gharmalkar on 10/20/22.

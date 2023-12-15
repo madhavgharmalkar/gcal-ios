@@ -9,14 +9,13 @@ import SwiftUI
 
 struct SunTimes: View {
     var calendarDay: GCCalendarDay
-    
+
     @EnvironmentObject private var applicationState: GCApplicationState
-    
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                VStack() {
+                VStack {
                     Image(systemName: "sunrise")
                         .font(.title2)
                     Text(calendarDay.shortSunriseTime())
@@ -25,11 +24,11 @@ struct SunTimes: View {
 
                     Text("Gayatri")
                         .font(.headline)
-                    
+
                     Text(calculateSunTimes(gc_daytime: calendarDay.astrodata.sun.rise))
                 }
                 Spacer()
-                VStack() {
+                VStack {
                     Image(systemName: "sun.max")
                         .font(.title2)
                     Text(calendarDay.shortNoonTime())
@@ -40,26 +39,24 @@ struct SunTimes: View {
                         .font(.headline)
 
                     Text(calculateSunTimes(gc_daytime: calendarDay.astrodata.sun.noon))
-
-                    
                 }
                 Spacer()
-                VStack() {
+                VStack {
                     Image(systemName: "sunset")
                         .font(.title2)
-                    
+
                     Text(calendarDay.shortSunsetTime())
                         .font(.callout)
                         .padding([.vertical], 1)
 
                     Text("Sarasvati")
                         .font(.headline)
-                    
+
                     Text(calculateSunTimes(gc_daytime: calendarDay.astrodata.sun.set))
                 }
             }
             .padding()
-            
+
             VStack {
                 Text("Brahma Mahurta")
                     .font(.headline)
@@ -68,7 +65,7 @@ struct SunTimes: View {
                     .font(.caption)
             }
             .frame(maxWidth: .infinity)
-            
+
             VStack(alignment: .leading) {
                 Text("Sunrise Info")
                     .font(.headline)

@@ -16,56 +16,52 @@ struct ChangeGPSView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack {
+        ZStack {
             Map(coordinateRegion: $locationManager.region)
                 .disabled(true)
                 .frame(maxHeight: .infinity)
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
 
-            VStack {
-                if locationManager.placemark == nil {
+            VStack(alignment: .trailing) {
+                Spacer()
+
+                HStack {
+                    Spacer()
                     LocationButton(.currentLocation) {
                         locationManager.requestLocation()
                     }
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .foregroundColor(.white)
+                    .symbolVariant(.fill)
+                    .labelStyle(.iconOnly)
+                    .foregroundColor(Color.white)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
+                .padding(.trailing, 16)
 
-                if let placemark = locationManager.placemark {
-                    Text("Your location").bold()
-                    Text("\(placemark.locality ?? ""), \(placemark.country ?? "")")
-                    Text("\(placemark.timeZone?.identifier ?? "")")
-                    Text("\(placemark.location?.coordinate.longitude ?? 0), \(placemark.location?.coordinate.latitude ?? 0)")
-
+                HStack {
                     Spacer()
-
-                    HStack(alignment: .center) {
-                        Button {
+                    Button {
+                        guard let placemark = locationManager.placemark else {
                             dismiss()
-                        } label: {
-                            Text("Cancel")
-                                .frame(maxWidth: .infinity)
+                            return
                         }
 
-                        Button {
-                            guard let placemark = locationManager.placemark else {
-                                dismiss()
-                                return
-                            }
-
-                            applicationState.placemark = placemark
-                            dismiss()
-                        } label: {
-                            Text("Set")
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.borderedProminent)
+                        applicationState.placemark = placemark
+                        dismiss()
+                    } label: {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundStyle(locationManager.placemark == nil ? .gray : .white)
+                            .padding(7.5)
                     }
-                    .padding(.horizontal)
-                }
-            }.frame(maxHeight: .infinity)
+                    .background(Color.blue)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    .disabled(locationManager.placemark == nil)
+
+                }.padding(.trailing, 16)
+            }.frame(maxWidth: .infinity)
         }
-        .navigationTitle("Set location")
+        .navigationTitle("Change Location")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -43,10 +43,10 @@ struct DayView: View {
             Text(vedicMonthAndYear)
                 .padding(.horizontal)
                 .font(.caption)
-            
+
             SunTimes(calendarDay: calendarDay)
                 .frame(maxWidth: .infinity)
-            
+
             LegacyMainView()
         }
         .frame(maxWidth: .infinity)

@@ -18,7 +18,7 @@ import Foundation
             print("notifications granted: ", granted)
         }
     }
-    
+
     @objc static func clearAllLocalNotifications() {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()

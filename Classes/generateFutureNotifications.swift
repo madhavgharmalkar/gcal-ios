@@ -7,7 +7,4 @@
 
 import Foundation
 
-
-func generateFutureNotifications() {
-    
-}
+func generateFutureNotifications() {}
