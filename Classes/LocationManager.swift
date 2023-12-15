@@ -72,4 +72,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             completionHandler(nil)
         }
     }
+
+    func setLocation(location: CLLocation) {
+        locationManager(manager, didUpdateLocations: [location])
+    }
 }

@@ -63,6 +63,10 @@ struct ChangeGPSView: View {
         }
         .navigationTitle("Change Location")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            let location = applicationState.gcLocation
+            self.locationManager.setLocation(location: CLLocation(latitude: location.latitude, longitude: location.longitude))
+        }
     }
 }
 
