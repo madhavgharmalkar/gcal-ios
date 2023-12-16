@@ -72,7 +72,7 @@ platform :ios do
     )
     
     generate_appicon
-    screenshots
+    # screenshots
     
     # match(
     #   app_identifier: "com.nilamadhava.bettergcal", 
@@ -86,7 +86,7 @@ platform :ios do
       xcargs: "-allowProvisioningUpdates"
     )
     upload_to_app_store(
-      overwrite_screenshots: true,
+      overwrite_screenshots: false,
       precheck_include_in_app_purchases: false
     )
   end
